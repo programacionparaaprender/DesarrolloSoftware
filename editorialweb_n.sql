@@ -368,36 +368,36 @@ INSERT INTO `pedidos` (`id`, `idrepresentante`, `total`, `idestado`, `created_at
 -- Estructura de tabla para la tabla `representantes`
 --
 
-CREATE TABLE `representantes` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `cedula` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `apellido` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `direccion` text COLLATE utf8_unicode_ci NOT NULL,
-  `telefono` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `rif` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `pregunta` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `respuesta` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `idnivel` int(10) UNSIGNED NOT NULL,
-  `nombreEscuela` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `admin` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE representantes (
+  id int PRIMARY KEY NOT NULL IDENTITY(1,1),
+  cedula varchar(255) NOT NULL,
+  nombre varchar(255) NOT NULL,
+  apellido varchar(255) NOT NULL,
+  direccion text NOT NULL,
+  telefono varchar(255) NOT NULL,
+  rif varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  password varchar(60) NOT NULL,
+  pregunta varchar(255) NOT NULL,
+  respuesta varchar(255) NOT NULL,
+  idnivel int NOT NULL,
+  nombreEscuela varchar(255) NOT NULL,
+  admin int NOT NULL DEFAULT '0',
+  remember_token varchar(100) DEFAULT NULL,
+);
 
 --
 -- Volcado de datos para la tabla `representantes`
 --
 
-INSERT INTO `representantes` (`id`, `cedula`, `nombre`, `apellido`, `direccion`, `telefono`, `rif`, `email`, `password`, `pregunta`, `respuesta`, `idnivel`, `nombreEscuela`, `admin`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '19738854', 'Jhonny', 'Gil', 'Pto la Cruz - Anzoategui', '04166835380', '197388541', 'gilsjhonny@gmail.com', '$2y$10$Si52BQGKHLm4k59XUt76Z.p/TtNDbHkkG6SU34pWxC7Bf9XB3Ill6', 'como me llamo', 'Jhonny', 1, 'Felipe Carrillo', 0, NULL, NULL, NULL),
-(2, '19257821', 'Manuel', 'Dun', 'Lecheria - Anzoategui', '04147658837', '192578211', 'manueldun@gmail.com', '$2y$10$hVXcWM4kbY.3hZ0PTdAeru.tVB9fnLt6VtlcRnG6qvZqa22XYcg/S', 'como me llamo', 'manuel', 2, 'Diego Bautista Urbaneja', 0, NULL, NULL, NULL),
-(3, '18099810', 'Christian', 'Yanez', 'Carúpano - Sucre', '04248324709', '180998101', 'xygesc@gmail.com', '$2y$10$uQvH8/9dWz0a3Z6KOOUxIuOHM6eAROmDAyya2oKAmRSOvdxfvcBNG', 'como me llamo', 'christian', 1, 'Tomas Alfaro Calatraba', 0, NULL, NULL, NULL),
-(4, '19840230', 'Luis', 'Correa', 'Barcelona - Anzoategui', '04167827769', '198402301', 'alberto13711@gmail.com', '$2y$10$QKfbewVdpwua/KjR8VG38.gesUGHVtGx.7CV28aMBvRShHEVpJjvq', 'como me llamo', 'luis', 2, 'Maria Auxiliadora', 1, NULL, NULL, NULL),
-(5, '10555400', 'Zulirais', 'Garcia', 'fdfdsf', '02815872676', '105554001', 'zuliraisg@gmail.com', '$2y$10$.OpZxxisRKJpdvOrUe8Eteva9fb6rpFrSGMhOI2PudcIWBNFKyepK', 'como me llamo', 'Zuly', 1, 'Ideal', 0, NULL, NULL, NULL),
+INSERT INTO representantes (cedula, nombre, apellido, direccion, telefono, rif, email, password, pregunta, respuesta, idnivel, nombreEscuela, admin, remember_token) VALUES
+('19738854', 'Jhonny', 'Gil', 'Pto la Cruz - Anzoategui', '04166835380', '197388541', 'gilsjhonny@gmail.com', '$2y$10$Si52BQGKHLm4k59XUt76Z.p/TtNDbHkkG6SU34pWxC7Bf9XB3Ill6', 'como me llamo', 'Jhonny', 1, 'Felipe Carrillo', 0, NULL),
+('19257821', 'Manuel', 'Dun', 'Lecheria - Anzoategui', '04147658837', '192578211', 'manueldun@gmail.com', '$2y$10$hVXcWM4kbY.3hZ0PTdAeru.tVB9fnLt6VtlcRnG6qvZqa22XYcg/S', 'como me llamo', 'manuel', 2, 'Diego Bautista Urbaneja', 0, NULL),
+('18099810', 'Christian', 'Yanez', 'Carúpano - Sucre', '04248324709', '180998101', 'xygesc@gmail.com', '$2y$10$uQvH8/9dWz0a3Z6KOOUxIuOHM6eAROmDAyya2oKAmRSOvdxfvcBNG', 'como me llamo', 'christian', 1, 'Tomas Alfaro Calatraba', 0, NULL),
+('19840230', 'Luis', 'Correa', 'Barcelona - Anzoategui', '04167827769', '198402301', 'alberto13711@gmail.com', '$2y$10$QKfbewVdpwua/KjR8VG38.gesUGHVtGx.7CV28aMBvRShHEVpJjvq', 'como me llamo', 'luis', 2, 'Maria Auxiliadora', 1, NULL),
+('10555400', 'Zulirais', 'Garcia', 'fdfdsf', '02815872676', '105554001', 'zuliraisg@gmail.com', '$2y$10$.OpZxxisRKJpdvOrUe8Eteva9fb6rpFrSGMhOI2PudcIWBNFKyepK', 'como me llamo', 'Zuly', 1, 'Ideal', 0, NULL),
+
+
 (6, '9857702538', 'Caroline', 'Pouros', '36568 Jack Path\nSchadenfort, GA 41084', '04166835380', '9791964514801', 'jschmeler@mann.com', '$2y$10$ZWm2R5TTWtwttq6jf/RHEu/6MM5.3.YWe7hENC540Njk02a6QSJHG', 'como me llamo', 'Jhonny', 1, 'Felipe Carrillo', 2, NULL, '2018-04-15 20:30:54', '2018-04-15 20:30:54'),
 (7, '1409834174', 'Sadye', 'Brakus', '613 Bartoletti Mountain\nLake Jasen, ID 79361', '04166835380', '9792796627165', 'heller.fredrick@thompson.org', '$2y$10$X.T3QwNq2ISTBLf7AWdObe.5JsRzmEeEcpIpisHtSkICQgZajOnUG', 'como me llamo', 'Jhonny', 1, 'Felipe Carrillo', 2, NULL, '2018-04-15 20:30:54', '2018-04-15 20:30:54'),
 (8, '2232863727', 'Ellie', 'Skiles', '53395 Hilbert Springs Apt. 668\nWest Margaret, RI 10091-8574', '04166835380', '9798982390455', 'gottlieb.jose@padberg.com', '$2y$10$pTLocbYW/ZEVmqpipiyFzeyXH5NAZgwfWIBHfaE0r0NR0SZf4jF1S', 'como me llamo', 'Jhonny', 1, 'Felipe Carrillo', 2, NULL, '2018-04-15 20:30:54', '2018-04-15 20:30:54'),
