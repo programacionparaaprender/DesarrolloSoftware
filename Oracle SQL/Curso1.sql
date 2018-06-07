@@ -3,8 +3,15 @@ use test;
 --oracle
 --describe dbo.Products;
 
+--substr oracle
+--substring sql server
+
 -- sql server
 exec sp_columns Products;
+
+-- where idlibro is null en oracle
+
+
 
 select 
 ProductID as "Id del producto", 

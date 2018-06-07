@@ -1,5 +1,7 @@
 use TEST;
 
-select * from dbo.Products
+exec sp_columns Products;
+
+select * from dbo.Products;
 
 go
