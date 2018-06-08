@@ -5,6 +5,6 @@ go
 INSERT INTO dbo.Products(ProductName, Price, ProductDescription) values('Chocolate', 10, 'Alimento dulce')  
 
 go
-INSERT dbo.Products (ProductID, ProductName, Price, ProductDescription)  
+INSERT dbo.Products (ProductName, Price, ProductDescription)  
     VALUES ('Clamp', 12.48, 'Workbench clamp')  
 GO 
