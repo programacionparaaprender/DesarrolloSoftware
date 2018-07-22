@@ -1,5 +1,14 @@
 use editorialweb;
 
+
+select SYSDATETIME(),CONVERT (date, SYSDATETIME())  
+
+--alter session set nls_date_format = 'DD-MON-RR HH24:MI:SS';
+
+exec Representantes_Nivel2; --Ejecución del procedimiento
+
+select * from representantes;
+
 exec sp_columns autores;
 
 select 
