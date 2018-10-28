@@ -10,3 +10,5 @@ INSERT INTO @TABLE
 RETURN 
 END
 GO
+
+select * from  fn_mostrarUsuarios(0)
