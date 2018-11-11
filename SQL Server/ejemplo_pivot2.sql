@@ -27,3 +27,16 @@ VALUES
     (101, 3, 220), 
     (109, 3, 87);
 
+
+
+	select * 
+from 
+(
+    select store, week, xCount 
+    from yt 
+) src 
+pivot 
+(
+    sum(xcount) 
+    for week in ([1], [2], [3]) 
+) piv; 
