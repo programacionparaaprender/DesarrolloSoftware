@@ -1,0 +1,14 @@
+sqlplus
+sys as sysdba
+luis
+alter user hr identified by hr ACCOUNT UNLOCK;
+disconnect
+connect
+usuario: hr
+contraseña: hr
+C:\Users\Bus209\AppData\Roaming\sqldeveloper\19.2.1
+para conectarse en oracle developer
+hr
+hr
+hr
+sid: orcl
