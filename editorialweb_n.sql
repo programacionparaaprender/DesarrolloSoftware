@@ -505,49 +505,49 @@ INSERT INTO representantes (cedula, nombre, apellido, direccion, telefono, rif, 
 -- Estructura de tabla para la tabla `tipoediciones`
 --
 
-CREATE TABLE `tipoediciones` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE tipoediciones(
+  id int PRIMARY KEY NOT NULL IDENTITY(1,1),
+  nombre varchar(255) NOT NULL,
+  descripcion varchar(255) NOT NULL,
+  created_at datetime NULL DEFAULT NULL,
+  updated_at datetime NULL DEFAULT NULL
+);
 
 --
 -- Volcado de datos para la tabla `tipoediciones`
 --
 
-INSERT INTO `tipoediciones` (`id`, `nombre`, `descripcion`, `created_at`, `updated_at`) VALUES
-(1, 'acéfala', 'Es aquella que no tiene portada ni título.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
-(2, 'anotada', 'Denominada como edición comentada, ya que suele llevar comentarios a pie de página o en los espacios existentes entre los bordes.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
-(3, 'artística', 'Se trata de aquella en la que se pone el acento en la expresión artística de la encuadernación, o en la composición del libro.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
-(4, 'bibliófilo', 'Generalmente es la edición dedicada o apreciada por bibliófilos, se caracterizan por una pequeña tirada, o para un grupo selecto de subscriptores.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
-(5, 'bolsillo', 'Suelen ser de formato reducido y de coste de producción económico, por regla general al contrario que las ediciones para bibliófilos, suelen ser de grandes tiradas.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
-(6, 'crítica', 'En sentido amplio, es aquella que se plantea los problemas previos a la edición de una obra (búsqueda de fuentes, selección de ejemplares, selección y establecimiento de un texto...), y hace partícipe al lector de las decisiones tomadas durante el proceso', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
-(7, 'especial', 'Dentro de una tirada normal, se sacan algunos ejemplares que se diferencian de los demás en alguna particularidad especial que desee el editor, como puede ser una firma del autor, una mejora en la calidad.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(8, 'facsímil', 'Es aquella que reproduce la imagen (fotográfica o escaneada) del texto tal y como el editor la ha encontrado. Es una opción común sobre todo en el caso de textos antiguos, códices iluminados, manuscritos u obras especialmente valiosas. Puede reproducir el', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(9, 'genética', 'Es la que muestra, simultáneamente, varios o todos los estadios en que se ha presentado un texto durante su proceso de creación y transmisión (por ejemplo, el borrador de un poema, su primera edición, su segunda edición corregida, una edición modificada p', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(10, 'lujo', 'Caracterizada por la excesiva calidad de materiales empleados en la elaboración de la edición, como puede ser el papel, encuadernación, etc.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(11, 'múltiple', 'O edición sinóptica: es aquella que muestra varios textos en paralelo. Dichos textos pueden ser traducciones unos de otros (el caso más frecuente es el de las ediciones sinópticas de la Biblia), o bien versiones distintas de un mismo texto, o textos disti', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(12, 'numerada', 'Generalmente aquellas ediciones con impresión de grabados suele ir numerada, de tal forma que las numeraciones más bajas suelen ser más apreciadas que las de mayor numeración.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(13, 'paleográfica', 'Es la que, sin reproducir el texto en forma de imagen, sin embargo intenta describirlo con la mayor exactitud posible, dando al lector información exhaustiva sobre las grafías, las abreviaturas, los marginalia, los accidentes del texto, etc.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(14, 'papel', 'Suele ser una edición barata en la que los pliegos de papel una vez encuadernados e impresos no ha sido encuadernada.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(15, 'príncipe', 'Se denomina así a la primera edición de una obra.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(16, 'rama', 'Suele denominarse así a la edición que ha sido impresa, plegada, pero no tiene aún una encuadernación. Tipología complementaria', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(17, 'abreviada', 'la que se ha compendiado de la original para adecuar a una categoría de usuarios. Por ejemplo, una edición para escolares de El Mundo es ancho y ajeno', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
-(18, 'apócrifa', 'la que se atribuye su autoría sin serlo o saca con el mismo título sin ser el autor. Ejemplo, la 2.ª parte de Don Quijote', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(19, 'bilingüe', 'La que se redacta en dos idiomas, en dos columnas o idiomas. Columna A en página par, e idioma B en página impar. Ejemplo "Análisis Matemático" de Protter', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(20, 'conmemorativa', 'La se edita al cumplir 50 años, un siglo, etc. Ejemplo, La Colección por el Sesquicentenario de la Independencia del Perú.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(21, 'definitiva', 'La que sigue a una previa que recibe comentarios u observaciones. Ejemplo "Introducción al Álgebra" de Cotlar-Sadoski, Eudeba.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(22, 'ilustrada', 'Lleva comentarios gráficos e ilustraciones. Ejemplo Enciclopedia Ilustrada del Perú de Tauro del Pino. Edición con manuscrito de autor Para lo cual el autor escribe de puño y letra y dicho material se imprime. Ejemplo, "Teoría de la medida" de Mauro Chump', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(23, 'masiva', 'La que se imprime para bastante público. Ejemplo los populibros de Manuel Scorza en los años 50s del siglo XX.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(24, 'mimeografiada', 'La escrita a máquina y se reproduce procesando con mimeógrafo. Generalmente textos de cursos o de seminarios', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(25, 'oficial', 'Autorizada por un Estado que sufraga los costos. Ejemplo los libros de texto escolar y de distribución gratuita.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(26, 'previa', 'La que sale a modo de prueba, para ser mejorada con intervención de interesados y de expertos.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(27, 'privada', 'La que no se pone en venta, de pequeño tiraje y entregas selectivas.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
-(28, 'políglota', 'Impresa en varios idiomas. Ejemplo los diccionarios, para el caso "Diccionario comparativo de castellano, inglés, quechuas de Áncash y Ecuador".', '2018-04-15 20:30:24', '2018-04-15 20:30:24'),
-(29, 'popular', 'Edición de bajo costo y con materiales de menor precios. Ejemplo, las que auspician los diarios de circulación nacional.1', '2018-04-15 20:30:24', '2018-04-15 20:30:24'),
-(30, 'manuscrito', 'Para lo cual el autor escribe de puño y letra y dicho material se imprime. Ejemplo, "Teoría de la medida" de Mauro Chumpitaz de la UNI, Lima.', '2018-04-15 20:30:24', '2018-04-15 20:30:24');
+INSERT INTO tipoediciones (id, nombre, descripcion, created_at, updated_at) VALUES
+('acéfala', 'Es aquella que no tiene portada ni título.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
+('anotada', 'Denominada como edición comentada, ya que suele llevar comentarios a pie de página o en los espacios existentes entre los bordes.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
+('artística', 'Se trata de aquella en la que se pone el acento en la expresión artística de la encuadernación, o en la composición del libro.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
+('bibliófilo', 'Generalmente es la edición dedicada o apreciada por bibliófilos, se caracterizan por una pequeña tirada, o para un grupo selecto de subscriptores.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
+('bolsillo', 'Suelen ser de formato reducido y de coste de producción económico, por regla general al contrario que las ediciones para bibliófilos, suelen ser de grandes tiradas.', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
+('crítica', 'En sentido amplio, es aquella que se plantea los problemas previos a la edición de una obra (búsqueda de fuentes, selección de ejemplares, selección y establecimiento de un texto...), y hace partícipe al lector de las decisiones tomadas durante el proceso', '2018-04-15 20:30:21', '2018-04-15 20:30:21'),
+('especial', 'Dentro de una tirada normal, se sacan algunos ejemplares que se diferencian de los demás en alguna particularidad especial que desee el editor, como puede ser una firma del autor, una mejora en la calidad.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('facsímil', 'Es aquella que reproduce la imagen (fotográfica o escaneada) del texto tal y como el editor la ha encontrado. Es una opción común sobre todo en el caso de textos antiguos, códices iluminados, manuscritos u obras especialmente valiosas. Puede reproducir el', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('genética', 'Es la que muestra, simultáneamente, varios o todos los estadios en que se ha presentado un texto durante su proceso de creación y transmisión (por ejemplo, el borrador de un poema, su primera edición, su segunda edición corregida, una edición modificada p', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('lujo', 'Caracterizada por la excesiva calidad de materiales empleados en la elaboración de la edición, como puede ser el papel, encuadernación, etc.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('múltiple', 'O edición sinóptica: es aquella que muestra varios textos en paralelo. Dichos textos pueden ser traducciones unos de otros (el caso más frecuente es el de las ediciones sinópticas de la Biblia), o bien versiones distintas de un mismo texto, o textos disti', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('numerada', 'Generalmente aquellas ediciones con impresión de grabados suele ir numerada, de tal forma que las numeraciones más bajas suelen ser más apreciadas que las de mayor numeración.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('paleográfica', 'Es la que, sin reproducir el texto en forma de imagen, sin embargo intenta describirlo con la mayor exactitud posible, dando al lector información exhaustiva sobre las grafías, las abreviaturas, los marginalia, los accidentes del texto, etc.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('papel', 'Suele ser una edición barata en la que los pliegos de papel una vez encuadernados e impresos no ha sido encuadernada.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('príncipe', 'Se denomina así a la primera edición de una obra.', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('rama', 'Suele denominarse así a la edición que ha sido impresa, plegada, pero no tiene aún una encuadernación. Tipología complementaria', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('abreviada', 'la que se ha compendiado de la original para adecuar a una categoría de usuarios. Por ejemplo, una edición para escolares de El Mundo es ancho y ajeno', '2018-04-15 20:30:22', '2018-04-15 20:30:22'),
+('apócrifa', 'la que se atribuye su autoría sin serlo o saca con el mismo título sin ser el autor. Ejemplo, la 2.ª parte de Don Quijote', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('bilingüe', 'La que se redacta en dos idiomas, en dos columnas o idiomas. Columna A en página par, e idioma B en página impar. Ejemplo "Análisis Matemático" de Protter', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('conmemorativa', 'La se edita al cumplir 50 años, un siglo, etc. Ejemplo, La Colección por el Sesquicentenario de la Independencia del Perú.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('definitiva', 'La que sigue a una previa que recibe comentarios u observaciones. Ejemplo "Introducción al Álgebra" de Cotlar-Sadoski, Eudeba.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('ilustrada', 'Lleva comentarios gráficos e ilustraciones. Ejemplo Enciclopedia Ilustrada del Perú de Tauro del Pino. Edición con manuscrito de autor Para lo cual el autor escribe de puño y letra y dicho material se imprime. Ejemplo, "Teoría de la medida" de Mauro Chump', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('masiva', 'La que se imprime para bastante público. Ejemplo los populibros de Manuel Scorza en los años 50s del siglo XX.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('mimeografiada', 'La escrita a máquina y se reproduce procesando con mimeógrafo. Generalmente textos de cursos o de seminarios', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('oficial', 'Autorizada por un Estado que sufraga los costos. Ejemplo los libros de texto escolar y de distribución gratuita.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('previa', 'La que sale a modo de prueba, para ser mejorada con intervención de interesados y de expertos.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('privada', 'La que no se pone en venta, de pequeño tiraje y entregas selectivas.', '2018-04-15 20:30:23', '2018-04-15 20:30:23'),
+('políglota', 'Impresa en varios idiomas. Ejemplo los diccionarios, para el caso "Diccionario comparativo de castellano, inglés, quechuas de Áncash y Ecuador".', '2018-04-15 20:30:24', '2018-04-15 20:30:24'),
+('popular', 'Edición de bajo costo y con materiales de menor precios. Ejemplo, las que auspician los diarios de circulación nacional.1', '2018-04-15 20:30:24', '2018-04-15 20:30:24'),
+('manuscrito', 'Para lo cual el autor escribe de puño y letra y dicho material se imprime. Ejemplo, "Teoría de la medida" de Mauro Chumpitaz de la UNI, Lima.', '2018-04-15 20:30:24', '2018-04-15 20:30:24');
 
 -- --------------------------------------------------------
 
@@ -555,15 +555,21 @@ INSERT INTO `tipoediciones` (`id`, `nombre`, `descripcion`, `created_at`, `updat
 -- Estructura de tabla para la tabla `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE users (
+  id int PRIMARY KEY NOT NULL IDENTITY(1,1),
+  name varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  password varchar(60) NOT NULL,
+  remember_token varchar(100) DEFAULT NULL,
+  created_at datetime NULL DEFAULT NULL,
+  updated_at datetime NULL DEFAULT NULL
+) ;
+
+insert into dbo.[users](name,email,password,created_at)
+values('luis13711','luis13711@hotmail.com','123456',getdate())
+
+insert into dbo.[users](name,email,password,created_at)
+values('alberto13711','alberto13711@gmail.com','123456',getdate())
 
 --
 -- Índices para tablas volcadas

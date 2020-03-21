@@ -1,4 +1,18 @@
 
+select
+*
+from
+departments;
+
+select 
+*
+from employees
+order by employee_id desc;
+
+select
+*
+from 
+jobs;
 
 select first_name || ' ' || last_name
 from employees
