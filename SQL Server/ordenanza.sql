@@ -4,39 +4,27 @@
 
 use Ordenanza;
 
-create table Menu
+
+create table [dbo].[Direciones]
 (
-	menuId int identity(1, 1),
-	nombre varchar(100),
-	link varchar(100),
-	menuPadreId int null,
-	simbolo varchar(1),
-	orden int,
+	direccionesId int identity(1, 1),
+	ubicacion nvarchar(max),
+	latitud varchar(500),
+	longitud varchar(500),
 	usuarioSys int not null,
 	fechaSys datetime not null,
 	usuarioUpd int null,
 	fechaUpd datetime null,
 	estado int default 1,
-	CONSTRAINT PKmenuId PRIMARY KEY (menuId)
+	CONSTRAINT PKdireccionesId PRIMARY KEY (direccionesId)
 );
 
-create table TipoEmpleado
-(
-	tipoEmpleadoId int identity(1, 1),
-	nombre varchar(100),
-	usuarioSys int not null,
-	fechaSys datetime not null,
-	usuarioUpd int null,
-	fechaUpd datetime null,
-	estado int default 1,
-	CONSTRAINT PKtipoEmpleadoId PRIMARY KEY (tipoEmpleadoId)
+go
 
-);
-
-create table Empresa
+create table dbo.Empresa
 (
 	empresaId int identity(1, 1),
-	nombre varchar(100),
+	nombre nvarchar(max),
 	documento varchar(100),
 	usuarioSys int not null,
 	fechaSys datetime not null,
@@ -46,7 +34,43 @@ create table Empresa
 	CONSTRAINT PKempresaId PRIMARY KEY (empresaId)
 );
 
-create table Sede
+go
+
+create table dbo.TipoEmpleado
+(
+	tipoEmpleadoId int identity(1, 1),
+	nombre varchar(100),
+	usuarioSys int not null,
+	fechaSys datetime not null,
+	usuarioUpd int null,
+	fechaUpd datetime null,
+	estado int default 1,
+	empresaId int,
+	CONSTRAINT PKtipoEmpleadoId PRIMARY KEY (tipoEmpleadoId),
+	CONSTRAINT FKTipoEmpleadoempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
+);
+
+go
+
+create table dbo.Menu
+(
+	menuId int identity(1, 1),
+	nombre varchar(100),
+	link varchar(100),
+	menuPadreId int null,
+	orden int,
+	usuarioSys int not null,
+	fechaSys datetime not null,
+	usuarioUpd int null,
+	fechaUpd datetime null,
+	estado int default 1,
+	empresaId int,
+	CONSTRAINT PKmenuId PRIMARY KEY (menuId),
+	CONSTRAINT FKMenuempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
+);
+
+
+create table dbo.Sede
 (
 	sedeId int identity(1, 1),
 	nombre varchar(100),
@@ -58,7 +82,7 @@ create table Sede
 	CONSTRAINT PKsedeId PRIMARY KEY (sedeId)
 );
 
-create table SedeEmpresa
+create table dbo.SedeEmpresa
 (
 	sedeEmpresaId int identity(1, 1),
 	empresaId int,
@@ -70,13 +94,13 @@ create table SedeEmpresa
 	estado int default 1,
 	CONSTRAINT PKsedeEmpresaId PRIMARY KEY (sedeEmpresaId),
 	CONSTRAINT FKSedeEmpresasedeeId FOREIGN KEY (sedeId) REFERENCES Sede(sedeId),
-	CONSTRAINT FKSedeempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
+	CONSTRAINT FKSedeEmpresaempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
 );
 
-create table Area 
+create table dbo.Area 
 (
 	areaId int identity(1, 1),
-	nombre varchar(30),
+	nombre nvarchar(max),
 	areaPadreId int null,
 	usuarioSys int not null,
 	fechaSys datetime not null,
@@ -89,7 +113,7 @@ create table Area
 	CONSTRAINT FKAreaempresa FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
 );
 
-create table Marca
+create table dbo.Marca
 (
 	marcaId int identity(1, 1),
 	nombre varchar(20),
@@ -128,20 +152,23 @@ create table CentroCostos
 	usuarioUpd int null,
 	fechaUpd datetime null,
 	estado int default 1,
-	CONSTRAINT PKcentroConstosId PRIMARY KEY (centroConstosId)
+	empresaId int,
+	CONSTRAINT PKcentroConstosId PRIMARY KEY (centroConstosId),
+	CONSTRAINT FKCentroCostosempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
 );
 
 create table TipoUsuario
 (
 	tipoUsuarioId int identity(1, 1),
+	empresaId int,
 	nombre varchar(20),
 	usuarioSys int not null,
 	fechaSys datetime not null,
 	usuarioUpd int null,
 	fechaUpd datetime null,
 	estado int default 1,
-	permisos nvarchar(max),
-	CONSTRAINT PKtipoUsuarioId PRIMARY KEY (tipoUsuarioId)
+	CONSTRAINT PKtipoUsuarioId PRIMARY KEY (tipoUsuarioId),
+	CONSTRAINT FKTipoUsuarioempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
 );
 
 create table Nacionalidad
@@ -149,7 +176,13 @@ create table Nacionalidad
 	nacionalidadId int identity(1, 1),
 	nombre varchar(30),
 	estado int default 1,
-	CONSTRAINT PKnacionalidadId PRIMARY KEY (nacionalidadId)
+	usuarioSys int not null,
+	fechaSys datetime not null,
+	usuarioUpd int null,
+	fechaUpd datetime null,
+	empresaId int,
+	CONSTRAINT PKnacionalidadId PRIMARY KEY (nacionalidadId),
+	CONSTRAINT FKNacionalidadempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
 );
 
 create table TipoDocumento
@@ -157,13 +190,19 @@ create table TipoDocumento
 	tipoDocumentoId int identity(1, 1),
 	nombre varchar(30),
 	estado int default 1,
-	CONSTRAINT PKtipoDocumentoId PRIMARY KEY (tipoDocumentoId)
+	usuarioSys int not null,
+	fechaSys datetime not null,
+	usuarioUpd int null,
+	fechaUpd datetime null,
+	empresaId int,
+	CONSTRAINT PKtipoDocumentoId PRIMARY KEY (tipoDocumentoId),
+	CONSTRAINT FKTipoDocumentoempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
 );
 
 create table Usuario
 (
 	usuarioId int identity(1, 1),
-	nombreusuario varchar(30),
+	nombreusuario nvarchar(max),
 	[password] varchar(30),
 	nombres varchar(50),
 	apellidos varchar(50),
@@ -201,7 +240,7 @@ create table SedeUsuario
 	CONSTRAINT FKUsuariousuarioId FOREIGN KEY (usuarioId) REFERENCES Usuario(usuarioId)
 );
 
-create table AreaUsuario
+create table [dbo].[AreaUsuario]
 (
 	areaUsuarioId int identity(1, 1),
 	usuarioId int,
@@ -209,6 +248,10 @@ create table AreaUsuario
 	fechaInicio date,
 	fechaFin date,
 	estado int default 1,
+	usuarioSys int not null,
+	fechaSys datetime not null,
+	usuarioUpd int null,
+	fechaUpd datetime null,
 	CONSTRAINT PKareaUsuarioId PRIMARY KEY (areaUsuarioId),
 	CONSTRAINT FKAreaareaId FOREIGN KEY (areaId) REFERENCES Area(areaId),
 	CONSTRAINT FKAreaUsuariousuarioId FOREIGN KEY (usuarioId) REFERENCES Usuario(usuarioId)
@@ -334,49 +377,55 @@ create table Horario
 	usuarioUpd int null,
 	fechaUpd datetime null,
 	estado int default 1,
-	CONSTRAINT PKhorarioId PRIMARY KEY (horarioId)
+	empresaId int,
+	CONSTRAINT PKhorarioId PRIMARY KEY (horarioId),
+	CONSTRAINT FKHorarioempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
 );
 
-create table TipoIncidencia
+create table TipoActividad
 (
-	tipoIncidenciaId int identity(1, 1),
+	tipoActividadId int identity(1, 1),
 	nombre varchar(30),
 	usuarioSys int not null,
 	fechaSys datetime not null,
 	usuarioUpd int null,
 	fechaUpd datetime null,
 	estado int default 1,
-	CONSTRAINT PKtipoIncidenciaId PRIMARY KEY (tipoIncidenciaId),
+	empresaId int,
+	CONSTRAINT PKtipoAccionId PRIMARY KEY (tipoActividadId),
+	CONSTRAINT FKTipoActividadempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
 );
 
-create table Incidencia
+create table Actividad
 (
-	incidenciaId int identity(1, 1),
+	actividadId int identity(1, 1),
 	nombre varchar(20),
 	color varchar(50),
-	tipoIncidenciaId int not null,
+	tipoActividadId int not null,
 	usuarioSys int not null,
 	fechaSys datetime not null,
 	usuarioUpd int null,
 	fechaUpd datetime null,
 	estado int default 1,
-	CONSTRAINT PKincidenciaId PRIMARY KEY (incidenciaId),
-	CONSTRAINT FKIncidenciatipoIncidenciaId FOREIGN KEY (tipoIncidenciaId) REFERENCES TipoIncidencia(tipoIncidenciaId)
+	empresaId int,
+	CONSTRAINT PKaccionId PRIMARY KEY (actividadId),
+	CONSTRAINT FKAcciontipoActividadId FOREIGN KEY (tipoActividadId) REFERENCES TipoActividad(tipoActividadId),
+	CONSTRAINT FKActividadempresaId FOREIGN KEY (empresaId) REFERENCES Empresa(empresaId)
 );
 
-create table HorarioIncidencia
+create table HorarioActividad
 (
-	horarioIncidenciaId int identity(1, 1),
+	horarioActividadId int identity(1, 1),
 	inicio time(5),
 	fin time(5),
 	margenInicio int,
 	margenFin int,
 	horarioId int,
-	incidenciaId int,
+	actividadId int,
 	estado int default 1,
-	CONSTRAINT PKhorarioIncidenciaId PRIMARY KEY (horarioIncidenciaId),
-	CONSTRAINT FKHorarioIncidenciahorarioId FOREIGN KEY (horarioId) REFERENCES Horario(horarioId),
-	CONSTRAINT FKIncidenciaincidenciaId FOREIGN KEY (incidenciaId) REFERENCES Incidencia(incidenciaId)
+	CONSTRAINT PKhorarioActividadId PRIMARY KEY (horarioActividadId),
+	CONSTRAINT FKHorarioActividadhorarioId FOREIGN KEY (horarioId) REFERENCES Horario(horarioId),
+	CONSTRAINT FKHorarioActividadactividadId FOREIGN KEY (actividadId) REFERENCES Actividad(actividadId)
 );
 
 create table HorarioContrato
@@ -395,52 +444,6 @@ create table HorarioContrato
 	CONSTRAINT FKHorarioUsuariohorarioId FOREIGN KEY (horarioId) REFERENCES Horario(horarioId)
 );
 
-create table TipoHorasExtras
-(
-	tipoHorasExtrasId int identity(1, 1),
-	nombre varchar(30),
-	usuarioSys int not null,
-	fechaSys datetime not null,
-	usuarioUpd int null,
-	fechaUpd datetime null,
-	estado int default 1,
-	CONSTRAINT PKtipoHorasExtrasId PRIMARY KEY (tipoHorasExtrasId)
-);
-
-create table HorasExtras
-(
-	horasExtrasId int identity(1, 1),
-	incidenciaId int,
-	minutos int,
-	horarioContratoId int,
-	nivelAprobacion int,
-	tipoHorasExtrasId int,
-	usuarioSys int not null,
-	fechaSys datetime not null,
-	usuarioUpd int null,
-	fechaUpd datetime null,
-	estado int default 1,
-	CONSTRAINT PKhorasExtrasId PRIMARY KEY (horasExtrasId),
-	CONSTRAINT FKTipoHorasExtrastipoHorasExtrasId FOREIGN KEY (tipoHorasExtrasId) REFERENCES TipoHorasExtras(tipoHorasExtrasId),
-	CONSTRAINT FKHorasExtrasincidenciaId FOREIGN KEY (incidenciaId) REFERENCES Incidencia(incidenciaId),
-	CONSTRAINT FKHorasExtrashorarioContratoId FOREIGN KEY (horarioContratoId) REFERENCES HorarioContrato(horarioContratoId)
-);
-
-create table Compensaciones
-(
-	compensacionesId int identity(1, 1),
-	incidenciaId int,
-	horarioContratoId int,
-	nivelAprobacion int,
-	usuarioSys int not null,
-	fechaSys datetime not null,
-	usuarioUpd int null,
-	fechaUpd datetime null,
-	estado int default 1,
-	CONSTRAINT compensacionesId PRIMARY KEY (compensacionesId),
-	CONSTRAINT FKCompensacionesincidenciaId FOREIGN KEY (incidenciaId) REFERENCES Incidencia(incidenciaId),
-	CONSTRAINT FKCompensacioneshorarioContratoId FOREIGN KEY (horarioContratoId) REFERENCES HorarioContrato(horarioContratoId)
-);
 
 create table TipoProceso
 (
@@ -524,6 +527,16 @@ create table MarcacionTemp
 	CONSTRAINT FKMarcacionTempprocesosId FOREIGN KEY (procesosId) REFERENCES Procesos(procesosId)
 );
 
+create table TipoUsuarioMenu
+(
+	tipoUsuarioMenuId int identity(1, 1),
+	tipoUsuarioId int,
+	menuId int,
+	estado int default 1,
+	CONSTRAINT PKtipoUsuarioMenuId PRIMARY KEY (tipoUsuarioMenuId),
+	CONSTRAINT FKTipoUsuarioMenutipoUsuarioId FOREIGN KEY (tipoUsuarioId) REFERENCES TipoUsuario(tipoUsuarioId),
+	CONSTRAINT FKTipoUsuarioMenumenuId FOREIGN KEY (menuId) REFERENCES Menu(menuId)
+);
 
 go
 
@@ -640,7 +653,7 @@ END;
 
 go
 
--- Objects: StoreProcedure spObtenerUsuariosPorArea 28/03/2020 18:16
+-- Objects: StoreProcedure fnExistePrimerMarcacion 28/03/2020 18:16
 
 CREATE FUNCTION dbo.fnExistePrimerMarcacion(
 @UsuarioId int,
@@ -676,7 +689,7 @@ END;
 
 go
 
--- Objects: StoreProcedure spObtenerUsuariosPorArea 28/03/2020 18:16
+-- Objects: StoreProcedure fnExisteSegundaMarcacion 28/03/2020 18:16
 
 CREATE FUNCTION dbo.fnExisteSegundaMarcacion(
 @UsuarioId int,
@@ -711,46 +724,70 @@ END;
 
 go
 
--- Objects: StoreProcedure spObtenerUsuariosPorArea 28/03/2020 18:16
+-- Objects: StoreProcedure spObtenerUsuariosPorArea 3/05/2020 05:49 pm
 
-create procedure spObtenerUsuariosPorArea
-@empresaId int,
-@areaId int,
-@centroCostoId int,
-@tipoEmpleadoId int
-as
-select
-U.usuarioId usuarioId_Ihd,
-apellidos + ', ' + nombres nombres,
-U.documento,
-isnull(CC.nombre,'No pertenece') CentroCosto,
-TU.nombre TipoUsuario,
-N.nombre Nacionalidad,
-TD.nombre TipoDocumento,
-tipoEmpleadoId,
-A.nombre Area,
-E.nombre Empresa
-from 
-Usuario U
-inner join AreaUsuario AU on U.usuarioId = AU.usuarioId and AU.estado = 1
-inner join Area A on AU.areaId = A.areaId and A.estado = 1
-inner join Empresa E on U.empresaId = E.empresaId and E.estado = 1
-inner join TipoUsuario TU on U.tipoUsuarioId = TU.tipoUsuarioId
-inner join Nacionalidad N on U.nacionalidadId = N.nacionalidadId
-inner join TipoDocumento TD on U.tipoDocumentoId = TD.tipoDocumentoId
-left join CentroCostos CC on U.centroConstosId = CC.centroConstosId and CC.estado = 1
-where 1=1
-and U.estado = 1
-and U.empresaId = @empresaId
-and A.areaId = 
-case when @areaId = 0 then A.areaId else @areaId end
-and isnull(U.centroConstosId,0) = 
-case when @centroCostoId = 0 then isnull(U.centroConstosId, 0) else @centroCostoId end
-and U.tipoEmpleadoId = 
-case when @tipoEmpleadoId = 0 then U.tipoEmpleadoId else @tipoEmpleadoId end;
-
---exec spObtenerUsuariosPorArea 1,0,0,0
-
+create procedure spObtenerUsuariosPorArea    
+--declare
+@empresaId int = 1,    
+@areaId int =1,    
+@centroCostoId int=0,    
+@tipoEmpleadoId int =0   
+as    
+    
+BEGIN TRANSACTION    
+BEGIN TRY    
+    
+    
+select    
+0 'Check',     
+U.usuarioId usuarioId_Ihd,    
+apellidos + ', ' + nombres nombres,    
+U.documento,    
+isnull(CC.nombre,'No pertenece') CentroCosto,    
+TU.nombre TipoUsuario,    
+N.nombre Nacionalidad,    
+TD.nombre TipoDocumento,    
+isnull(TE.nombre,'No pertenece') TipoEmpleado,    
+A.nombre Area    
+--E.nombre Empresa    
+from     
+Usuario U    
+inner join AreaUsuario AU on U.usuarioId = AU.usuarioId and AU.estado = 1    
+inner join Area A on AU.areaId = A.areaId and A.estado = 1    
+inner join Empresa E on U.empresaId = E.empresaId and E.estado = 1    
+left join TipoUsuario TU on U.tipoUsuarioId = TU.tipoUsuarioId    
+left join Nacionalidad N on U.nacionalidadId = N.nacionalidadId    
+left join TipoDocumento TD on U.tipoDocumentoId = TD.tipoDocumentoId    
+left join CentroCostos CC on U.centroConstosId = CC.centroConstosId and CC.estado = 1   
+left join TipoEmpleado TE on TE.tipoEmpleadoId = U.tipoEmpleadoId   
+where 1=1    
+and U.estado = 1    
+and U.empresaId = @empresaId    
+and     
+(A.areaId =     
+case when @areaId = 0 then -1 else @areaId end    
+or isnull(U.centroConstosId,0) =     
+case when @centroCostoId = 0 then 0 else @centroCostoId end    
+or U.tipoEmpleadoId =     
+case when @tipoEmpleadoId = 0 then 0 else @tipoEmpleadoId end    
+);    
+    
+    
+    COMMIT TRANSACTION    
+END TRY    
+BEGIN CATCH    
+    SELECT ERROR_NUMBER() AS errNumber    
+       , ERROR_SEVERITY() AS errSeverity     
+       , ERROR_STATE() AS errState    
+       , ERROR_PROCEDURE() AS errProcedure    
+       , ERROR_LINE() AS errLine    
+       , ERROR_MESSAGE() AS errMessage    
+    IF @@TRANCOUNT > 0    
+        ROLLBACK TRANSACTION    
+END CATCH    
+    
+--exec spObtenerUsuariosPorArea 1,0,0,0    
+    
 go
 
 -- Objects: StoreProcedure spObtenerUsuariosPorArea 28/03/2020 07:35
@@ -775,14 +812,13 @@ go
 
 create procedure spObtenerMenuPorPermisos
 --declare
-@permisos nvarchar(max) = 'abcd'
+@tipoUsuarioId int
 as
 select
 menuId,
 nombre,
 link,
 isnull(menuPadreId,0) menuPadreId,
-simbolo,
 orden,
 usuarioSys,
 fechaSys,
@@ -792,25 +828,22 @@ estado
 from
 Menu M
 where 1=1
-and @permisos like '%'+M.simbolo+'%'
+and exists(select * from dbo.TipoUsuarioMenu TM
+where 1=1 
+and TM.estado = 1
+and TM.menuId = M.menuId and TM.tipoUsuarioId = @tipoUsuarioId)
 and M.estado = 1;
 
 go
+
+-- Objects: StoreProcedure spObtenerEmpresasCombo 29/03/2020 18:04 
 
 create procedure spObtenerEmpresasCombo
 @empresaId int
 as
 select
 empresaId value,
-nombre text,
-empresaId,
-nombre,
-documento,
-usuarioSys,
-fechaSys,
-usuarioUpd,
-fechaUpd,
-estado
+nombre text
 from dbo.Empresa
 where 1=1
 and estado = 1
@@ -818,6 +851,7 @@ and empresaId = case when @empresaId = 0 then empresaId else @empresaId end
 
 go
 
+-- Objects: StoreProcedure spObtenerEmpresas 29/03/2020 18:04 
 
 create procedure spObtenerEmpresas
 @empresaId int
@@ -840,30 +874,848 @@ and empresaId = case when @empresaId = 0 then empresaId else @empresaId end
 
 go
 
+-- Objects: StoreProcedure spObtenerMenuPadre 29/03/2020 18:04 
+
+create procedure spObtenerMenuPadre
+as
+BEGIN TRANSACTION
+BEGIN TRY
+select
+menuId Ihd,
+menuId menuId_Ihd,
+nombre,
+link,
+isnull(menuPadreId,0) menuPadreId_Ihd,
+orden
+from dbo.Menu
+where 1=1
+and isnull(menuPadreId,0) = 0
+    COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    SELECT ERROR_NUMBER() AS errNumber
+       , ERROR_SEVERITY() AS errSeverity 
+       , ERROR_STATE() AS errState
+       , ERROR_PROCEDURE() AS errProcedure
+       , ERROR_LINE() AS errLine
+       , ERROR_MESSAGE() AS errMessage
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION
+END CATCH
+
+go
+
+-- Objects: StoreProcedure spValidarAreaTieneEmpleados 11/04/2020 05:47 pm 
+
+create procedure spValidarAreaTieneEmpleados  
+--declare
+@area_id int = 1  
+as  
+declare @valor int = 0;  
+
+WITH AREAS    
+AS      
+(      
+ SELECT a1.areaId,a1.Nombre FROM Area  a1 where a1.areaId=@area_id      
+ union all      
+ select a2.areaId,a2.Nombre from Area A2      
+ inner join AREAS on a2.areaPadreId=AREAS.areaId   and a2.areaId<>1   
+)  
+select @valor = 1 from AREAS a 
+inner join dbo.AreaUsuario ua
+on a.areaId=ua.areaId 
+where ua.estado<>0
+
+select @valor;
+
+
+
+
+go
+
+-- Objects: StoreProcedure spObtenerTipoUsuarioMenu 11/04/2020 05:47 pm 
+
+create procedure spObtenerTipoUsuarioMenu
+@menuId int
+as
+BEGIN TRANSACTION
+BEGIN TRY
+select
+tipoUsuarioId,
+nombre
+from dbo.TipoUsuario TU
+where 1=1
+and exists(select * from TipoUsuarioMenu TUM 
+where 1=1
+and TU.estado = 1
+and TU.tipoUsuarioId = TUM.tipoUsuarioId
+and TUM.menuId = @menuId)
+    COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    SELECT ERROR_NUMBER() AS errNumber
+       , ERROR_SEVERITY() AS errSeverity 
+       , ERROR_STATE() AS errState
+       , ERROR_PROCEDURE() AS errProcedure
+       , ERROR_LINE() AS errLine
+       , ERROR_MESSAGE() AS errMessage
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION
+END CATCH
+
+go
+
+-- Objects: StoreProcedure spObtenerMenuHijos 11/04/2020 05:47 pm 
+
+create procedure spObtenerMenuHijos
+@menuId int
+as
+BEGIN TRANSACTION
+BEGIN TRY
+select
+menuId Ihd,
+menuId menuId_Ihd,
+nombre,
+link,
+isnull(menuPadreId,0) menuPadreId_Ihd,
+orden
+from dbo.Menu
+where 1=1
+and menuPadreId = @menuId
+    COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    SELECT ERROR_NUMBER() AS errNumber
+       , ERROR_SEVERITY() AS errSeverity 
+       , ERROR_STATE() AS errState
+       , ERROR_PROCEDURE() AS errProcedure
+       , ERROR_LINE() AS errLine
+       , ERROR_MESSAGE() AS errMessage
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION
+END CATCH
+
+go
+
+-- Objects: StoreProcedure spInsertaTipoUsuario 29/03/2020 18:04 
+
+create procedure spInsertaTipoUsuario
+@empresaId int,
+@nombre varchar(20),
+@usuarioSys int
+as
+BEGIN TRANSACTION
+BEGIN TRY
+	insert into
+	dbo.TipoUsuario
+	(empresaId ,nombre ,usuarioSys ,fechaSys ,usuarioUpd,fechaUpd,estado)
+	values
+	(@empresaId,@nombre,@usuarioSys,getdate(),null      ,null    ,1)
+    COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    SELECT ERROR_NUMBER() AS errNumber
+       , ERROR_SEVERITY() AS errSeverity 
+       , ERROR_STATE() AS errState
+       , ERROR_PROCEDURE() AS errProcedure
+       , ERROR_LINE() AS errLine
+       , ERROR_MESSAGE() AS errMessage
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION
+END CATCH
+
+go
+
+-- Objects: StoreProcedure spObtenerUsuarioLogin 29/03/2020 18:04 
+
+create procedure spObtenerUsuarioLogin
+@Username varchar(30),
+@Password varchar(30)
+as
+select 
+usuarioId Ihd,
+usuarioId usuarioId_Ihd,
+nombreusuario,
+password,
+nombres,
+apellidos,
+U.documento,
+idequipo,
+tarjeta,
+centroConstosId,
+tipoUsuarioId,
+nacionalidadId,
+tipoDocumentoId,
+tipoEmpleadoId,
+E.empresaId,
+E.nombre Empresa
+from
+dbo.Usuario U
+inner join dbo.Empresa E on U.empresaId = E.empresaId and E.estado = 1
+where 1=1
+and U.nombreusuario = @Username
+and U.estado = 1
+and U.password = @Password;
+
+go
+
+-- Objects: StoreProcedure spInsertarAreas 29/03/2020 18:04 
+
+create procedure spInsertarAreas
+@AreaId int,
+@AreaPadreId int,
+@Nombre varchar(30),
+@empresaId int,
+@usuarioSys int
+as
+
+BEGIN TRANSACTION
+
+BEGIN TRY
+	if(@AreaId = 0)
+		begin
+		if(@AreaPadreId = 0)
+			begin
+			insert dbo.Area
+			(nombre,usuarioSys,fechaSys,usuarioUpd,fechaUpd,estado,empresaId)
+			values
+			(@nombre,@usuarioSys,getdate(),null,null,1,@empresaId)
+			end
+		else
+			begin
+			insert dbo.Area
+			(nombre,areaPadreId,usuarioSys,fechaSys,usuarioUpd,fechaUpd,estado,empresaId)
+			values
+			(@nombre,@areaPadreId,@usuarioSys,getdate(),null,null,1,@empresaId)
+			end
+		end
+	else
+		begin
+		update dbo.Area
+		set nombre = @Nombre,
+		usuarioUpd = @usuarioSys,
+		fechaUpd = getdate()
+		where areaId = @AreaId  
+		end
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    SELECT ERROR_NUMBER() AS errNumber
+       , ERROR_SEVERITY() AS errSeverity 
+       , ERROR_STATE() AS errState
+       , ERROR_PROCEDURE() AS errProcedure
+       , ERROR_LINE() AS errLine
+       , ERROR_MESSAGE() AS errMessage
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION
+END CATCH
+
+
+
+go
+
+-- Objects: StoreProcedure dbo.spEliminarAreas 11/04/2020 02:05 pm 
+create procedure dbo.spEliminarAreas
+@AreaId int,
+@usuarioSys int
+as
+if(not exists(
+select * from dbo.AreaUsuario where estado = 1 and areaId = @AreaId
+))
+	begin
+	update dbo.Area
+	set estado = 0,
+	usuarioUpd = @usuarioSys,
+	fechaUpd = getdate()
+	where 1=1 and areaId = @AreaId
+	end
+go
+
+
+-- Objects: StoreProcedure spInsertarActividad 11/04/2020 12:41 
+
+create procedure spInsertarActividad
+@empresaId int,
+@actividadId int,
+@tipoActividadId int,
+@color varchar(50),
+@nombre varchar(20),
+@usuarioSys int
+as
+
+BEGIN TRANSACTION
+
+BEGIN TRY
+	if(@actividadId = 0)
+		begin
+			insert dbo.Actividad
+			(nombre ,color,tipoActividadId,usuarioSys,fechaSys,estado,empresaId)
+			values
+			(@nombre,@color,@tipoActividadId,@usuarioSys,getdate() ,1   ,@empresaId)
+
+		end
+	else
+		begin
+		update dbo.Actividad
+		set nombre = @Nombre,
+		color = @color,
+		tipoActividadId = @tipoActividadId,
+		usuarioUpd = @usuarioSys,
+		fechaUpd = getdate()
+		where actividadId = @actividadId  
+		end
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    SELECT ERROR_NUMBER() AS errNumber
+       , ERROR_SEVERITY() AS errSeverity 
+       , ERROR_STATE() AS errState
+       , ERROR_PROCEDURE() AS errProcedure
+       , ERROR_LINE() AS errLine
+       , ERROR_MESSAGE() AS errMessage
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION
+END CATCH
+
+go
+
+-- Objects: StoreProcedure spInsertaUsuarioExcel 3/05/2020 05:44 pm 
+
+create procedure spInsertaUsuarioExcel  
+--declare
+@Nombres  varchar(50)='Alberto',  
+@Apellidos varchar(50)='Yancel',  
+@Documento varchar(20)='47474747',  
+@TipoDocumento varchar(50)='DNI',  
+@CentroCosto varchar(50) = 'Pago',  
+@TipoUsuario varchar(50) = 'Empleado',  
+@Nacionalidad varchar(50) = 'Peruana',  
+@TipoEmpleado varchar(50) = 'Empleado',  
+@Area nvarchar(max) = 'Area1',  
+@FechaInicio varchar(10) = '2020-01-01',  
+@FechaFin varchar(10) = '2020-12-31',  
+@empresaId int = 1 
+as  
+BEGIN TRANSACTION  
+BEGIN TRY    
+
+if(not  
+exists(  
+select  
+*  
+from  
+Usuario U  
+where 1=1  
+and U.Documento = @documento  
+)  
+)  
+begin  
+declare @tipoDocumentoId int,  
+@centroCostoId int,  
+@tipoUsuarioId int,  
+@tipoEmpleadoId int,  
+@areaId int,  
+@nacionalidadId int,  
+@usuarioId int  
+  
+select top 1  
+@TipoDocumentoId = tipoDocumentoId  
+from dbo.TipoDocumento  
+where 1=1  
+and nombre = @TipoDocumento  
+and empresaId = @empresaId  
+  
+select top 1  
+@centroCostoId = centroConstosId  
+from dbo.CentroCostos  
+where 1=1  
+and nombre = @CentroCosto  
+and empresaId = @empresaId  
+  
+select top 1  
+@tipoUsuarioId from  
+dbo.TipoUsuario  
+where 1=1  
+and nombre = @TipoUsuario  
+and empresaId = @empresaId  
+  
+select top 1  
+@nacionalidadId = nacionalidadId from  
+dbo.Nacionalidad  
+where 1=1  
+and nombre = @Nacionalidad  
+and empresaId = @empresaId  
+  
+select top 1  
+@tipoEmpleadoId = tipoEmpleadoId from  
+TipoEmpleado where 1=1  
+and nombre = @TipoEmpleado  
+and empresaId = @empresaId  
+  
+select top 1  
+@areaId = areaId from dbo.Area  
+where 1=1  
+and empresaId = @empresaId  
+and nombre = @Area;  
+  
+insert into dbo.Usuario  
+(nombreusuario,password,nombres,apellidos,documento   ,idequipo,tarjeta,  
+centroConstosId,tipoUsuarioId,usuarioSys,fechaSys,estado,nacionalidadId,tipoDocumentoId,tipoEmpleadoId,empresaId)  
+values  
+(@Documento   ,'123456',@Nombres,@Apellidos,@Documento,@Documento,''   ,  
+@centroCostoId,@tipoUsuarioId,1          ,getdate(),1   ,@nacionalidadId,@tipoDocumentoId, @tipoEmpleadoId, @empresaId)  
+set @usuarioId = @@IDENTITY  
+insert into dbo.AreaUsuario  
+(usuarioId,areaId,fechaInicio,fechaFin,estado,usuarioSys,fechaSys)  
+values  
+(@usuarioId,@areaId,@FechaInicio,@FechaFin,1,1, getdate())  
+  
+end  
+  
+  
+    COMMIT TRANSACTION  
+END TRY  
+BEGIN CATCH  
+    SELECT ERROR_NUMBER() AS errNumber  
+       , ERROR_SEVERITY() AS errSeverity   
+       , ERROR_STATE() AS errState  
+       , ERROR_PROCEDURE() AS errProcedure  
+       , ERROR_LINE() AS errLine  
+       , ERROR_MESSAGE() AS errMessage  
+    IF @@TRANCOUNT > 0  
+        ROLLBACK TRANSACTION  
+END CATCH   
+
+go
+
+-- Objects: StoreProcedure spInsertaTipoEmpleado 9/05/2020
+create procedure spInsertaTipoEmpladoDefecto
+@empresaId int
+as
+declare @tipoEmpleadoId int;
 insert into
-dbo.Menu
-(nombre,link,menuPadreId, simbolo, orden,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd)
+dbo.TipoEmpleado
+(nombre, estado,usuarioSys,fechaSys ,empresaId)
 values
-('Home',''  ,null       , 'a'    , 1    , 1        , getdate(), null     ,null);
+('Ejecutivo', 1,1         ,getdate(),@empresaId);
+
+insert into
+dbo.TipoEmpleado
+(nombre, estado,usuarioSys,fechaSys ,empresaId)
+values
+('Empleado', 1, 1         ,getdate(),@empresaId);
+set @tipoEmpleadoId = @@IDENTITY;
+
+insert into
+dbo.TipoEmpleado
+(nombre, estado,usuarioSys,fechaSys ,empresaId)
+values
+('Obrero',    1,         1,getdate(),@empresaId);
+
+go
+
+-- Objects: StoreProcedure spInsertaActividad 9/05/2020 05:13 pm
+
+create procedure spInsertaActividad
+@empresaId int
+as
+declare @horarioId int
+declare @actividadId int
+declare @tipoActividad int
+
+insert into 
+dbo.Horario(nombre,madrugada,color,usuarioSys,fechaSys,empresaId)
+values('HorarioTrabajo', 0, 'background-color:black',1,getdate(),@empresaId);
+set @horarioId = @@IDENTITY
+
+insert into 
+dbo.TipoActividad
+(nombre   ,usuarioSys,fechaSys,empresaId)
+values
+('Trabajo',1         ,getdate(),@empresaId);
+set @tipoActividad = @@IDENTITY;
+
+
+insert into 
+dbo.Actividad
+(nombre          ,color                  ,tipoActividadId,usuarioSys,fechaSys,empresaId)
+values
+('Trabajo mañana','background-color:blue',@tipoActividad,1,getdate(),@empresaId);
+set @actividadId = @@IDENTITY
+
+insert into 
+dbo.HorarioActividad
+(horarioId,actividadId  ,inicio ,    fin, margenInicio, margenFin)
+values
+(@horarioId,@actividadId,'08:30','13:00',           30,30);
+
+insert into 
+dbo.Actividad
+(nombre         ,color                       ,tipoActividadId,usuarioSys,fechaSys ,empresaId)
+values
+('Trabajo tarde','background-color:orangered',@tipoActividad,         1,getdate(),@empresaId);
+set @actividadId = @@IDENTITY
+
+insert into 
+dbo.HorarioActividad
+(horarioId,actividadId,inicio ,    fin, margenInicio, margenFin)
+values
+(@horarioId,@actividadId,'14:00','18:30',           30,30);
+
+insert into 
+dbo.TipoActividad
+(nombre,usuarioSys,fechaSys,empresaId)
+values
+('Descanso refrigerio',1,getdate(),@empresaId);
+set @tipoActividad = @@IDENTITY;
+
+insert into 
+dbo.Actividad
+(nombre     ,color                 ,tipoActividadId,usuarioSys,fechaSys ,empresaId)
+values
+('Rerigerio','background-color:red',@tipoActividad,1         ,getdate(),@empresaId);
+set @actividadId = @@IDENTITY
+
+insert into 
+dbo.HorarioActividad
+(horarioId,actividadId,inicio ,    fin, margenInicio, margenFin)
+values
+(@horarioId,@actividadId,'13:00','14:00',           30,30);
+
+insert into 
+dbo.TipoActividad
+(nombre,usuarioSys,fechaSys,empresaId)
+values
+('Horas extras',1,getdate(),@empresaId);
+set @tipoActividad = @@IDENTITY;
+
+insert into 
+dbo.Actividad
+(nombre         ,color                       ,tipoActividadId,usuarioSys,fechaSys ,empresaId)
+values
+('Horas extras','background-color:orangered',@tipoActividad,         1,getdate(),@empresaId);
+set @actividadId = @@IDENTITY
+
+
+insert into 
+dbo.TipoActividad
+(nombre,usuarioSys,fechaSys,empresaId)
+values
+('Compensación',1,getdate(),@empresaId);
+set @tipoActividad = @@IDENTITY;
+
+insert into 
+dbo.Actividad
+(nombre         ,color                       ,tipoActividadId,usuarioSys,fechaSys ,empresaId)
+values
+('Compensación','background-color:orange',@tipoActividad,         1,getdate(),@empresaId);
+set @actividadId = @@IDENTITY
+
+
+
+go
+
+-- Objects: StoreProcedure spInsertarMenu 25/04/2020 12:41 
+
+create procedure spInsertarMenu
+@empresaId int
+as
+declare @id int
+declare @AdminId int
+declare @AreaId int
+declare @nombreempresa nvarchar(max)
+declare @usuarioId int
+declare @centroCostosId int
+declare @tipoEmpleadoId int
+declare @nacionalidadId int
+declare @tipoDocumentoId int
 
 insert into
 dbo.Menu
-(nombre      ,link,menuPadreId,simbolo,orden,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd)
+(nombre,link,menuPadreId, orden,usuarioSys,fechaSys  , empresaId)
 values
-('HelloWorld','/' ,1          , 'b'   , 1   , 1        , getdate(), null     ,null);
+('Home',''  ,null       , 1    , 1        , getdate(), @empresaId);
+set @id = @@identity;
+
+insert into
+dbo.Menu
+(nombre      ,link,menuPadreId,orden,usuarioSys,fechaSys  , empresaId)
+values
+('HelloWorld','/' ,@id          , 1   , 1        , getdate(), @empresaId);
 
 
 insert into
 dbo.Menu
-(nombre         ,link,menuPadreId,simbolo,orden,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd)
+(nombre         ,link,menuPadreId,orden,usuarioSys,fechaSys  , empresaId)
 values
-('Mantenimiento',''  ,null       , 'c', 2, 1        , getdate(), null     ,null);
+('Modulos',''  ,null       , 2   , 1        , getdate(), @empresaId);
+set @id = @@identity
 
 insert into
 dbo.Menu
-(nombre     ,link        ,menuPadreId ,simbolo,orden,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd)
+(nombre     ,link        ,menuPadreId,orden,usuarioSys,fechaSys   , empresaId)
 values
-('Empleados','/empleados', 3          , 'd'   , 1   , 1        , getdate(), null     ,null);
+('PDF','/pdf', @id         , 1   , 1        , getdate(), @empresaId);
+
+
+insert into
+dbo.Menu
+(nombre     ,link        ,menuPadreId,orden,usuarioSys,fechaSys   , empresaId)
+values
+('Vue2GoogleMaps','/maps', @id         , 1   , 1        , getdate(), @empresaId);
+
+insert into
+dbo.Menu
+(nombre     ,link        ,menuPadreId,orden,usuarioSys,fechaSys   , empresaId)
+values
+('Empleados','/empleados', @id         , 1   , 1        , getdate(), @empresaId);
+
+insert into
+dbo.Menu
+(nombre       ,link        ,menuPadreId,orden,usuarioSys,fechaSys  , empresaId)
+values
+('Actividades','/actividades'    ,@id         , 1   , 2        , getdate(), @empresaId);
+
+insert into
+dbo.Menu
+(nombre     ,link        ,menuPadreId,orden,usuarioSys,fechaSys  , empresaId)
+values
+('Areas'    ,'/areas'    ,@id         , 1   , 2        , getdate(), @empresaId);
+
+insert into
+dbo.Menu
+(nombre     ,link        ,menuPadreId,orden,usuarioSys,fechaSys  , empresaId)
+values
+('Invoice'    ,'/factura'    ,@id         , 1   , 2        , getdate(), @empresaId);
+
+insert into
+dbo.Menu
+(nombre,link,menuPadreId, orden,usuarioSys,fechaSys   , empresaId)
+values
+('Importadores',''  ,null       , 1    , 1        , getdate(), @empresaId);
+set @id = @@identity 
+
+insert into
+dbo.Menu
+(nombre     ,link        ,menuPadreId,orden,usuarioSys,fechaSys  , empresaId)
+values
+('ImportarEmpleados'    ,'/importarempleados'    ,@id         , 1   , 2        , getdate(), @empresaId);
+
+insert into
+dbo.Menu
+(nombre,link,menuPadreId, orden,usuarioSys,fechaSys   , empresaId)
+values
+('Admin',''  ,null       , 1    , 1        , getdate(), @empresaId);
+set @id = @@identity 
+
+insert into
+dbo.Menu
+(nombre     ,link        ,menuPadreId,orden,usuarioSys,fechaSys  , empresaId)
+values
+('Menus','/menu', @id         , 1   , 1        , getdate(), @empresaId);
+
+insert into 
+dbo.TipoUsuario
+(nombre         ,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
+values
+('administrador',1         ,getdate(),null      ,null, @empresaId);
+set @AdminId = @@identity
+
+insert into 
+dbo.TipoUsuario
+(nombre         ,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
+values
+('Empleado',1         ,getdate(),null      ,null, @empresaId);
+
+declare @tabla1 table(id int identity(1,1), menuId int);
+declare @xIni int = 1;
+declare @xFin int
+insert into @tabla1(menuId)
+select menuId from dbo.Menu where 1=1 and empresaId = @empresaId;
+select @xFin = count(menuId) from dbo.Menu where 1=1 and empresaId = @empresaId;
+while @xIni<=@xFin
+	begin
+	insert into 
+	dbo.TipoUsuarioMenu
+	(tipoUsuarioId,menuId,estado)
+	select 
+	@AdminId,   menuId     ,1 
+	from @tabla1 where @xIni = id;
+	set @xIni = @xIni + 1
+	end
+
+exec spInsertaTipoEmpladoDefecto @empresaId;
+
+
+insert into
+dbo.Area
+(nombre,areaPadreId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
+values
+('Area1',null      ,1         ,getdate(),null      ,null    ,@empresaId);
+set @AreaId = @@IDENTITY
+
+insert into
+dbo.Area
+(nombre,areaPadreId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
+values
+('Area2',@AreaId         ,1         ,getdate(),null      ,null    ,@empresaId);
+set @AreaId = @@IDENTITY
+
+insert into
+dbo.Area
+(nombre,areaPadreId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
+values
+('Area3',@AreaId         ,1         ,getdate(),null      ,null    ,@empresaId);
+set @AreaId = @@IDENTITY
+
+insert into
+dbo.Area
+(nombre,areaPadreId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
+values
+('Area4',@AreaId         ,1         ,getdate(),null      ,null    ,@empresaId);
+
+insert into
+dbo.Area
+(nombre,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
+values
+('Area5',1         ,getdate(),null      ,null    ,@empresaId);
+
+
+insert into
+dbo.CentroCostos
+(nombre,usuarioSys,fechaSys,empresaId)
+values
+('Pago',1,getdate(),@empresaId);
+set @centroCostosId = @@IDENTITY;
+
+insert into 
+dbo.Nacionalidad
+(nombre, usuarioSys,fechaSys,empresaId)
+values('Peruana',1,getdate(),@empresaId);
+set @nacionalidadId = @@IDENTITY;
+
+insert into 
+dbo.TipoDocumento
+(nombre, usuarioSys,fechaSys,empresaId)
+values('DNI',1,getdate(),@empresaId);
+set @tipoDocumentoId = @@IDENTITY;
+
+select top 1 @nombreempresa = nombre from dbo.Empresa where empresaId = @empresaId
+
+if(@nombreempresa = 'ProgramacionParaAprender')
+begin
+insert into
+dbo.Usuario
+(nombreusuario         ,[password],nombres,apellidos,
+documento ,idequipo  ,tarjeta    ,centroConstosId,tipoUsuarioId,usuarioSys,fechaSys ,estado,nacionalidadId,tipoDocumentoId, tipoEmpleadoId, empresaId)
+values
+('admin','123456' ,'luis'  ,'correa' ,
+'46464646','46464646','[0000000]',@centroCostosId,@AdminId     ,1         ,getdate(),1     ,@nacionalidadId,@tipoDocumentoId , @tipoEmpleadoId,@empresaId);
+set @usuarioId = @@IDENTITY
+end
+else
+begin
+insert into
+dbo.Usuario
+(nombreusuario         ,[password],nombres,apellidos,
+documento ,idequipo  ,tarjeta    ,centroConstosId,tipoUsuarioId,usuarioSys,fechaSys ,estado,nacionalidadId,tipoDocumentoId, tipoEmpleadoId, empresaId)
+values
+('admin'+LOWER (@nombreempresa),'123456' ,'luis'  ,'correa' ,
+'46464646','46464646','[0000000]',@centroCostosId,@AdminId     ,1         ,getdate(),1     ,@nacionalidadId,@tipoDocumentoId,@tipoEmpleadoId,@empresaId);
+set @usuarioId = @@IDENTITY
+
+end
+
+insert into 
+dbo.AreaUsuario
+(usuarioId , areaId, fechaInicio,fechaFin  ,estado,usuarioSys,fechaSys)
+values
+(@usuarioId,@AreaId,  getdate(), getdate() , 1    ,1,getdate())
+
+exec spInsertaActividad @empresaId;
+
+go
+
+-- Objects: StoreProcedure spObtenerActividadesEmpresa 12/04/2020 10:53 am 
+
+create procedure spObtenerActividadesEmpresa
+@empresaId int
+as
+select 
+actividadId Ihd,
+actividadId actividadId_Ihd,
+nombre,
+color
+from dbo.Actividad
+where 1=1
+and empresaId = @empresaId
+and estado = 1;
+go
+
+-- Objects: StoreProcedure spInsertarMarcasDispositivosMarcaciones 9/05/2020 07:37 pm
+
+create procedure spInsertarMarcasDispositivosMarcaciones
+@sedeId int
+as
+declare @dispositivo_id int
+
+
+insert
+into dbo.Dispositivo
+(nombre       ,direccionIp  ,marcaId,pushActivo,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado, sedeId)
+values
+('192.168.253','192.168.253',1      , 1        ,         1, getdate(), null     , null   ,     1, @sedeId)
+set @dispositivo_id = @@IDENTITY
+
+
+--insert 
+--into dbo.Marcacion
+--(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
+--values
+--('08:30','2010-01-04','2010-01-04', @dispositivo_id,@usuarioId, 1        , getdate(), null     , null   , 1)
+
+--insert 
+--into dbo.Marcacion
+--(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
+--values
+--('08:30','2010-01-04','2010-01-04', @dispositivo_id,@usuarioId, 1        , getdate(), null     , null   , 1)
+
+--insert 
+--into dbo.Marcacion
+--(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
+--values
+--('13:00','2010-01-04','2010-01-04', @dispositivo_id,@usuarioId, 1        , getdate(), null     , null   , 1)
+
+--insert 
+--into dbo.Marcacion
+--(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
+--values
+--('14:00','2010-01-04','2010-01-04', @dispositivo_id,@usuarioId, 1        , getdate(), null     , null   , 1)
+
+--insert 
+--into dbo.Marcacion
+--(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
+--values
+--('18:30','2010-01-04','2010-01-04', @dispositivo_id,@usuarioId, 1        , getdate(), null     , null   , 1)
+
+
+go
+
+insert 
+into dbo.Marca
+(nombre    ,usuarioSys, fechaSys ,usuarioUpd,fechaUpd,estado)
+values
+('GRANDING', 1        , getdate(),null      ,null    ,1)
+
+declare @sedeId int
+
+insert into
+dbo.Sede
+(nombre           , estado,usuarioSys,fechaSys)
+values
+('Cercado de lima',      1, 1        , getdate());
+set @sedeId = @@IDENTITY
+
 
 
 insert into 
@@ -872,18 +1724,19 @@ dbo.Empresa
 values
 ('ProgramacionParaAprender', '123123123', 1     , 1        , getdate(), null     ,null);
 
+
+exec spInsertarMenu 1;
+
+exec spInsertarMarcasDispositivosMarcaciones @sedeId
+
 insert into 
 dbo.Empresa
 (nombre                    , documento  , estado,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd)
 values
 ('CY', '234123123', 1     , 1        , getdate(), null     ,null);
 
+go
 
-insert into
-dbo.Sede
-(nombre           , estado,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd)
-values
-('Cercado de lima',      1, 1        , getdate(), null     ,null);
 
 insert into 
 dbo.SedeEmpresa
@@ -899,156 +1752,6 @@ values
 
 
 insert into
-dbo.CentroCostos
-(nombre,usuarioSys,fechaSys,usuarioUpd,fechaUpd)
-values
-('Pago',1,getdate(),null,null);
-
-insert into
-dbo.Area
-(nombre,areaPadreId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
-values
-('Area1',null      ,1         ,getdate(),null      ,null    ,1);
-
-insert into
-dbo.Area
-(nombre,areaPadreId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
-values
-('Area2',1         ,1         ,getdate(),null      ,null    ,1);
-
-
-insert into
-dbo.Area
-(nombre,areaPadreId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd, empresaId)
-values
-('Area3',2         ,1         ,getdate(),null      ,null    ,1);
-
-
-
-insert into 
-dbo.TipoUsuario
-(nombre         ,usuarioSys,fechaSys ,usuarioUpd,fechaUpd,permisos)
-values
-('Administrador',1         ,getdate(),null      ,null    ,'abcd');
-
-
-insert into 
-dbo.Nacionalidad
-(nombre)
-values('Peruana');
-
-insert into 
-dbo.TipoDocumento
-(nombre)
-values('DNI');
-
-
-
-insert into
-dbo.TipoEmpleado
-(nombre, estado,usuarioSys,fechaSys ,usuarioUpd,fechaUpd)
-values
-('Ejecutivo', 1,1         ,getdate(),null      ,null);
-
-insert into
-dbo.TipoEmpleado
-(nombre, estado,usuarioSys,fechaSys ,usuarioUpd,fechaUpd)
-values
-('Empleado', 1, 1         ,getdate(),null      ,null);
-
-
-insert into
-dbo.TipoEmpleado
-(nombre, estado,usuarioSys,fechaSys ,usuarioUpd,fechaUpd)
-values
-('Obrero',    1,         1,getdate(),null      ,null);
-
-
-insert into
-dbo.Usuario
-(nombreusuario,[password],nombres,apellidos,documento ,idequipo  ,tarjeta    ,centroConstosId,tipoUsuarioId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd,estado,nacionalidadId,tipoDocumentoId, tipoEmpleadoId, empresaId)
-values
-('admin'      ,'123456' ,'luis'  ,'correa' ,'46464646','46464646','[0000000]',1              ,1            ,1         ,getdate(),null      ,null    ,1     ,1             ,1              , 1             ,1);
-
-
-insert into 
-dbo.AreaUsuario
-(usuarioId, areaId, fechaInicio,fechaFin  ,estado)
-values
-(1        ,       1,  getdate(), getdate(), 1)
-
-
-
-
-
-
-insert into 
-dbo.Horario(nombre,madrugada,color,usuarioSys,fechaSys,usuarioUpd,fechaUpd)
-values('HorarioTrabajo', 0, 'background-color:black',1,getdate(),null,null);
-
-insert into 
-dbo.TipoIncidencia
-(nombre   ,usuarioSys,fechaSys,usuarioUpd,fechaUpd)
-values
-('Trabajo',1         ,getdate(),NULL     ,NULL);
-
-insert into 
-dbo.TipoIncidencia
-(nombre,usuarioSys,fechaSys,usuarioUpd,fechaUpd)
-values
-('Descanso refrigerio',1,getdate(),NULL,NULL);
-
-insert into 
-dbo.TipoIncidencia
-(nombre,usuarioSys,fechaSys,usuarioUpd,fechaUpd)
-values
-('Horas extras',1,getdate(),NULL,NULL);
-
-insert into 
-dbo.TipoIncidencia
-(nombre,usuarioSys,fechaSys,usuarioUpd,fechaUpd)
-values
-('Compensación',1,getdate(),NULL,NULL);
-
-insert into 
-dbo.Incidencia
-(nombre          ,color,tipoIncidenciaId,usuarioSys,fechaSys,usuarioUpd,fechaUpd)
-values
-('Trabajo mañana','background-color:blue',1,1,getdate(),null,null);
-
-insert into 
-dbo.Incidencia
-(nombre     ,color                 ,tipoIncidenciaId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd)
-values
-('Rerigerio','background-color:red',2               ,1         ,getdate(),null      ,null);
-
-
-insert into 
-dbo.Incidencia
-(nombre         ,color                       ,tipoIncidenciaId,usuarioSys,fechaSys ,usuarioUpd,fechaUpd)
-values
-('Trabajo tarde','background-color:orangered',               1,         1,getdate(),null      ,null);
-
-insert into 
-dbo.HorarioIncidencia
-(horarioId,incidenciaId,inicio ,    fin, margenInicio, margenFin)
-values
-(1        ,1           ,'08:30','13:00',           30,30);
-
-insert into 
-dbo.HorarioIncidencia
-(horarioId,incidenciaId,inicio ,    fin, margenInicio, margenFin)
-values
-(1        ,           2,'13:00','14:00',           30,30);
-
-insert into 
-dbo.HorarioIncidencia
-(horarioId,incidenciaId,inicio ,    fin, margenInicio, margenFin)
-values
-(1        ,3           ,'14:00','18:30',           30,30);
-
-
-insert into
 dbo.Contrato
 (fechaInicio,fechaFin,usuarioId,diasVacaciones,usuarioSys,fechaSys,usuarioUpd,fechaUpd)
 values
@@ -1061,47 +1764,32 @@ values
 (1        , 1        , '2010-01-04',1         , getdate(), null      , null   , 1);
 
 
-insert 
-into dbo.Marca
-(nombre    ,usuarioSys, fechaSys ,usuarioUpd,fechaUpd,estado)
-values
-('GRANDING', 1        , getdate(),null      ,null    ,1)
+go
 
-insert
-into dbo.Dispositivo
-(nombre       ,direccionIp  ,marcaId,pushActivo,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado, sedeId)
+insert into
+Direciones
+(ubicacion,latitud,longitud,usuarioSys,fechaSys,estado)
 values
-('192.168.253','192.168.253',1      , 1        ,         1, getdate(), null     , null   ,     1, 1)
+('Unidad Morelos, 97001 Mérida, Yuc., México','20.943467601071568','-89.60274137534248',1,getdate(),1)
 
-insert 
-into dbo.Marcacion
-(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
+insert into
+Direciones
+(ubicacion,latitud,longitud,usuarioSys,fechaSys,estado)
 values
-('08:30','2010-01-04','2010-01-04', 1           , 1       , 1        , getdate(), null     , null   , 1)
+('Sta Rosa, 97279 Mérida, Yuc., México','20.938297181414647','-89.61501516379462',1,getdate(),1)
 
-insert 
-into dbo.Marcacion
-(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
+insert into
+Direciones
+(ubicacion,latitud,longitud,usuarioSys,fechaSys,estado)
 values
-('08:30','2010-01-04','2010-01-04', 1           , 1       , 1        , getdate(), null     , null   , 1)
+('San José, 97189 Mérida, Yuc., México','20.938838280208756','-89.607462063220869',1,getdate(),1)
 
-insert 
-into dbo.Marcacion
-(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
+insert into
+Direciones
+(ubicacion,latitud,longitud,usuarioSys,fechaSys,estado)
 values
-('13:00','2010-01-04','2010-01-04', 1           , 1       , 1        , getdate(), null     , null   , 1)
+('Unidad Morelos, 97001 Mérida, Yuc., México','20.944309280394823','-89.60407175101386',1,getdate(),1)
 
-insert 
-into dbo.Marcacion
-(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
-values
-('14:00','2010-01-04','2010-01-04', 1           , 1       , 1        , getdate(), null     , null   , 1)
-
-insert 
-into dbo.Marcacion
-(hora   ,dia         ,fecha       ,dispositivoId,usuarioId,usuarioSys,fechaSys  ,usuarioUpd,fechaUpd,estado)
-values
-('18:30','2010-01-04','2010-01-04', 1           , 1       , 1        , getdate(), null     , null   , 1)
 
 
 
