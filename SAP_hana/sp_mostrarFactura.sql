@@ -1,8 +1,12 @@
-Create procedure "BASEDEDATOS"."sp_mostrarFacturas" ()
+Set Schema "BASEDEDATOS";
+
+
+Create procedure "sp_mostrarFacturas" ()
 as
 begin
 select 
 *
 from 
-"BASEDEDATOS"."OINV";
+OINV;
+
 end;

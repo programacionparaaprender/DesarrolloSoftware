@@ -7,6 +7,15 @@ https://data-flair.training/blogs/sql-stored-procedures-in-sap-hana/
 
 https://blogs.sap.com/2017/04/27/list-of-object-types/
 
+
+
+### funciones tabla
+https://blogs.sap.com/2018/11/05/table-functions-in-sap-hana-step-by-step-guide/
+
+### funciones escalares
+https://blogs.sap.com/2013/07/01/scalar-user-defined-functions-in-sap-hana/
+
+
 https://www.tutorialspoint.com/Create-View-SQL-in-SAP-HANA-database
 
 http://www.hanaexam.com/p/exception-handling-in-hana.html
