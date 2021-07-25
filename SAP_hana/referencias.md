@@ -30,3 +30,6 @@ https://es.it-brain.online/tutorial/sap_hana/sap_hana_sql_operators/
 
 ### datos nulos
 http://sap.optimieren.de/hana/hana/html/sql_function_ifnull.html
+
+### count
+https://answers.sap.com/questions/12334075/count-giving-wrong-results.html
