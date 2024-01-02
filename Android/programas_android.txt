@@ -1,0 +1,98 @@
+--------------------
+Utilitarios
+---------------------
+Linterna
+
+------------------
+Gestor de Archivos
+--------------------
+ES
+Administrador de Archivos
+
+--------------------
+Redes sociales
+----------------------
+telegram
+whatsapp
+teamviewer
+skype
+
+----------------------
+Antivirus 
+---------------------
+psafe android
+
+
+----------------------------
+compresión de archivos
+----------------------------
+Nombre    | Plataformas
+----------------------------
+peazip      Multiplataforma
+
+
+----------------------
+----------------------
+Edición de PDF
+----------------------
+-----------------------
+libreoffice-pdfimport     para draw (despues de seleccionar imagen editar luego ir a mapa de imagen)
+adobe-reader
+google-pdf
+
+----------------------
+----------------------
+software de descarga
+---------------------
+----------------------
+vuze
+jdownloader
+
+
+--------------------------------
+-------------------------
+Juegos Android off line
+-------------------------
+--------------------------------
+paintown             como street figther
+wesnoth 	     juego por turnos 
+
+
+-------------------------------
+Entorno de Desarrollo Integrado
+----------------------------------
+android-studio  programación para android
+
+
+----------------------
+Software de ofimatica
+------------------------
+open-office
+libre-office
+microsoft-office
+google-presentaciones
+google-doc
+
+----------------
+Servidores
+-----------------
+
+
+----------------------------------------
+---------------------------------------
+Diseño Asistido por Computador CAD
+--------------------------------------------------------------------
+Nombre 			| Formatos Importación | Diseño | Licence     | OS
+--------------------------------------------------------------------------
+----------------------------------------------------------------------
+librecad          DWG, DXF               2D       GNU GPL       Linux, Windows, OS X
+openscad          DXF, STL               3D       GNU GPL       Linux, Windows, OS X
+qcad              IFC, DXF, DWG          2D       GNU GPL       Linux, Windows, OS X
+freecad           DXF, SVG, U3D          3D       LGPL          Linux, Windows, OS X
+autocad           DWG, DXF               2D,3D
+   
+-----------------------
+Escaneo
+----------------------
+camscanner
+

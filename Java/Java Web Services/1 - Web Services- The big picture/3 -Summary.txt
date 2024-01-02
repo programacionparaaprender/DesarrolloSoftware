@@ -1,0 +1,37 @@
+									Summary
+
+In this lecture, I will summarize what you have learned from this webservices introduction section.
+
+
+1) You have started by that web-services are consumer provider applications that can be written in multiple languages and running on different platform which can communicate with each other.
+
+2) Webservices use the http protocol and usually use the XML as its data format to exchange the messages.
+
+3) The benefit of using webservices are
+
+	a) Interoperabiltiy meaning applications running on heterogenous platform or different types of platforms can communicate with each other.
+
+	b) Two they are loosely coupled that is using webservices we can build loosely coupled applications that can use one application today or consume one webservice today and tomorrow if it wants to switch to a different webservice which provides a similar service we can easily do that.
+
+	c) Extensibility
+
+	We can extend a product and even customize it by using the webservices that particular product offers.
+
+	d) Mashups, we can build one single mashup application by consuming several different web services that are available out there within an enterprise or over the internet.
+
+
+4) There are two types of webservices or webservice technologies namely SOAP and REST.
+
+5) The standard for implementing SOAP based webservices in the java world is JAXWS which stands for JAVA API for xml based  webservices.
+
+6) Similarly for REST it is JAXRS - Java API for XML based webservices.
+
+8) You have also learnt that SOA is a set of architectural principles  to build loosely coupled applications.
+
+9) SOA is maintained by open bodies like W3C and and people from various organizations like microsoft,oracle, IBM etc..
+
+10) In the SOA world,a service is an implementation of business logic that operates on its own.
+
+11) XML is the data format that is used by these services both SOA and webservices offer same advantages.
+
+12) Infact webservices is one of the ways in which SOA can be implemented.

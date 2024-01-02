@@ -1,0 +1,13 @@
+Summary:
+
+1) Too quickly recap,the soap webservices design section, you have learnt the two designs namely that top down, wsdl first or contract first approach and the second approach which is the bottom up or code first approach and the steps to create the wsdl first and code first webservice.
+
+2) You have also learnt the advantages of top down or contract first approach which is the wsdl is very easy for a tester or a developer or an analyst to understand because the wsdl file is nothing but xml file and also wsdl first approach offers better interoperability because we'll be using all the elements will be defining all the schema in the wsdl file and then generate our code. Instead of coming up with the code first where We can use some language constructs that might be available only in certain language but not in other languages.
+
+3) So there will be interoperability issues usually when we do a code first approach and use a custom data structures that are available in only a particular language.
+
+4) The bottom up approach has its advantages.
+
+We can easily expose out an existing application for which the code has already been written using the code first approach.In the code first approach we write the code and then generate the wsdl file from the code. which approach to choose? use the wsdl first or contact first approach as much as possible and use the code first approach.
+
+Only then you're exposing out the legacy applications.

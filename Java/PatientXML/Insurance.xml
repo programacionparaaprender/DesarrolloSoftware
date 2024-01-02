@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:insurance xmlns:tns="http://bharaththippireddy.com/Patient" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://bharaththippireddy.com/Patient Patient.xsd ">
+  <providerName>blue print</providerName>
+  <limit>1000</limit>
+</tns:insurance>

@@ -1,0 +1,42 @@
+SOAP Web Services Overview:
+
+1) How awesome it would it be if all the software applications on this planet can communicate with each other and make use of each other irrespective of the language they are developed in and the platform or the operating system they are running on.Web services promise that awesomeness and deliver that promise.
+
+
+2) They enabled loosely coupled and easy communication between applications running on different operating systems which were built using different programming languages.
+
+3) Webservices are to the software world what English to this planet.They are common ground or language to communicate across software applications running on different platforms.
+
+4) When you are watching this video, you are accessing a web application, wherein this website is the web service provider and you through your browser like Internet Explorer, chrome or Firefox or Safari.Is the service consumer.
+
+5) Web-applications work using http and html where as webservices work using http and xml while html is only understood by the web browser and used for presentation.
+
+6) XML could be read by any software application and convert it into language objects in which that application was written.
+
+7) Our applications can be web service provider or web service consumer or both.
+
+Here is the scenario, where a dotnet application running in the Windows environment is communicating with that java application running on the Linux environment.Through http and soap messages which are in xml.
+
+8)This java application inturn talks to a  legacy mainframe web application through web services. A world full off services which can use each other when and where required. The power of xml comes from it's Data and Metadata.As you can see here, here the data is bharath which is the customer name
+
+9) And then metadata is actually the element customer name any platform or language reading this xml knows what this data means.It is the customer name So it can be easily converted into a language object and the values can be assigned to it so that our application can do something with that data in the xmm=l.Web services can be within a single enterprise or organization or anywhere on the Internet and our applications sometimes communicate to the Web services within that company or organization.
+
+10) Sometimes they can into webservices which are outside the organization anywhere on the Internet.To conclude, this with real time example.
+
+11) Here is a software hospital management system which is broken down into component or services.
+
+12) We have the patient services which will deal with all the patient information like when he was checked-in and then whats his insurance information and all that.
+
+13) Then the clinical services which will handle all the patient related clinical like blood test information X-rays etc. a=And then we have the billing services which will bill the patient once he is done with all the services and the hospital.And he has checked out or throughout that process.
+
+15) So these are the three important components of hospital management system which talk to each other through webservices in a very loosely coupled manner that is only when required and where required.
+
+16) Then we have the insurance services which is outside the hospital and the billing services can call into the insurance services by using the patient information the patient provides what insurance he has And depending on that the billing services also checks what clinical services he has under went and after gathering all that information people call into the particular insurance service which is outside of the hospital to charge the insurance company and get all the cash the hospital should get.
+
+17) Through web services,All these components communicate seamlessly.
+
+18) To summarize from this lecture you have learnt what Web services are and how they enable seamless communication between applications running on various platforms.
+
+19) We have to remember one thing about web services from this lecture that is there are what english is to this planet for the software industry.
+
+20) They are common ground to communicate across software applications running on different platforms and languages.

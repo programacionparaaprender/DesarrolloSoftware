@@ -1,0 +1,40 @@
+
+1) In this lecture, you will master  everything about wsdl document. WSDL stands for Web Services Description Language.WSDL file is a contract between the web services provider and the consumer.It is a XML file with a dot wsdl extension.
+
+2) For example, user profile dot wsdl.There are two things which a wsdl file provides.One it tells, what this particular webservice provides, two how it provides it and how a consumer can consume these webservice.
+
+3) What message a consumer should send in the request and what response will go back as the webservice response back to the consumer.Based on these two,The wsdl file is divided into abstract portion and the physical portion.The root element of the wsdl file is definitions within which all the other elements like.The  abstract portion which tells what this webservice provides is comprised of four elements.
+
+4) The types,messages,operation and porttype.The physical section which comprises of two elements binding and service tell how to consume this service from the consumer.
+
+5) Now let's take a look at that real user profile wsdl.The root element of this xml wsdl file is the definition element within which we have the type section.
+
+6) This is where we define all the data types which we need to exchnage information for this particular webservice.
+
+7) In my case,I have two main elements here.One is the get user profile.This is the request that will come in.And then here is the response that will go back.So in the request.All I need is a username which is of type XSD string.
+
+8) But in the response, I have to send the entire user profile information back.So instead of dumping that entire schema here xml schema here, I have developed a separate schema file
+
+9) Which tells us what information will go back like the username, email id and his addressThen I have imported that schema file simply in my types section. The type section comprises of the entire xml schema using which you can define the request and response for your webservice.Once we define all the types we use the types in the second section in the abstract portion which is the messages.
+
+10) So,I have two messages.One is the request message and the second one is the response message.Messages are analogous to parameters and return types in Java.
+
+11) Once I have the messages define using the types here,I use these messages to come up with my operations which are analoguous to the methods in Java ,so the operation I have here is get user profile and it uses the request.
+
+12) That's what I have defined as the message I have defined here.Similarly, the response from this operation will be the message which I have defined on the top. The wildest element in the wsdl file is the port type element.It is simply a container of all the operations your web service is providing.
+
+13) So within the port type, you will put all the operations.In my case I have two different operations.So this is where the abstract portion of the wsdl ends, which tells what this web service provides.
+
+14) The second physical portion starts with the binding element and it tells how the consumer can consume this web service and how the provider is going to send the responses back.
+
+15) So the binding element comprises of a soap binding which by default is document literal wrapped and that is the recommended binding because the XML engines like apache cxf can validate that entire soap message when we use the document literal binding.
+
+16) So for each operation we can define binding here.Once we defined the binding the final the most important element is the services element which actually tells how to access this web service that actually url inside a sub element called port we define a port for each web service and a url to access that webservice and in my case it is user profile service you can make the will that services. You can have multiple webservices inside a single user using multiple port elements.
+
+17) The url location here will be replaced by the server IP address and the web applications name relatively far during the runtime by Apache cxf or any other web services engine we use dynamically. To summarize from this lecture,you have learnt all of the important sections of a wsdl file which is very important to the develop contract first webservices and also to develop consumer web service.
+
+18) At a very high level wsdl is divided into two sections the abstract section which tells us what this web service providers and then the physical section which is comprises of the binding element and the service element which tells how these web services can be consumed and how the messages are exchanged.
+
+19) The link between theabstract section and the physical section.Is this port type. You see it on the binding element,we have that port type which is nothing but porttype defined here.
+
+20) So this links the abstract and physical sections of a wsdl file.You can download this wsdl from this lecture and play it on with it.

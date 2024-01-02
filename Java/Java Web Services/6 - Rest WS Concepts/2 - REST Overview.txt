@@ -1,0 +1,54 @@
+REST Overview:
+
+1) By the time this video fades, you will know what REST is, and the key principles that make up REST. REST stands for Representational State Transfer. 
+
+2) As you watch this video lecture, you from your web browser are acting as a RESTful web service consumer.
+
+3) And this website acts as a RESTful provider and streams the video back to your browser. HTTP is out there for quite sometime and all the web applications on the Internet like Facebook, Google and several Enterprise applications use it.
+
+4) But Mr. Roy Fielding did his PHD thesis on how the power of web applications and HTTP can be leveraged for other types of applications. And that is what led to the principles that make up the RESTful services.
+
+5) The first and foremost principle revolves around the four different operations namely Create, Read, Update and Delete which every software application performs. The first RESTful principle is to provide a unique single interface to do these four operations,famously known as the CRUD operations.
+
+6) HTTP provides a unique interface to perform the CRUD operations through its POST, GET, PUT and DELETE methods.Similarly we can use Uniform Resource Identifiers to uniquely identify a particular resource, we want to create,read, update or delete.
+
+7) Let's consider a Hospital Management software which allows us to perform CRUD operations on patient data.
+
+8) To create a patient, we'll simply use the HTTP POST method from our web browser or a RESTful consumer written in some language and send in the request with URI like this /patients.
+
+
+9) Here is what our POST request would like with several other headers etc. which I have ignored. And we'll send in a XML which contains patient information. The RESTful provider will then send a HTTP status OK once it creates the patient in the database.
+
+10) And it also sends back the unique number for that particular patient.We can then read that patient data at a later point in time in our application using HTTP GET and pass in the unique Id.Here is how our GET request would look like. It simply has a URI. No need to send any information in the stream since we use the GET method.
+
+11) The provider will then take the unique Id, return a HTTP response code and along with that, it will return the entire patient information as XML. 
+
+12) To perform a UPDATE operation,we'll use the PUT method and pass in the entire patient information as XML. The provider will then update the patient and then simply send a Status code 200 OK.
+
+13) Last but not the least, to delete the patient information,we'll use the HTTP DELETE method and hit the URI with the unique identifier of the patient. And the REST provider will send a status saying the patient is deleted with a success status code.
+
+14) So we finally have one single interface as programmers which we will learn, that is the HTTP methods.We need not learn any methods that are specific to a particular application.
+
+15) All we need to know is the URIs of how to access that particular resource . REST supports multiple data formats because HTTP supports MIME types,we can consume and produce. 
+
+16) A REST provider can consume and produce data in multiple formats. For example if a Java application is communicating with a dotnet application,we might need the data in XML so that it can be easily converted into dotnet objects or Java objects.
+
+17) And if we are developing a web application which uses HTML and JavaScript, JavaScript can understand JSON very easily, JavaScript Object Notation.
+
+18) So a RESTful provider can provide the data JSON format as well. And also text and many other formats.If we need data in images, video stream etc; we can do all that by simply specifying the HTTP MIME type.
+
+19) REST is stateless. The biggest advantage or the main key principle of REST,it is stateless. Statelessness doesn't mean not having state at all, but exchanging the representational state between applications. The provider will send the state back to the consumer and vice versa.
+
+20) We can maintain the state on the client side instead of maintaining the entire state on the server side.
+
+21) All these principles are explained in much more detail in the next few lectures where you will learn why you should use REST, the advantages of RESTful services etc..
+
+22) To summarize, REST is a collection of key principles.It makes the best use of the HTTP protocol. And the key principles are,it provides a single point of interface for the programmers.
+
+23) We can simply use the four different operations available in HTTP to perform the CRUD operations.We can use URIs to uniquely locate and access the resources.
+
+24) It allows multiple data formats starting from XML to JSON, images etc,
+which is very powerful.
+
+25) Many applications can consume the same web service in different formats however require. 
+26)Last but not the least, RESTful web services are stateless, which allows scalability or application can be deployed on several servers as the user base grows.

@@ -1,0 +1,19 @@
+Summary:
+
+1) From this section, you have learnt that REST which stands for Representational State Transfer, offers one single interface to perform the CRUD operations which every application needs. That is if you are using HTTP to implement REST, we use the POST, GET, PUT and DELETE methods to perform the CRUD operations.
+
+2) We also send a request and receive a response using HTTP and we use all the HTTP codes to see if the response was okay or if there was an error.
+
+3) There are several advantages which REST offers, starting with, we finally have one single interface. We as developers will only learn the methods available on the HTTP protocol and no matter which application we are connecting to and consuming a RESTful web service,we use only those four operations.
+
+4) REST is very easy to access,RESTful web services.
+
+5) We simply use URIs to do that. REST supports multiple data formats starting with XML,JSON, CSV and several other formats.So our application can support multiple data formats for the same data at one time.
+
+6) REST is stateless, meaning there still is state in our application. But that state, as the acronym REST stands for can be easily transferred from the server to the client managed on the client and when required that entire state can be sent back to the server.
+
+7) Finally, you have also learnt when to use REST.You should use REST when there is no strict formal contract like the WSDL file that is required, when your application has to support multiple data formats like XML for integration and JSON for your web applications.
+
+8) And when you want no overhead or when you want to have lightweight applications that should support mobile apps,you should use REST.
+
+9) And finally, if your application is capable of being stateless, that is if your application can survive a server restart and start doing its work where it was before before a server restart, then your application is a great candidate for RESTful web services.

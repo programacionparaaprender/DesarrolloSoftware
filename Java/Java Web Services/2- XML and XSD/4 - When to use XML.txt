@@ -1,0 +1,22 @@
+									When to use XML?
+
+1) There are three places in which is mostly used or should be used 
+
+	a) For data exchange 
+	b) For configuration files 
+	c) To save data and to manipulate and present the data.
+
+
+2) For data exchange,For example we have application one and application two and these two applications how some data in common or they want to Exchange some data XML is the way to go because XML has both data as well as META data and it can be validated as well.
+
+3) The technologies that we can use could be soap webservice rest webservices simple RBC or remote calls it doesn't matter.But all these internally use XML to exchange the data.
+
+4) Secondly as a configuration file, if you are a software developer or a tester you already know several configuration files like the web.xml in Java space for web applications.Server.xml for application servers the pom dot xml and build.xml for your build files.
+
+5) So XML can be easily used as configuration files because we can again provide that configuration information as data and then the META DATA tells what that configuration information is for.
+
+6) Finally, we can use xml to save the data manipulate it and present it back to the user.
+
+I have once worked on a news portal application where-in the data was saved into a repository as xml.And then at some point later this portal retrieves that xml manipulates it and sends the xml as html.It uses style sheets converts the XML into html and send it back to the client.
+
+7) So these are the three big areas in which XML can be used starting from data exchange to configuration files to saving the data  manipulating it and presenting it to the client.

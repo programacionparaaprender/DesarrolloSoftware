@@ -1,0 +1,23 @@
+CXF and Spring Boot :
+
+1) Apache CXF makes it super easy to create web service applications by supporting the use of spring boot.
+
+2) Once we start using the support of spring boot to come up with cxf applications we simply add a cxf spring dependency a maven dependency one doing single jar file to our pom dot xml this can be done right.
+
+
+3) When we create a project in spring tools suit IDE the dependency is cxf hyphen spring hyphen starter hyphen jaxrs.
+
+4) Once we add this dependency automatically all the other jar files that are required to build RESTful services or soap services will be transitively dragged in so you simply create a project add a single dependency and we'll get all the dependencies for free thanks to springboot start starter projects.
+
+
+5) Secondly it also makes the publishing of our restful endpoint very easy.You simply add a property called cxf dot JAXRS dot components scan is equal to true.
+
+6) Once you do that in the application dot properties which is the spring boot properties file automatically all your web services end points will be discovered and published.It's that powerful.
+
+7) There is no need for any cxf hyphen servlet dot XML or java configuration so you simply create a project and add this line to your application dot properties once you come up with your Java classes and you are done.
+
+8) Additionally you can add properties to these application dot properties such as server dot context hyphen path.
+
+9) Using this you can define a web application context for your restful or soap application.
+
+10) So in the next few lectures you will be creating apache cxf spring boot project and configuring these properties.

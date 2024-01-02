@@ -1,0 +1,14 @@
+Creating a REST Client:
+
+The various Java libraries that can be used to create a Java web services REST client or consumer. This is because
+
+REST uses HTTP methods. We can simply use the java.net.URL class which supports all the HTTP methods.
+
+We can open a connection and create an output stream and then deal with all the low level details of the API or simply use the Apache's HTTPClient which is far more easier the URL class to use or simply use the jax-rs Client API.
+
+We as developers will learn one single API which is standard from Oracle and implementors or web service stack creators like
+
+Apache CXF,Jersey, Metro, Glassfish will implement this API making our job easier. So today we use Apache CXF, your application if tomorrow it needs to use another web services stack,
+we can simply switch it because we still have the API which is standard in our application.
+
+So from the lectures in the section you will start by creating a simple web services client for our patient service and then later on you will also see how to create Asynchronous REST clients as well as how to add filters on the client side.

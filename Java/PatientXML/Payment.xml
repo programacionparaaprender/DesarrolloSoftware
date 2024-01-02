@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:paymet xmlns:tns="http://bharaththippireddy.com/Patient" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://bharaththippireddy.com/Patient Patient.xsd ">
+  <cash>0</cash>
+</tns:paymet>

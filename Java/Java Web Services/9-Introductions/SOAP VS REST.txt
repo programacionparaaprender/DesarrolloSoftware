@@ -1,0 +1,62 @@
+SOAP vs REST:
+
+While learning the concepts of SOAP and REST services, you have already seen when to use SOAP and when to use REST for your applications. Here, I will be summarizing the key differences between these two and the criteria that will help you to make a choice.
+
+The first difference is the way the http methods are used by these two Web services.SOAP uses the POST method to tunnel in the request and response messages and we define the operations or methods separately for our business logic that should be exposed out as Web services.
+
+Whereas REST simply relies on the methods available in the HTTP standard.
+
+It uses GET, POST, PUT and DELETE to perform the crud operations. As a result, it not only gives a unique interface for the developers, we can also cache several methods which are used by REST like GET, PUT and DELETE because they are important. Caching tools that are available do not cache POST because, post is not that important.
+
+Meaning if you perform post more than once, it could result in different results or it changes the state of the application.
+
+Whereas GET, PUT and DELETE can be cached and the same response can be sent back improving the performance of the application.
+
+The second important difference is the contract. SOAP uses the wsdl file which defines the strict contract not only for the operations but also for data. The wsdl type section is where we define the entire schema for the request and response and that request and response can be validated against that schema.
+
+Whereas the WADL file which is the contract for the restful services only defines HTTP methods and the URIS that can be accessed through those methods to consume the rest services.
+
+It doesn't define any data contract.Wsdl 2.0 which is evolving promises that data contract in the wsdl given for restful services.
+
+SOAP has Web Services Standards advantage wherein we can use the standards like Reliable Messaging to send messages reliably and transactions,if you want that transaction to span across web service calls, we can use WS-transactions right out of box.
+
+And finally the important piece, the WS-security which can secure the messages SOAP request and response messages can be used out of box.
+
+We need not do a lot of application coding, you simply configure these and web services stacks like Apache CXF itself.
+
+All the application servers which support web services have implemented these. 
+Since SOAP exist for so long,all these stacks are very mature and have support for all these standards.
+
+So it is very easy to implement the non-functional requirements for an application using the Web Services Standards that are available for SOAP.
+
+But in case of REST, since it has recently being used it is not as mature as the SOAP web services stack and as application developers,we will be ending up writing a lot of non-functional requirements.
+
+If you are a mobile developer then you know what overhead means. You have very limited memory and SOAP request and response messages always have the soap envelope overhead
+
+which the mobile devices will feel difficult to handle because of the memory issues.
+
+So rest is very simple, it will not have any overhead.Whatever format you use, XML or JSON, it will be just the data going in and coming back,no SOAP overhead.
+
+SOAP supports or uses XML by default and I haven't seen another implementation or other data format used by SOAP bad whereas REST supports multiple data formats, a single REST provider can consume and produce different types of data formats which is very powerful because if you want to integrate two applications which are running in dot net and java platforms, you can use XML.
+
+If you want to expose your REST services to a UI, you can expose it through json format.And if we want to generate a report, you can use a text format all from one single REST provider implementation.
+
+Since SOAP exists for so long, there are mature tools like WSDL2JAVA which can be used to generate the clients very easily from the WSDL file.
+
+We need not write a lot of code or configuration whereas rest doesn't how many tools to do that we are still waiting for the tools to mature in the rest on the rest site.
+
+Finally, to make a choice between SOAP or REST, the non-functional requirements play a key role.If you have a lot of non-functional requirements for your application especially in a huge enterprise where there are several applications communicating with each other and if you have these non-functional requirements which are required you should use
+
+SOAP as the REST is still evolving and it doesn't have a matured stack to perform all these 
+non-functional requirements out of box.
+
+Secondly, if you are exposing out your web services to various clients whom you even don't know today and you need a strict contract for that data, that is when we should be using SOAP because soap allows us to use WSDL which can define the contract both for operations as well as the data that is being exchanged.
+
+
+Finally REST should be used especially because it scales well and it performs better because all its requests can be cached.
+
+So these two criteria here,the NFR and Strict Contract is when you are looking towards SOAP Web Services. REST is catching up very fast,its tools are maturing.
+
+I see enterprises using both REST and SOAP in their applications because they use REST internally where they don't need a Strict Contract or NFRs.
+
+The non-functional requirements like security whenever it is not important and they use SOAP to expose out their application to an external client where they need a strict non-functional requirements like security and also they need a Strict Contract defined so that these external clients can easily consume their Web Services.

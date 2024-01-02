@@ -1,0 +1,43 @@
+Advantages and Disadvantages of SOAP:
+
+From this lecture you will learn the key advantages of Web services which are make them so popular.And also a few limitations they have.
+
+Web-services are platform independent that is you can use web services to communicate between applications running on the heterogenous environments.
+
+Example a hospital management application written in Java can communicate with their insurance application developed in dotnet.This platform independency comes from his http which is transport independent and XML which is data independent meaning XML has both data as well as metadata that which tells what you can do with that data or what that data really means.
+
+So a java application sends xml soap message to a dot Net environment, the Dot Net platform can convert that xmlback into dotnet objects to make some sense out of it.
+
+As long as the platform has some support to http or xml it can be both web service provider
+and a consumer.The second advantage is our customers can customize our product or extend our product by using the Web
+
+Services which we give them.An example would be have recently worked on a project management software which had all the capabilities to manage a project but the customer wanted to generate a report out of this project management software and they have purchased a dotnet product from an other company.
+
+Now when they wanted to generate reports from the project data they could use the web services we give them pull the data out of our reporting database through the web services and use the dotnet product to generate the reports. As long as the legacy application has support for xml and http.It can be easily used by other applications by exposing Web services.I have worked on the airline reservation system which was written long long back for kiosks.
+
+Once you walk into a airport and if you want to do a checkin, you could use our product to do that where-in the user interface was tightly coupled with the business logic the business logic the user interface everything was in one single application.
+
+Now when we want to develop a web application that could talk to the existing business logic and allow the customer or the passenger online checkin we didn't want to rewrite the whole application again for the new UI you are building.
+
+We have simply exposed out the business logic which was that in the legacy app as web services and then the kiosk application which was already there has started calling into this Web services and the new web application which we were building has started calling into this Web Services which was very powerful and saved us a lot of time.
+
+And now we have one centralized framework into which if we want another application for a mobile environment in the future we can simply start calling into these Web services.
+
+Webservices open up doors for new revenue and profits.
+
+For example, Oracle had a product called Siebel CRM on demand where a client of  this product could consume those services whenever they want.
+
+However they want and how much ever they want.And Oracle charges them only based on how much they use it.
+
+So it is a customer relationship management tool which allowed Oracle to open up doors for new profits and channels to make profits.
+
+HTTP is very friendly with firewalls usually in organizations the port 80 is not blocked.
+So its very easy to communicate across applications within organizations or outside organizations using Web services.
+
+With great power comes some limitations.Since all the Web services standards are maintained by open bodies like W3C or oasis etc... the standards get confusing because people from different organizations like Microsoft, IBM ,Oracle work for these organizations when people from different mindsets come together its difficult to derive standards but they have been doing a great work and there are a lot of standards that are evolved that are in use.
+
+And the other limitation is webservice could degrade performance likely because of the serialization and deserialization of Soap messages.
+
+Every time your xml should be converted into languages like objects and vice versa which could degrade the performance likely but the benefits or the advantages that you have seen by far over by the disadvantages.
+
+When we move on to the restful webservices you will see how  rest can help with light weight load.It should be used if you are developing Mobile applications or lightweight User interfaces.

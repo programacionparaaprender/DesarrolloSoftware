@@ -1,0 +1,37 @@
+What is OAUTH:
+
+1) From this three part series, you will master the concepts of the OAuth standard. The first one introduces you to what OAuth is. The why and when to use Oauth are dealt within little more detail in the second one.
+
+2) And in the final installment, you will see the entire workflow of OAuth and the various roles in the OAuth standard.
+
+3) When we access a secured web application, it first verifies our identity by logging us in and then it ensures that we have access only to that data or functionality in the application which  we are authorized for.
+
+4) So the basic requirements are identity and permissions or authentication and authorization. REST applications are lightweight applications and are no exception to this kind of access.
+
+5) OAuth is a authentication and authorization standard which allows an application to gain access to user's data within an other application without knowing the user's user ID and password for the second application.
+
+6) Here, the user who is using application A and application A wants to get some data which application B has which is for the user. Instead of the user sharing his user ID and password of application B with A, through OAuth, application A will redirect the user to application B where he will log in.
+
+7) And from that point in time, application B we will share a security token with application A using which these two communicate and application A will get all the data which it requires from application B.
+
+8) This process of logging in and getting authorized, this entire work flow is covered in the OAuth standard.Lets take an example.
+
+9) Let's say you are watching technical videos or reading articles on a popular website like bharaththippireddy.com or JavaWorld.com,and you want to voice your opinion on an article in its comments section. To do this,JavaWorld want you as an end user to authenticate first by logging in, instead of you registering on JavaWorld, JavaWorld will use the services provided by Google because most of us has a Google login.
+
+10) It will redirect you to a Google login page, where you will login and then from that point, JavaWorld and Google will communicate to see if you are really a user of Google.
+
+11) This process of one application using another application to login or to authenticate is called Federated authentication, and it is one of the important pieces of the OAuth standard.
+
+12) The second important terminology is Delegated Authorization.Let's say you have used a website that allows you to file your income tax returns online and at the end of it produces a bunch of tax return documents which it allows you to save to your Google Drive. You as an end user,instead of sharing your Google username and password with the tax website, you are redirected,this tax website using OAuth,it will redirect you to the Google page, login page.
+
+13) You will enter your Google username and password and from that point the tax website will be able to access your Google Drive through Google's security token and it can only access your Google drive and not your Google mail and Google Docs.
+
+14) This process of authorization is called delegated authorization because this tax website is delegating their authorization process or you as an end user is delegating the authorization process to an other application.
+
+15) OAuth is a standard that defines the rules so that any application can be a part of this entire flow to do the Federated authentication and delegated authorization. That is a user grants access to an application to perform actions on the user's behalf and the application can only perform those actions which, you the user authorizes it to do. 
+
+16) The current version of OAuth,if you google for it, OAuth 2.So if you go to the oauth.net, you'll see that OAuth 2 is the current version and it is a verypopular version. So it's that simple.
+
+17) To summarize, in this lecture you have learned that OAuth provides one application access to another application which has the end user's data and this entire process can be put into two terms called Federated authentication and Delegated authorization and applications will be only able to access that part of data in an other application which the user wants it to access.
+
+18) You have also learned what Federated authentication is and Delegated authorization is.

@@ -1,0 +1,30 @@
+When to use OAUTH:
+
+1) From this lecture, you will learn why and when to use the OAuth standard in a little more detail. Now that you have mastered web services,let's say you are approached by various companies or placement firms who are looking for Java web services developers.
+
+2) While you submit your resume through their website, instead of creating an account or profile with each of thesejob portals,they can give you an option to pull your information from LinkedIn or Facebook.
+
+3) Are you ready to share your username and password of LinkedIn with all these job portals?
+Ofcourse no.We can't trust each and every website out there.Instead these job portals or placement firm's websites will redirect you to the LinkedIn website where you will enter your username and password.
+
+4) And from that point in time, these job portals will communicate with LinkedIn and retrieve all the profile information and your resume as required.So trust is number one advantage of using OAuth.
+
+5) Secondly, let's say we have trusted all these websites and we did give them our username and passwords which will result in our username and password saving, getting saved everywhere and we entering our username and password for each of these websites everytime we visit them, which will increase the chances of stealing our username and password and the
+chances of phishing scams going up. 
+
+6) Without the OAuth protocol,once you give access to these portals to your LinkedIn profile or Facebook profile, they can access everything from your contacts to photos to videos,if we don't have authorization in place. So OAuth also, as you know supports authorization and these job portals can only access that part of LinkedIn which you will give them access to when you are logging in.
+
+7) Finally the OAuth Standard also specifies how an end user accessing an application can revoke the permissions at some point. If there is no standard,you will give your LinkedIn access to these job portals but how do you take it back?
+
+8) So there is a revocation standard also as a part of OAuth.So these are the several advantages why you should be using OAuth.
+
+9) Secondly, when? OAuth is not a simple authentication mechanism or a single sign-on mechanism. OAuth fits into the applications or it is the choice of web applications, that itself uses another web application's API on behalf of the user.
+
+10) So you've already seen it. User accesses application one, application one wants to use application two,which the user already has access to.
+
+11) So those are the scenarios which are ideal for OAuth. It gives the web applications a secure way to get an access token, like in case of our job portal example, the access to LinkedIn was given to the job portals.
+
+12) And from that point in time, they both communicate with each other.Finally, when not to use OAuth? We should not use OAuth for simple applications, it will be an overkill.
+
+13) For simple applications we can use HTTP basic or form based authentication over SSL.
+Always remember that, if you have simple REST web services, wherein you need not or you do not need this particular scenario of one application accessing another application where it has user's data,you can simply use basic authentication or form based authentication over SSL.

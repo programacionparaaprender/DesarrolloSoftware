@@ -1,0 +1,10 @@
+-----------------------
+Para que me funcionara al conectar a ubuntu 14.04
+-----------------------------------
+activar en el celular depurar usb, pantalla activa, ubicaciones simuladas
+tutorial de la página recordable.mobi/install
+sudo apt-get install lib32ncurses5 lib32stdc++6
+sudo killall adb
+sudo ./RecordableActivator-linux64-offline 
+
+

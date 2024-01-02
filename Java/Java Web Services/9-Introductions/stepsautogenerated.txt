@@ -1,0 +1,12 @@
+Steps to create a SOAP client:
+
+1) In this section you'll create a Java SOAP client project and use Apache cxf to come up with a java client that will communicate with our wsdl first customer order service.
+
+2) We'll do that in five simple steps.First we'll create a spring boot project add the Apache CXF dependency to it.
+
+
+3) You will then retrieve the wsdl file from the web browser by running your server side application.
+
+4) You will save that WSDL file locally.Copy it into your project and once you have the wsdl file you will generate the Java stubs there is very less code we need to write because we can generate Java stubs from the wsdl file similar to how you have done it when you created the web service itself and use the same stubs to come up with the client code.
+
+5) Once you have the stubs you will create the client in two simple steps and then run it so create the project retrieve the wsdl file generate the stubs create the client code and then run the client to access the web service.

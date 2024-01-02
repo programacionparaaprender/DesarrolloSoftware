@@ -1,0 +1,7 @@
+Introduction:
+
+1) From the previous section you have mastered all the concepts that are required for SOAP based services
+
+2) From this one you start learning the two different approaches in which soap web services can be implemented followed by comprehensive overview of JAX-WS standard which is a must for implementing soap based web services in java. 
+
+3) At the end of it you will learn the important web services stack Apache CXF and how it implements the JAX-WS API and all the cool features that it has which made it so popular.

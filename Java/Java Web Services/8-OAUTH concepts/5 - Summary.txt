@@ -1,0 +1,23 @@
+Summary:
+
+1) In the series of OAuth lectures, you have learnt what OAuth is, why we need it, when to use it and also the OAuth work flow. OAuth is a Federated authentication and Delegated authorization mechanism,which allows one application to access the user data within another application on behalf of the user.
+
+2) You have seen multiple examples. To wrap it up with an example, when a user access a job portal, the job portal wants to retrieve its information or the user's information from LinkedIn.
+
+3) It will register with LinkedIn even before the user starts accessing the job portal, that is the first step in the OAuth protocol or work flow, and when the user accesses the job portal to check out the job postings and to post his resume, this job portal will give an option to the client to use his LinkedIn profile by redirecting him to the LinkedIn website.
+
+4) It also sends a redirect URL that LinkedIn can later on use to send the client back to the
+job portal.
+
+5) Once the client authenticates and authorizes LinkedIn, LinkedIn will redirect him back to the job portal, along with a unique code. The job portal will then use that code to get a token back. 
+
+6) From that point in time,the job portal can retrieve all the information by sending that token to the LinkedIn website.
+
+7) That is the beauty of the entire OAuth protocol. OAuth has several roles, starting from Resource server,
+
+8) Resource owner and then the client and also a Authorization server, which helps us with the
+entire work flow.
+
+9) We have also seen the entire flow in action by using Google's OAuth playground. When to use OAuth?OAuth should not be used always.
+
+10) We can use basic authentication or some other simple authentication mechanism. OAuth should be used only when we have the Federated authentication and Delegated authorization scenario wherein a website wants to or a RESTful Service wants to access certain information of the user which is already present in an other application.

@@ -1,0 +1,42 @@
+REST Attachments:
+
+How to exchange files or attachments in RESTful web services world. The use case could be you uploading your resume from the web browser to a job portal which exposes out RESTful services or you using a client application to consume attachments from a RESTful web application.
+
+All this is possible to upload and download files using the HTTP standard and it has been a part of the HTTP standard for quite some time.
+
+That is, we can use the http POST method to upload a file as a part of the HTTP POST stream, that entire file contents will be sent to that application. The application will then read the contents of the post stream and it will or it can save them to a file on its file system.
+
+Similarly we can download files on to a web browser or a RESTful web application using the GET method. Since it's a part of the HTTP standard it's not new,it's out there in the HTML world and it was being used for quite some time.
+
+So here is a HTML page that can be used to upload a file to the server or a RESTful web application.The main piece here is the form, this form action points to a URI on the server. It could be an absolute URL as well,the server location and everything.
+
+The method we use is POST and the important attribute here is encoding type.
+We are telling the web browser that we should use multipart/form-data.
+
+That means whatever fields are there in here inside the form, the file field, the submit button.
+
+They should be split into multiple parts and sent to the server.
+
+So we use the input type "file" to browse to a file location on our machine.So this HTML file will look like this on the web browser. You'll be using this HTML in lectureslater on.
+
+So you can click on this Choose file button, browse to a file, hit submit and the browser will send that entire file along with the submit button attribute or the submit button control value to the server or the RESTful web application.
+
+And this is how the HTTP request, POST request will look like on the wire.Here are the headers followed by, if you see this,it splits it into multiple parts here.
+
+The filename, the file name is test.txt.It's the test.txt here.
+
+If it is an image file, it will have the name here followed by what type it is, the mime type it could be text/plain, application, image, video whatever,or a Microsoft Excel document followed by the actual contents.
+
+So here, this is the content.But if it is an image file, it will be all binary content that will be going to the server.
+
+On the server side,earlier in the early days, we used to manually read these content from the input stream on the server that comes in the HTTP quest and we used to parse this string and save it to a file.
+
+But nowadays the frameworks have evolved, frameworks like Apache CXF, Jersey etc. can easily represent that content as a Java object. In case of Apache CXF, the incoming file is automatically parsed and converted into an object called Attachment. From this attachment, we can get the input stream and simply save that input stream onto our file system.
+
+It's that simple.So this attachment class is from Apache CXF, is not from the jax-rs API. Jersey will have its own implementation for the attachment,or it can call it something else.
+
+And similarly other rest frameworks can implement their own objects to parse out the multiparts and make this data available as a stream of its own, and to download files, we can simply create an instance
+
+of the java.util.file object, point it to a file on our machine and send it back as a part of our RESTful response.
+
+You  will see all that in action in the next few lectures.We'll be still using the @Path and @get annotations to mark our RESTful resource method.

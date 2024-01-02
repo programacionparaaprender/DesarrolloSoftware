@@ -1,0 +1,63 @@
+Advantages of REST:
+
+1) From this lecture, you will learn why we should use REST web services to build our applications.By the end of it, you will know all the advantages of RESTful web services.
+
+2) Every product or software application offers four different methods, namely Add, Update, Delete and Read.
+
+3) For example, this particular website allows you as an end user to create or add an account, update your account information,delete your account and read the courses or watch the lectures you have bought. 
+
+4)All these operations can be performed through REST Web services using one single interface. As developers,now we'll learn only four methods or a few more in HTTP. But we need not remember all the methods which a particular RESTful web service is giving us,like in case of SOAP Web services. Once we learn this single interface, which is very easy to remember,all we need is URLs to easily access our RESTful services or to design our RESTful providers.
+
+5) Here is a simple example of Hospital management application,wherein I can access all the patient's information by hitting this URL with a get method.So my RESTful clients, once I provide this web service can access all the patient information by
+this URL.
+
+6) If I want to retrieve one single patient's information, then I would use or change this URI portion like this and pass in the patient's Id.Similarly, if I want to retrieve all the prescriptions of a particular patient, all the medicine or the drug prescriptions,I will just change this URL to /prescriptions.
+
+7) If I want to get one prescription, I'll pass in the Id with the HTTP get method. Using the HTTP GET method, I ll hit these URLs.
+
+8) Now if I want to create a new patient, I would use the HTTP POST method and I will send in the entire content of the patient or the prescription as XML or as JSON.
+
+9) Similarly, if I want to update a patient information I'll use the PUT method and pass in the JSON and the XML.
+
+10) RESTful services deliver interoperability, meaning any application running on any platform written in any language can be consumed by any other application running on a completely different platform written in different language.
+
+11) And that through in multiple data formats.That's the key of RESTful web services. For example, here is a RESTful web services provider which is written in Java, which can be consumed by various providers written in HTML and JavaScript.
+
+12) A simple web application can consume our RESTful service in JSON format, JavaScript Object Notation, which can be easily understood by JavaScript. Then a .NET consumer or client can access our application by sending in XML requests and receiving a XML response back.
+
+13) Similarly a Python application can get it in a text format.All this is possible because they use HTTP MIME types.Statelessness is a key advantage of RESTful web services. 
+
+14) Statelessness doesn't mean our application will not have any state.All it means is, the state will be maintained on the client instead of our application or the REST provider maintaining the state.
+
+15) If you remember the Client server apps of 1990s or early 2000s, we used to have our application deployed on a server.
+
+16) And then we used to install a client application on each and every machine which needed our application.
+
+17) For example, a banking application would be running on a server but then on each teller's machine we'll have to go and install the client application which we developed also. And those client applications used to maintain the entire state.
+
+18) That is, it could be an entire shopping cart,it could be account details of a customer, etc.They pull it from the server and then they used to do everything on that information on the client side itself.
+
+19) But with web applications that was difficult to do.Although we don't have to install software on each and every machine in the web browsers, it's very easy with the sweb applications to access the application just from the browser,instead of installing the client application on each and every machine. And with the introduction of several
+
+20) JavaScript libraries like Ajax and JQUERY, maintaining the state on the browser or in the browser has become very easy and that is the trend now. So our RESTful provider will not maintain any state, but the clients will pull the information and maintain the whole state on the browser or on the client side itself.
+
+21) One example, recently I have worked on a Checkin, Airline Checkin application for Kiosks.
+
+
+22) The Kiosks used to load the entire state on the browser that runs on the Kiosks and perform the entire checkin of various passengers in a particular reservation.
+
+23) With this statelessness, we arrive at the final but important advantage of REST Services which is Scalability.
+
+24) As the number of users grow, the number of users that are accessing our applications grow which is a big problem today, because there are millions of users accessing applications.
+
+25) We can easily scale onto multiple servers. Now that our application is stateless,we can easily scale our application to multiple servers through a load balancer. With this scalability,another advantage is we can cache our, since HTTP is stateless, no matter how many times we perform GET, PUT and DELETE operations,the state of the application will not be affected. So our responses can be easily cached and that will improve the performance of our application tremendously.
+
+26) To summarize, from this lecture you have learnt the various advantages of RESTful services starting from single interface through all the HTTP methods.
+
+Easy to access - URLs and URIs.
+
+27) Interoperability,that is, applications developed in any language running on any platform can be accessed through RESTful services by applications running on any other platform as long as they have support HTTP. RESTful services also support multiple data formats, JSON, XML, text, images etc..
+
+28) And the key are statelessness and scalability. Through statelessness we achieve scalability. Statelessness doesn't mean the application doesn't have state.
+
+29) But the state will be maintained by the client, so that our provider application can scale across multiple servers and also our HTTP requests can be easily cached, because they are idempotent. No matter how many times you run your GET, PUT and DELETE methods,they don't impact the state of the application.

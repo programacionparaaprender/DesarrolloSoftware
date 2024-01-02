@@ -1,0 +1,267 @@
+WSDL Styles:
+
+1) From this lecture, you will learn the different styles that can be used in the soap binding section.
+
+
+2) By the end of it you will learn, what they are the advantages and disadvantages and when to use which. 
+
+3) We can specify a soap binding style by using the style attribute on the soap binding element in a wsdl file, for example document slash literal is one of the styles you should remember that there are three important things that will be impacted depending on the style will choose.Number one how the soap payload the message inside the soap body element
+
+4) Looks like they'll be impacted by the style we use.Secondly whether the entire soap body can be validated against the schema that will use in the wsdl is determined by the time we use.
+
+5) And finally whether the operation name the name of the method, webservice method that should be invoked whether it is a part of the Soap Body is also determined by that document liberal style.
+
+6) Once you remember these three, it will be very easy for you to understand the various styles of wsdl.I'll not be reinventing the wheel,I'll be using an existing article from IBM.So open up your web browser go to Google and search for which wsdl style should I use.And the very first article you will see is from IBM.
+
+https://www.ibm.com/developerworks/library/ws-whichwsdl/index.html
+
+7) So click on it.Go to that article.This article has helped me from time to time to crack interviews.So a wsdl binding style can be a combination of RPC, document and encoded literal.
+
+8) So we basically, have four types or four styles in which we can define a binding.So it is RPC encoded or RPC literal.document encoded and document literal.
+
+9) Before we move on further to remove any confusion, here this RPC doesn't have anything to do with the report procedure call, the way we use RPC in Java that doesn't have anything to do with this here it's just named wieredly, we can use these styles
+
+10) What with the old RPC way of doing it and also the jaxws way of doing it.These styles only affect the way the soap message gets generated so scrolling down.
+
+11) Let's take a java menthod called my method which has two parameters which accepts two parameters.
+
+12) Now if we generate a wsdl file for this method following the java first approach or even if we are hand-coding a wsdl
+file.
+
+13) This is how the wsdl file will look like if we use the RPC encoded style. We first define the message inside which we have the name of the message as my method request.It has two parts and we specify the types of the parameters directly in the message.
+
+14) These types don't go to the xml schema definition or the wsdl types we directly specify
+the types here.And when we define the operation we define a operation called my method which is the same as the method name here.
+
+15) And we use the input message which we have defined here inside the messages and the binding will go here,this is where we'll be specifying the style to be RPC encoded although it's not shown here.
+
+16) It's very straightforward.You generate a wsdl file for this method and you tell the generator tool that you want to use RPC encoded this is how the wsdl will look like the key thing to look at is how the SOAP message at runtime webservices engines like Apache access or Apache cxf
+
+17) We look at this wsdl and they will send in a request like this.The request has my method which is the operation name along with that it has the type information as well.
+
+18) So whatever type we have defined here that information is included in the soap envelope soap body the payload.
+
+19) Let's look at that advantages and disadvantages of this approach.The strengths are wsdl is simple.The operation name that we defined here in the wsdl appears in the soap body.
+
+20) So apache cxf or access can look at the root element and dispatch this request to the appropriate method the appropriate java method or appropriate dot net Method.Weaknesses, we have a lot of type encoding information in the soap message.
+
+21) So this is an overhead every time the message comes in there are these schema types.And also it is not WSI compliant, so it cannot be used across platforms.And the entire soap message is not coming from the schema.
+
+For example, we cannot validate this operation Name against a schema or the wsdl type section.This thing is coming from the operation section here.So that is the key.The next method is the RPC literal.
+
+22) Let's see if it overcomes some of the weaknesses of RPC encoded.Everything in the wsdl remains the same, menus RPC literals, there is no change in the wsdl except for in the binding section.You will tell that it is RPC literal instead of RPC encoded.Once we define that at runtime,the request will look like this now.
+
+23) There is no encoding information.So here there were types specified here but here when Apache access or Apache CXF generates the request on the client side.They do not include that type encoding information thats the big advantage.So let's look at the strengths, the wsdl is still the same.The operation name still appears which is good.
+
+24) The type encoding is eliminated.That is the big advantage.So there is no overhead.The performance will improve.So this is WSI compliant as well so it can be used across platforms dot net Java etc..Weaknesses we cannot validate the soap message this Payload directly against the schema in the wsdl.
+
+25) So still the message is not coming from the wsdl types section.The message is coming from the wsdl message element.So we cannot validate it against schema.That gets us to the document style of doing things.The documentencoded is not WSI complaint
+
+26) And as you can see nobody follows this style.So let's keep that.
+
+27) And the final, the fourth style that is one more style which is an improvement or document literal but document literal improves over the encoded or RPC literal styles.
+
+28) Lets look at the document literal style.When we use the document literal we define the types in the wsdl types section.
+
+29) So for the first time we are touching the wsdl type section and we are defining a schema which will have the inputs here instead of directly defining the inputs as a part of the message we are defining the inputs in the wsdl types section and we are referring to those inputs as parts inside our message.
+
+30) And then we use the request as is inside the fourth element and we define the operation called my method,we are using that here and these are the soap message will look like the body will directly have those two elements which we have defined in the schema.
+
+31) Lets look at the strengths.There is no type encoding information.Yes just like the RPC literal style there is no encoding information here which is good.
+
+32) We can finally validate these two elements the entire soap body can be validated directly against the schema
+
+00:08:18.350 --> 00:08:20.540
+defined in the wsdl types section.
+
+00:08:20.540 --> 00:08:22.340
+So that is the big advantage.
+
+00:08:22.970 --> 00:08:25.750
+It is WSI compliant with a few restrictions.
+
+00:08:25.760 --> 00:08:29.690
+You can click on this link and see what those restrictions are.
+
+00:08:29.750 --> 00:08:31.490
+There still are some weaknesses.
+
+00:08:31.500 --> 00:08:38.490
+The wsdl is bit more complicated because we have to define the schema etc.. for now but in most
+
+00:08:38.490 --> 00:08:43.800
+cases we can generate wsdl from java code using tools so that is not a big disadvantage.
+
+00:08:44.370 --> 00:08:47.780
+Another big disadvantage is that the operation name is gone.
+
+00:08:47.780 --> 00:08:50.690
+If you see here we dont have a root element here.
+
+00:08:50.690 --> 00:08:55.840
+There is no operation name inside the soap body so web services engines like Apache CXF 
+
+00:08:55.840 --> 00:09:00.360
+and access will have a tough time to dispatch this request.
+
+00:09:00.430 --> 00:09:05.930
+The operation name itself might have to be sent as a part of the http header as a part of the soap header which 
+
+00:09:05.930 --> 00:09:07.850
+is not recommended.
+
+00:09:07.860 --> 00:09:17.050
+Finally it is not WSI complaint because WSI basic profile defines that there should be only one root
+
+00:09:17.150 --> 00:09:19.420
+element inside a soap body.
+
+00:09:19.430 --> 00:09:21.630
+Here you can see there is no one single element,
+
+00:09:21.620 --> 00:09:26.490
+there are two elements and they are not bound by one single element.
+
+00:09:26.510 --> 00:09:29.920
+So there is no root element.
+
+00:09:30.170 --> 00:09:34.060
+So that brings us to the final and the most used style
+
+00:09:34.170 --> 00:09:40.880
+the document literally wrap. When we use the document literal wrap, we wrap all the types or the
+
+00:09:40.880 --> 00:09:49.760
+input output parameters inside a complex type and that will be the root element for our schema.
+
+00:09:50.370 --> 00:09:57.090
+So here the name of that element is the name of the operation itself that is the key.
+
+00:09:57.710 --> 00:10:06.000
+And then we use that element inside the message and that message is used when we define the operation.
+
+00:10:06.410 --> 00:10:12.500
+The advantage here is that the operation name itself becomes the root element.
+
+00:10:12.500 --> 00:10:20.420
+So lets look at the advantages and disadvantages when we follow document  literal. Along with this, along with naming
+
+00:10:20.420 --> 00:10:23.290
+the root element as Operation name.
+
+00:10:23.300 --> 00:10:27.850
+We still specify the style is document literal  in our binding element.
+
+00:10:28.010 --> 00:10:34.580
+We specify that the style is document literal but we need to follow this schema portion here for it to
+
+00:10:34.590 --> 00:10:36.820
+be really document lateral wrapped.
+
+00:10:37.010 --> 00:10:41.710
+So we are wrapping the operation name as the root element.
+
+00:10:42.140 --> 00:10:48.680
+So this is how the message we look like the operation name is wrapped in the request and the data is wrapped
+
+00:10:48.800 --> 00:10:52.530
+inside it.
+
+00:10:53.120 --> 00:10:55.240
+The advantages,there is no type encoding information
+
+00:10:55.400 --> 00:11:03.050
+everything that appears in the soap body this entire portion finally is coming from the schema section
+
+00:11:03.140 --> 00:11:09.950
+of the wsdl file or the type section of the wsdl file so we can validate the entire soap body against the
+
+00:11:10.250 --> 00:11:11.310
+schema file.
+
+00:11:11.610 --> 00:11:14.220
+So thats the big advantage.
+
+00:11:15.470 --> 00:11:20.780
+Once again, we have the method name in the soap message so Apache CXF for access so by looking at
+
+00:11:20.780 --> 00:11:21.910
+this root element
+
+00:11:21.980 --> 00:11:28.720
+they can use this root element to dispatch the incoming request to the appropriate java or dot net method.
+
+00:11:29.030 --> 00:11:35.620
+So this will be the operation name in Java or darknet or any other language. Document literal type is
+
+00:11:35.620 --> 00:11:39.420
+WSI or any other complaint and it is one of the most used types.
+
+00:11:39.410 --> 00:11:45.220
+If there is any weakness that is the wsdl becomes complicated.
+
+00:11:46.550 --> 00:11:52.370
+So when to use each of these although we have four or five different styles document literal wrap is
+
+00:11:52.380 --> 00:11:57.750
+the most used style but it has certain  disadvantages.
+
+00:11:57.770 --> 00:12:03.430
+One is that if you how overloaded methods in your job program you cannot use the document literal style,
+
+00:12:03.680 --> 00:12:10.470
+Because if you use document literal you need to define two elements with the same name my method in
+
+00:12:10.460 --> 00:12:13.450
+the schema but schema only allow you to do that.
+
+00:12:13.450 --> 00:12:17.120
+You can how only one element with the given name.
+
+00:12:17.340 --> 00:12:23.360
+So you cannot use document literal wrapped style if you want to use overloaded methods in your webservices
+
+00:12:23.370 --> 00:12:24.950
+endpoint.
+
+00:12:24.950 --> 00:12:31.050
+Also there are reasons when to use RPC literal and when to use RPC encoded, I leave it as an assignment
+
+00:12:31.040 --> 00:12:36.110
+for you so that you will come to this article and you will read it and the book market will help you
+
+00:12:36.120 --> 00:12:39.550
+from time to time and you want to revise the topic.
+
+00:12:39.650 --> 00:12:46.150
+To summarize there are different styles or bindings that can be specified in a wsdl file.
+
+00:12:46.430 --> 00:12:53.310
+Mainly these bindings impact how the soap payload gets generated whether the entire payload can
+
+00:12:53.300 --> 00:13:00.330
+be validated or not and whether the operation name for that particular web service is part of the
+
+00:13:00.360 --> 00:13:02.540
+soap payload or not.
+
+00:13:03.190 --> 00:13:10.530
+So the four styles were RPC encoded,RPC literal, document encoded and document literal. 
+
+00:13:10.550 --> 00:13:17.060
+And finally the fifth Hybrid style is the document literal wrap each of those have their own advantages
+
+00:13:17.070 --> 00:13:18.220
+and disadvantages.
+
+00:13:18.490 --> 00:13:25.490
+But that document literal wrap is the most used style because it includes the operation name as the root
+
+00:13:25.520 --> 00:13:27.580
+element and everything in the
+
+00:13:27.600 --> 00:13:31.880
+soap message or the soap body can be validated against the
+
+00:13:31.880 --> 00:13:34.000
+wsdl types section.

@@ -1,0 +1,45 @@
+REST Design:
+
+1) In the previous lectures, you have grasped the concepts of REST services, the advantages of REST and when to use them. In this we'll be designing a Patient Management application which allows us to ADD, READ, UPDATE and DELETE patient information and all of his prescriptions and medication information.
+
+2) We'll do this in four simple steps. The first step is to identify the resources or objects that need to be exposed out as REST services. The second step is to create the URIs which will allow us to easily access these resources.
+
+3) The third step is to assign the HTTP methods to perform the four crud operations.Finally we'll choose a data format and come up with the request and response messages using that particular data format.
+
+4) To do the first step, we use the object model or the class diagram for our application.Here is the class diagram which has four classes.Patient which can have multiple prescriptions and a prescription can have multiple medicines on it.
+
+5) These three are the data transfer objects or the resources in our application. Now to expose out the patient information,here is the PatientService which will have the getPatient, updatePatient, addPatient and deletePatient methods which are the crud operations that needs to be exposed out as REST services. The nouns in the object model, basically Patient, Prescription, Medicine become the resources in RESTful web services.
+
+6) The next step is to assign the URIs or to create the URIs to access these operations on the
+PatientService. For creating a patient the URI is /patients. Very simple. We'll pass in the data by hitting this patient URL. To read a patient, we pass in a unique Id, the URI should have a unique Id for which we we'll return the patient back. To update the patient again it will be patients URL similar to create patients. But the data that will be coming in will have a patient Id as you will see shortly.
+
+7) Finally to remove a patient,again we have come up with a URI that requires the patient Id to be passed in. We can also support URIs wherein we can use a URI like patients and call the READ method and it can return all the patients back. And we can call a remove method by simply passing patients URI without the Id and we can delete all the patients.
+
+8) So its up to us how to use these URIs.The next step is to assign the HTTP methods to the appropriate operations. For read,we should always use the GET method. For creation of object, we use the POST method because POST is non-idempotent.
+
+9) And if you perform the POST operation multiple times, it will change the state of the applications.So every time you use a POST method, a new object will be created. For update,
+it's always a good practice to use PUT and not POST because you don't want to change the state of the application no matter how many times you perform the update operation it should do the same thing.
+
+10) So PUT is idempotent meaning how many ever times you execute the PUT operation,it will not change the or corrupt the state of the application.Finally delete is straight forward. To delete a patient, we'll be using the HTTP DELETE method.
+
+11) The last and final important piece is to come up with the data formats. Since REST supports multiple data formats like XML, JSON, CSV etc..
+
+12) Let's choose XML for the sake of this lecture as well as for the implementation later on because XML is famous and multiple applications can consume XML very easily.
+
+13) Applications in dotnet, applications in Java can consume XML easily.I will also show you how to use JSON in later on lectures. For the read request,the request will have only the URI. We'll not be sending any data in the request.
+
+14) But when the response comes back,this is how we want the response to be. So we'll come up with some sample messages wherein the Read response will have an Id and the name,the two fields on the patient object.
+
+15) The next thing is Create. To create a patient, we'll send in the name in the request and we'll use a HTTP POST method to do this.
+
+16) The response will have the Id which got generated on the server or in the RESTful provider and it will again return the entire patient information back. To update a patient, we'll have to send in the id we got when we created the patient and then whatever details that needs to be updated.
+
+17) In this case we can change the name of the patient by sending in a different name here.The response for UPDATE will simply be HTTP OK and no data will be there. If you want to send the same data back,we can do that. But usually it's not required because the client will already have the update information
+
+18) Finally the DELETE request is very similar to the GET request.It will not have any data, only the URI. We'll hit this URI with the patient Id and the response will be a HTTP OK. In realtime applications, we'll be coming up with schema files which we can give the clients so that they will know what XML should be coming in and what XML will be going back.
+
+19) So it's that simple to come up with RESTful design in 4 simple steps.Firstly, identify the resources. We can do that by identifying all the objects or coming up with the class diagram for your application and all the nouns in that class diagram will become the RESTful resources.
+
+20) Then you create the URIs that you think are required for your application.In this case we only have the CRUD operations.So you have derived all the URIs to perform the CRUD operations on the patients. Take up an assignment of creating the URIs for the prescription and also the methods you will be assigned to perform the CRUD operations for prescription.
+
+21) The last step is to come up with a data format which could be XML, JSON etc.You can simply use XML and create the XML messages for the Prescription object as well, as a part of the assignment.

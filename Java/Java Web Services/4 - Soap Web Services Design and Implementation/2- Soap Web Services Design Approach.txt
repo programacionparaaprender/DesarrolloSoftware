@@ -1,0 +1,61 @@
+From this lecture, you will learn the two different design approaches to implement.Soap webservices. By the end of it you will see the two approaches how they work at the high level and advantages of each of these approach and when to use which. 
+
+The first approach is the contract first or wsdl first or top down approach.
+
+The second one is the code first approach which is also known as the bottom up design.
+
+In the wsdl first approach,
+
+we first create the wsdl file.You know what a wsdl file is now, it is a contract between the web-services provider and the consumer.
+
+This file has all the information about the web service.
+
+It tells the consumer what the webservice can provide and hold it provides it the data that should come in the request and the date that will go back in the response.
+
+The second step is to generate java stubs using tools like wsdl to java.So we generate the java classes the stubs from the wsdl file which we have created in the first step.
+
+The last and most important step is to create our actual web services implementation class by implementing one of the stub
+
+Interfaces that got generated in the second step.There are several advantages of wsdl first approach.The first and most important one is we can sign off a contract with our business analysts or the end users since a wsdl file is xml file 
+
+And since it has all the information about our web service our clients can look at xml which is easy to read than Java code and then sign off on the wsdl file.
+
+We can then implement our web service.And at the end of it everybody will be on the same page which is very important.
+
+By writing wsdl first, we improve the interoperability chances between our web service provider application and any consumer application.If we do the code first which will be seeing in the next slide.If you end up using a data structure which is that in a language you are using like Java and if very old legacy application is trying to consume this application and if that language doesn't have the support for the data structure your web service will become useless.
+
+So by writing wsdl first and then using the xml the consumers can make sure that what we are using in the wsdl is available in their languages as well.The third main advantage of the contract first approach is we can give the wsdl to the consumers right at the beginning even before we implement our java code as soon as we come up in the contract
+
+We can just hand over our wsdl file to the consumers who ever wants to consume our  Web service and they can start writing their client code.
+
+And when we are ready with our provider the consumer is already there to consume our webservice by making faster integration.To give an example, I have once worked on a project management software which manages construction projects military projects or any other projects. This project management software stores all the information in its database,and we help to Expo's out web services so that reporting applications can consume this webservice.
+
+Since we were developing this project management software from scratch we were able to write a  contract first webservices, so we defined all the wsdls for all the objects within the project management software.
+
+And then we have handed over our wsdl files to the reporting application which was build by another team completely and which was written in dotnet. This reporting application calls into our web services and then reports out all the project latest data on the project.It generates various kinds of reports based on the parameters that the users give.
+
+By that time we were ready with our project management application reporting application was already there to consume our web-services since we have done the contract first way and we have given the wsdl file right at the beginning to the reporting application.
+
+The second approach is the code first design, here we start by writing the java code first and we annotate all of our  code as required by Jax-ws specification and then we generate the wsdl from this code using the java to wsdl tool  provided by Apache CXF.
+
+Every other webservices stack has a corresponding tool to do this.The advantage is here is that we can integrate legacy applications which are already there which are there for the last 10 15 20 years if we want to expose that code out to other applications.
+
+We can use code first design and simply expose out the web services.An example of java first web service that I have worked on is an airline reservation system wherein we have intially had only the kiosks checkin.When you walk into an airport and when you try to checkin,This was the application that will be used.
+
+And the way it was build was this application was tightly tied up with the backend code without any services to start with.
+
+So when we initially started there were no webservices long long back we have only had a business logic in one layer And then the kiosk checkin code web layer
+
+And the kiosk checkin was directly calling into the backend layer but then when we had to work on the web-checkin wherein a passenger can checkin online,
+
+We had to come up with a web-services framework and make them loosely copied so that any component can directly call into our business logic.
+
+So here we have exposed out our entire business logic as a java first web services since we already had the business logic contract and everything defined in the code.And then we exposed it out to the checkin and kiosks checkin when to use which approach.
+
+That's the important question and a very popular interview question as well.We should use that contract first approach as much as possible especially if you are developing Web services applications from scratch.
+
+Use that was the first or top down or contract first approach.
+
+Use the Java first or code first approach only when you are working with a legacy applications and you need to expose out some functionality in the legacy application.
+
+As a webservice so that it can be consumed by other applications which want to use it.To summarize, from this lecture you have learnt the two different designs of implementing web services the advantages of both and then when to use which. You will see handson implementation of both these in the upcoming lectures.

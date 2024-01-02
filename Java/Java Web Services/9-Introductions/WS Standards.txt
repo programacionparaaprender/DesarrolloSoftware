@@ -1,0 +1,7 @@
+WS-Standards Introduction:
+
+1) Since webservices allow applications running on heterogenous platforms to communicate with each other it is important for them to address the nonfunctional requirements like security, asychronous communication in a standard fashion so that we as developers need not do a lot of coding to address the problems like security.
+
+2) Instead we can configure them right out off of the box.And that's where webservices standards  come into picture.
+
+3) All these standards are implemented by webservices engine like apache CXF, we learn in the detail about all the standards or the important standards in the lectures in this section and will then configure ws security that is username token profile which will enable authentication and authorization for clients to access our application will also configure the encrypted decryption which will encrypt all the soap messages that come in and go back and decrypt them and then use MTOM standard to exchange files between webservice applications.

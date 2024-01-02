@@ -1,0 +1,4 @@
+
+--query string
+
+exec (@SQL)

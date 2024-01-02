@@ -1,0 +1,35 @@
+When to use REST:
+
+1) This lecture will help you decide when to choose REST Web services for your applications.
+RESTful Web services should be used when the service producer and the web service consumer have a mutual understanding of the contract already in place.
+
+2) That is, how the data will be exchanged and what data will be exchanged.Because unlike in case of SOAP web services where we have web services description language or the
+
+3) WSDL file, we do not have a way to express the contract in case of REST Web services.That is why, in realtime applications where we use RESTful services, we provide a lot of documentation and examples of this contract and a lot of sample messages in various formats like XML, JSON, text, etc.
+
+4) REST Supports multiple data formats.That is XML, JSON, plain text and a lot of other formats.
+
+5) Whereas the SOAP counter part only supports XML.So if your web service has to support JSON, plain text etc; you should use RESTful services for your application. For devices like mobile phones, tablets which cannot handle the overhead of SOAP XML elements due to less memory or bandwidth, REST eliminates this overhead by providing simple XML messages without any SOAP overhead.
+
+6) And also by supporting other formats like JSON which is very easy to communicate in web applications or web pages. RESTful services are good for stateless applications.
+
+7) Your application is stateless, if your application survives a server restart. That is, if your application behaves the same way where it was before a server restart even after restart then your application is stateless.
+
+8) And it is a very good candidate for RESTful services because REST makes use of HTTP which
+is stateless.
+
+9) This statelessness in turn allows us to cache all our web service responses. Through this we improve the performance of our application instead of creating this response everytime we send out the response from the cache.
+
+10) These caching frameworks are there and will work out of box. We'll just configure them.Last but not least, existing web sites and the logic in them can be exposed in RESTful style. And any new user interface that is coming up can easily consume these RESTful services either in XML or JavaScript
+
+11) Object Notation, JSON which will increase the developer productivity and save a lot of time. Instead of rewriting the entire business logic again for this new UI like a mobile application or a Kiosk application, we can reuse the existing business logic and simply expose it out all various formats in whichever format the consumer application needs it.
+
+12) An example for it is, I have once developed an iPhone application for doctors to retrieve the patient data.We already had a web application which was in place to do this. By going to the browser, a doctor can retrieve all the patient information. But for them to access this from an iPhone, this new mobile app I was developing simply consumed the RESTful web service which we exposed off from the earlier business logic which was already there.
+
+To summarize:
+
+Use REST when your application's bandwidth is limited like mobile applications or if you need caching.
+
+If your product needs and is deligable for scalability to statelessness, use RESTful web services.
+
+And if a formal contract is already defined then RESTful web services are the way to go.

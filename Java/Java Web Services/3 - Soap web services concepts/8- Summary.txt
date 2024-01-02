@@ -1,0 +1,31 @@
+SOAP Web Services Concepts Summary:
+
+1) To summarize this section, learnt that soap webservices work using http and xml.Applications can be both providers as well as consumers of the webservice at the same time.
+
+2) You have learnt the various advantages off Soap based Webservices starting with Platfrom independency that is applications running on various platforms can communicate with each other using Soap based Webservices. 
+
+3) We can extend an application or customize the application by using the  soap based webservices the application exposes this. We can easily integrate an existing legacy application by exposing out the functionality in the legacy application as a web service.
+
+4) Since webservice use or soap based webservices use http, we can easily go beyond firewalls because port 80 is not blocked by firewalls.
+
+5) If there are any disadvantages that is the Web services standards are ambiguous, it is because these standards are usually written by open bodies that is open bodies which are formed by various organizations like Microsoft, IBM.
+
+6)It's difficult for people working on the standards to come to a common understanding but they have been doing a great job recently.
+
+7) The second disadvantage is the serialization or deserialization of xml into language objects and back into XML can add some performance overhead.
+
+8) But the pros here are the advantages by far away the disadvantages.When to use SOAP based Web services if we need a formal contract to be defined in the form of a wsdl file then we have to use soap based web services.
+
+9) And if we have a lot of nonfunctional requirements like security, transaction management, asynchronous communication, and if we don't want to do a lot of work in our application without writing a lot of code We can use the web services security, webservices asynchronous communication etc which come with the SOAP based web services implementations.
+
+10) You have also learnt that soap which stands for simple object access protocol defines the xml elements that can carry the data starting with an envelope.
+
+11) We have a header block inside it and then a body which contains the payload are the actual content and actual data.
+
+12) You also learnt that wsdl file is a contract between a soap based web service provider and consumer.
+
+13) And mainly there are two sections the abstract section and the physical section of wsdl with the various XML blocks starting with the definitions.
+
+14) Messages which are similar to input and output parameters in the world of java. Operations which use those meessages to perform certain services and these operations are analogous or similar to Java methods.
+
+15) The fourth type element simply is a container of the various operations that are available. A binding defines how the SOAP message should look like for the various operations.Finally the service element helps how this particular web service or from which location using which url this particular web service can be consumed.

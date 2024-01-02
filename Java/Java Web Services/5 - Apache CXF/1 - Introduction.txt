@@ -1,0 +1,9 @@
+Introduction:
+
+1) Webservices stack or engines provides us with various tools that we use to develop our web services they also serialize and deserialize the incoming requests, into language objects and back on the wire to the xml or jason formatted messages. 
+
+2)They also dispatch the incoming webservices request from the clients to the appropriate webservices classes and methods that we code. 
+
+3)Here are the various famous Java webservices stacks,starting from apache cxf, axis, Metro like glass fish and each of the application servers like weblogic and websphere come with their own version of webservices  engine or stack.On the dotnet side we have windows communicate foundation which has the implementation of thewebservices engine or stack. 
+
+4) From the lectures of this section,you will learn why apache CXF is so popular in the java world.And also you can see that project structure of apache CXF project and you will learn howto create a Maven.webservices project using apache cxf from scratch.

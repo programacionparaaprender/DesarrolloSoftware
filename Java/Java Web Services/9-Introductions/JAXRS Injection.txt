@@ -1,0 +1,11 @@
+JAXRS Injection:
+
+You have already seen how to pull the information off the incoming RESTful request URI
+and inject it into the Java method parameters using the @PathParam annotation from the
+jax-rs API.
+
+That is, it pulls the information, in this case from this URI it pulls 123 and it injects it into id. The Web services frameworks like Apache CXF or Jersey automatically does it for us.
+
+The jax-rs API also provides several other annotations to pull and inject other types of http data like the Query parameters, the form parameters, the header parameters that come with the HTTP headers and also the cookie parameters and several other data types that are a part of the HTTP protocol.
+
+In the next lecture I will show you, I will explain the simple use case and I will explain the Bare bones of the project. And then in the next few lectures, you will master all these annotations by seeing them in action and working with me in parallel.

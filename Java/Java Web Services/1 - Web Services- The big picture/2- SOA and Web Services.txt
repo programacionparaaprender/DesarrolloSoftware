@@ -1,0 +1,83 @@
+SOA and Web Services:
+
+1) From this lecture you will learn what SOA is, why we need it, who maintains the SOA standard and why web services are such a key technology to implement 
+SOA. 
+
+2) SOA is a collection of architectural principles to design and implement our software applications in such a way that they are composed of several software 
+services that have simple well defined interfaces and can use each other in a loosely coupled manner .
+
+3) The SOA standard is maintained by open bodies like W3C 
+and OASIS who come up with the architectural principles which we will then use in our applications to build, to design and implement our applications so that 
+they will benefit from all the advantages that SOA has which you will see shortly. These organizations are formed by people from Microsoft, Oracle, IBM, etc.
+
+4) Similar to Web services, SOA has two roles, the provider role and the consumer role. The provider provides a service and the consumer consumes it. The provider 
+of one service can be a consumer of another service. So let's define what a service is according to the SOA standard using a Hospital Management application 
+example. 
+
+5) A service according to SOA is an implementation of business logic that operates independent of the state of an other service. Here is a Hospital 
+Management application wherein we've Appointment Management service which allows a patient to schedule an appointment with a doctor. 
+
+6) This Appointment management service is consuming the Patient Service to get the patient information and then the Doctor Service to get the doctor schedule and make an appointment. Similarly the Doctor Service consumes a Clinical Service which gives the Doctor Service the data of a particular patient. That is the clinical data of a patient. 
+Similarly, we have Bed Management application which can be used to allocate a bed if a patient is being checked in. 
+
+7) All these components are not clubbed into 
+one single application but they are separated out into services and they are deployed on their own. They communicate with each other in a loosely coupled 
+passion using a standard interface. 
+
+8) Meaning, as long as this interface here between the Doctor Service and the Clinical Service remains the same, we can replace 
+this particular Clinical Service with a new Clinical Service we write. Or if the hospital purchases a Clinical Service from a different company, they can use it 
+as long as this contract between these two remains the same.
+
+9) This contract, in case of SOAP Web Services is the WSDL file and in case of REST services it is the WADL file. 
+
+10) The data format that is used to exchange 
+messages between these services in SOA is XML because XML has both data as well as meta data which tells what to do with that data. Let's look at some of the 
+advantages of SOA. 
+
+11) And as we go through them you see that web services pretty much have the very same advantages and that is the reason why Web services is the 
+key to implement SOA. 
+
+12) The first and foremost advantage is the platform independency. That is, SOA applications should be able to run on multiple platforms and 
+they can communicate with each other. 
+
+13) So if an application running on .NET or Linux environment or Windows environment can easily communicate or should easily communicate with a service running on Linux which is written in Java.
+
+14) SOA allows developers to have focus to role so that they can specialize in an area. Going 
+back to our previous example a set of developers can specialize in a Doctor Management application, a set of developers can focus on a Bed Management service,
+Clinical Management service so on and so forth. Loosely coupled which I have already explained.
+
+15) As long as the interface remains the same, an application or a service which is a consumer of another service can easily be switched to other service
+which provides the same functionality because we use standard and loosely coupled interfaces. 
+
+16) Since we have split the services or the application into multiple 
+services, if we need a particular functionality we can easily reuse it across our application. 
+
+17) For example, Google uses SOA in a very good way. When you use 
+Google mail, Google Drive and Google Docs, when you are checking your emails you open your email and if it has an attachment to it which is a Word document or 
+an Excel sheet, Google allows you to open that Excel sheet or Word document through Google Docs which is a different service all together. 
+
+18) Then if you want to save that file on to your Google drive, you can easily do that. So all these are different services which are being accessed whenever required. Costs come down 
+because of the reusability. 
+
+19) We'll be able to reuse a large portion of our application instead of rebuilding the whole thing wherever and whenever required, we 
+can simply consume a service which is already there.
+
+20) Scalability, which is a big feature which every application needs today because of the amount of users that are using our applications. As the number of 
+users grow, we can simply scale our service or deploy our service, a particular service on multiple servers and the users of our application who are using that 
+service, even the number doesn't matter. 
+
+21) As it goes into millions we simply scale our application or deploy our services on multiple servers and our application can be accessed by the end users. With that scalability comes availability. 
+
+22) As we deploy the application on multiple servers, our application now is more 
+reliable and if one server goes down, the consumers of our service can still call on to our applications running on the other servers. 
+
+23) Before Web services,there were several technologies like the DCOM for .NET world, CORBA, JAVA RMI, Messaging which tried to solve the problem of SOA but they couldn't come close 
+because there was no way they can communicate with a standard interface or a platform independent interface. 
+
+24) But Web services on the other hand, because of its scalability, interoperability and platform independency has become a key technology to implement 
+service oriented architecture. 
+
+25) As you go through the other lectures and implement your web services, you will see all these advantages one by one. 
+
+To summarize, from this lecture you have learnt that SOA which stands for Service Oriented Architecture is a set of principles and Web services is a way to implement those 
+principles in our applications that we create.

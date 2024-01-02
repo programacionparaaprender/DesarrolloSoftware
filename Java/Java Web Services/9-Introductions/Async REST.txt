@@ -1,0 +1,41 @@
+Asynchronous REST:
+
+So far what you have mastered is designing and development of Synchronous RESTful web services wherein a client sends a HTTP request to the RESTful provider and the
+
+RESTful provider,at some point will send a 200 status code if it is a successful response or a 400 status code along with a error message if there is a exception.
+
+In either case a client has no option but to wait until the response comes back. And if the processing is taking a long time, the client cannot do anything else but has to wait.
+
+That is where the Asynchronous way of processing comes into picture.And once the client sends in the request, we can handle the request on the provider side asynchronously as well as on the client side, the client can do something else by processing the response asynchronously.
+
+To explain it,let me take an example of bank check processing system. Wherein we have the ATM of a bank, the Bank Teller at the branch and then a customer using a mobile phone can send in a bunch of checks and the Check processing
+
+RESTful application will process these checks dynamically using asynchronous processing.
+That is, it will span multiple threads and as soon as it gets a request, it'll send a 202 response back saying that it has accepted the request.
+
+This is the important piece here. Instead of sending a 200 response back, it sends a 202 response back to all these clients whenever a request comes in and at some point later, when it is done, when one of these threads are done processing the check processing, it will send the actual 200 response back.
+
+So this detachment is the key. When a request comes in, the 202 goes back as a response and at a later point a 200 or if there is an error, a 400 response will go back to the client.
+
+Jax-rs supports both the API.That is, it supports implementation of Asynchronous RESTful web service providers as well as we can develop clients which can be asynchronous as well. On the client side, we can do it in two ways.
+
+One is polling.So once the request is sent, the client can keep polling to see if the request has been processed.
+
+Secondly, this is similar to how the Ajax calls are implemented in Java script. We can implement a callback,we implement one of the interfaces, we come up with our own class and implement methods. The methods in that callback class will be called by the web services engine once the response comes back from the provider in a asynchronous fashion.
+
+So that's the power of jax-rs 2.0.It gives us the API to implement both asynchronous providers as well as the clients.
+
+Here are the important classes to implement the asynchronous RESTful providers, the
+web service providers.
+
+The first one is an annotation called Suspended.
+
+We mark the asynchronous response which we will be using on each and every method that we want to be asynchronous. We'll be using this as one of the parameters as we will see in the next few lectures. And we will mark this asynchronous response with this Suspended annotation. I will explain these in detail when we do the hands-on lectures.
+
+Secondly, on the client side we have Asynchronous Invoker which can be used to do polling and all that, one way of implementing asynchronous client.
+
+And then on the other hand, we have the Future which is java.util.concurrent class which is from the concurrent API, not the jax-rs API. We'll be using this to process the response asynchronously.
+
+Finally, we have the InvocationCallback which we use to implement the callback functionality on the client side.
+
+You will see all this in action in the next few lectures.

@@ -1,0 +1,5 @@
+Introduction:
+
+1) From the lectures in this section, you will master all the concepts of RESTful services that are required before you design and implement them.
+
+2) By the end of it, you will know what REST services are and how HTTP has reborn with REST. You will know all the advantages of RESTful services and when to use them in your applications.

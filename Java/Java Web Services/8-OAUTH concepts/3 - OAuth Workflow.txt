@@ -1,0 +1,59 @@
+OAUTH Workflow:
+
+1) In this lecture, you will understand how the OAuth work flow works and the various roles that are involved in this work flow.
+
+2) Let's jump start it by going back to our JavaWorld.com example wherein, we as end users are accessing the JavaWorld.com and reading some cool articles on it and we want to express our opinion by commenting on an article. To do this, job JavaWorld.com allows us to login to Google.
+
+3) And then it uses OAuth from that point to communicate with Google and get out authentication information.
+
+4) The first step in the OAuth work flow is JavaWorld.com registering itself with Google since it is going to use the Google services to retrieve the user's data once the user gives it the permissions to do so.
+
+5) It registers and gets a client ID back.So that is the first step in the OAuth workflow.
+Any application that wants to use the services of an other application registers with that application and gets a client ID and when the user accesses our application, in this case the JavaWorld.com.
+
+6) It will redirect him to the Google website.So when we try to comment on an article on JavaWorld, it redirects us to this URL, something like this and it will have a client ID in it. This client ID is what it would have got in the first step. And also, the second parameter is the state.
+
+7) This is a unique number or unique code that JavaWorld generates which is the current session state of that user. So when the access comes back to JavaWorld from Google once the user logs in, it will put the user back to this particular session state.
+
+8) A final parameter is the URL which Google should redirect to once the user authenticates. So as you can see, it is JavaWorld.com. Typically we'll have our application URL in here.The next step, the user will enter the login details on this Google page. Google authenticates him and it will redirect him back to the, using this URL along with the state which JavaWorld.com has forwarded,one of the query parameters and also a unique code which Google generates.
+
+9) And then JavaWorld.com from that point, will take that code and send in another HTTP request to Google.Google will give it back a unique token.
+
+10) And from that point JavaWorld.com will use this token for any number of requests that it will send to Google to get the user information and access whatever the user allows JavaWorld to access on Google.
+
+11) So to summarize this entire work flow by borrowing an image from Google any application that wants to use OAuth will first register itself with the application which is providing the services on behalf of the user. It redirects the user to that application when the user tries to access our application.
+
+12) That application, once the user logs in and gives it permissions,
+it will redirect back to the actual application that is requesting for access with a uniqueauthorization code.
+
+13) That application will then send that authorization code and get a token back.And from that point in time, it will use that token to make as many API calls as it wants to and accesses the user's data on behalf of the user.
+
+14) There are several ruoles, four different roles, key roles involved in the OAuth flow.The first role is the resource server.Typically, this is the server that hosts the resources and it is protected by OAuth.
+
+15) Secondly the Resource Owner. This is the end user in case of JavaWorld.com, it is the end user who wanted to comment and JavaWorld.com is the client.
+
+16) So the client is not the end user, but it is the application which wants to access the resources of the end user on a protected Resource Server.
+
+17) Finally this is the authorization server.This is the one which generates the unique code and then the tokens.
+
+18) Typically in many applications these two, Resource Server and Authorization Server can be on the same machine or even in the same application.
+
+19) In reality, sites like Google, Facebook and Twitter dont use OAuth protocol exactly.They put some of their own spin on it and all have a little bit different way of implementing this protocol.
+
+20) This is because the OAuth specification is more a set of detailed guidelines rather than a specific protocol set in stone.
+
+21) It leaves out several details like how a user or OAuth client authenticates or what additional parameters must be sent.
+
+22) So using OAuth, if you are using OAuth on your application to integrate with an other application that supports
+
+23) OAuth, there might be some specific knowledge you might have to gain about that particular application but overall, it will fit into this big picture.
+
+24) There are several Java frameworks out there that can help you turn your applications into OAuth resource servers or OAuth clients to integrate with a resource server like Google.com, Facebook.com, etc..
+
+25) If you go to the OAuth website by googling for it.OAuth 2.Click on this About OAuth 2.0.
+
+26) If you scroll it down, you can see all the available implementations of OAuth in various languages for Java.
+
+27) As you can see, it has a Spring security for OAuth as well as an Apache CXF implementation.You simply google for Apache CXF OAuth,click on the first link there.
+
+28) There is a very nice document on how you can implement OAuth for your application because CXF has the complete support for OAuth.

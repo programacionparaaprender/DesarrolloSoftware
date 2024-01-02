@@ -1,0 +1,5 @@
+Introduction:
+
+1) The lectures in this section are key for you to understand what, why and when to use SOAP web services in your applications.
+
+2) By the end of it, you will learn the various advantages and disadvantages of soap web-services and also the building blocks of Soap web services namely SOAP, WSDL and HTTP.Will rap it up bymastering the various sections of a WSDL file.

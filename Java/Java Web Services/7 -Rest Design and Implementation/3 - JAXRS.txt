@@ -1,0 +1,48 @@
+JAX-RS:
+
+1) This lecture gives you an overview of the JAX-RS and its API.
+
+2) JAX-RS stands for Java API for XML based REST Services.It is the standard for implementing the REST services in the Java Enterprise Edition.
+
+3) Like any other Java EE standard, JAX-RS has a specification and a API. The specification is for the web services engines or stacks. It is nothing but a set of rules and guidelines written in plain English.
+
+4) The Java Web services engines is like Apache CXF or Jersey will go through the specificational guidelines and implement the JAX-RS standard. The API is for the developers.
+
+5) It is a set of annotations which make our job as programmers very easy to come up with JAX web service providers and consumers.
+
+6) These annotations are a part of the javax.ws.rs package. The @Path annotation which is the first and foremost annotation, allows us to mark our Java classes and methods with a relative
+
+7) URI path. So once we map our classes and methods with this URI paths, the web services engines like Apache CXF will call into the appropriate class and it's method at runtime when a request comes in with the appropriate URI.
+
+8)We can also pass values along with the URI. Here I'm passing in a username along with the
+path users.
+
+9) These values can then be binded to Java types and be used in the methods.The next set of important annotations are for the HTTP methods.
+
+10) There is a annotation for each and every HTTP method.When we mark a method with the @GET annotation, the Web services engine like Apache CXF will call into that method when the request, HTTP request that came in has a Get method .
+
+11) That is when a web services client uses a Get method in the HTTP request, that particular method will be called which is marked with the @GET annotation.
+
+12) Similarly we have @PUT, @POST, @DELETE etc.REST supports multiple data formats and there are annotations like @Consumes and @Produces which allow us to specify what kind of data this particular REST provider can accept and what kind of data this particular REST provider can produce or send back to the client.
+
+13) Examples, plain text, json, xml.All these are HTTP MIME types and you can have multiple MIME type specified in both these annotations, separated by commas. How to map request parameters to Java objects?We use the @PathParam annotation to map the values that come in the URI to a Java object as method parameters so that we can use those values inside that method.
+
+14) Similarly we'll use the @QueryParam annotation as the name itself indicates. To map the request Query parameters in a Get method to a Java object automatically.
+
+15) This is a kind of binding that happens if we just simply use these annotations, all the values that come in the request will be binded to a Java object and then we can use those Java objects inside our methods.
+
+16) The @FormParam, again as the name itself indicates, allows us to map the parameters that come in during a form submission to a Java object.
+
+17) JAX-RS also provides Exception Mappers are an easy way to implement Exception mapping using the @Provider annotation.
+
+18) To implement Custom exception mappers which will map Java application exceptions or application exceptions to HTTP error codes. And all these annotations are runtime annotations. So the Apache CXF, Jersey etc; read these annotations at runtime and take the appropriate actions.
+
+19) To recap, JAX-RS is a standard which provides annotations that can be used to mark our Java classes or resources to make them RESTful services.
+
+20) These annotations are categorized into URI Mapping annotations which allow us to mark our classes and methods with URIs which will be mapped at runtime or which will be called into to runtime. The HTTP methods for each and every HTTP method, there is a corresponding annotation that we use to mark our Java methods.
+
+21) The Content type or the data format annotations which are @Produce and @Consumes which allow us to specify the MIME type which tells what kind of data we can accept,what kind of data Web services provider will produce.
+
+22) JAX-RS also allows us to map the incoming request parameters to Java objects very easily.
+
+23) Finally, JAX-RS also has an annotation that allows us to easily create exception mappers that map the Java exceptions into HTTP error codes.

@@ -1,0 +1,15 @@
+									What is XML
+
+1) From this lecture you will learn what XML is? XML stands for Extensible Markup Language as the name itself says we can create our own markup required for our business purposes using XML.
+
+2) If you are familiar with html then you know that html provides a predefined set of element that add a special meaning to the data that they wrap.
+
+3) For example <b>John</b> here in Bold surrounded by the 'b' tags html tags will be interpreted by the web browsers like Internet Explorer Chrome and Firefox in bold H1 will display this text here.Welcome to the world of XML.In a slightly bigger font and in bold. 
+
+4) So html adds a special meaning to the data or it adds presentation value to the data it wraps and it has a predefined set of elements whereas xml doesn't have any predefined set of elements.
+
+5) It allows us to create our own XML using XML we can define our own markup for example if we are working on e-commerce application, we can create order which will have order id, line items, shipping address and all that we need for the order data.
+
+6) Similarly if we are working on it news portal then we can create a NewsML which can carry the headlines.Politics information and political information or political news as well as sports data. Applications can then use this xml to save it to manipulate and display to the end user or even to exchange this information with other applications,that is the power of xml.
+
+7) To summarize, xml stands for Extensible Markup Language.Unlike like html it doesn't have any predefined set of elements. It allows us to create our own markup language or a markup elements so that our applications can use the data however they want and they can do whatever they want to do with that data very easily.

@@ -1,0 +1,16 @@
+
+Soap webservices are out there for quite sometime even before the restfull webservices and there are several applications that are providers of soap web services or consumers of these webservices.
+
+By the end of this lecture,you will know when to use the soap web services in your  applications.We should use the soap based webservices when the formal contract needs to be established to describe the interface that the web service offers.
+
+We can do this by using the wsdl document describes the details of what the webservices provides and how it can provide it.
+
+That is the message formats that will be exchanged between the web service consumer and provider.
+
+The second consideration would be if our architecture has to address a lot of non-functional requirements such as security, transaction management etc. we can rely on the Web services standards that come with the  soap based web services and we can use the security transaction management etc. right out of the box.
+
+The website tax are engines like Apache cxf windows communication foundation provide the implementation for all the standards and we as developers can use these standards with minimum configuration or code.
+
+If the architecture also needs reliable asynchronous processing or messaging we can use the webservices reliable messaging standard which again comes out box with soap based webservices engines like apache CXF, we can simply configure them.
+
+To summarize, we should use soap based or jax W-S standard web services when we have a lot of non-functional requirements like security and transaction management.Or if we need to define a formal contract webservices contract between the web service Provider and consumer through a wsdl .And if we need reliable asynchronous processing or messaging between our web service provider and consumer.

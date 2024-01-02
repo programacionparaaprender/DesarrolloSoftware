@@ -1,0 +1,9 @@
+Introduction:
+
+1) You will start this section by learning the four simple steps that are required to design RESTful web services.
+
+2) You will then move on to implement the RESTful services by learning what JAX-RS is and the important annotations in the JAX-RS API. You'll implement a Patient Management RESTful web service which supports both XML and well as JSON requests and responses.
+
+3) You'll also learn how to test your RESTful web services using the easy to use REST plugin that is available for the Chrome web browser.
+
+4) You will end it by learning how to implement RESTful clients, web service clients for your applications both in Java using JAX-RS as well as JavaScript which can be used in your applications.

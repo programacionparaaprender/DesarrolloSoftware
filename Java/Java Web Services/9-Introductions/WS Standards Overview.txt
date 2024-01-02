@@ -1,0 +1,68 @@
+WS Standard Overview:
+
+Since Web services are used to communicate across applications running on heterogenous platforms they need to work with each other in a seamless fashion.
+
+That is where the webservices standards come into picture.The goal here is not to master each and every standard out there but all the important ones that are mostly used in Web services applications.You will learn the why what and then do you use these standards.
+
+Some of these standards and we will learn how to use some of these standards which are very popular in the later on lectures. If you had to use any other standards that are not covered as a part of this course in your projects and need help you can send me a message if I see that the  other standards are gaining popularity, I will add them to this course with hands-on examples. 
+
+To start with why do we need WSstandards?Let me answer that question by taking a simple example. Let's say we are working on an online shopping web application where the user comes in and buys a few products and then use his credit card information to make the purchase. Our online shopping application will have to connect to a banks payment gateway which typically is a web-service.
+
+So we call into the banks payment gateway with the credit card information to process the order.At this point, the bank will ask us to authenticate by passing in a username and password to make sure that it is really our application and not some hacker who is calling into their banks payment gateway webservice.
+
+Without a standard wherever would the bank ask us to put the username and password in the soap message.Is it in the soap body? or is it in the soap header?
+
+If it is in the soap the watch should be the name of the xml elements in the soap header.Should it be just username and password?
+
+That is where the webservices security comes in and tells us where a particular username and password element to pass in the authentication information without that each bank might ask us to pass in a different set of elements and we have to keep changing our application to work seamlessly with any payment gateway everytime we use a new payment gateway.
+
+The first and mostly used Webservices standard is the W-S security standard.And it addresses the three important issues around security.The first one is authentication were we can make sure that the webservices  consumer and the webservices provider know about each other and they are really the ones who are calling into our webservices provider and vice versa.
+
+For this the webservices security standard has three ways to do it.The first way is username token profile which is mostly used to simply pass in the username and password you'll be seeing handson lecture on this. then the X5.8 certificates to authenticate.
+
+Last but not the least, SAML allows us to do single sign on in webservices applications.
+
+Once you sign in to one of the web services for an organization you can use any other web services within that organization.
+
+When you use your gmail and login into your gmail account you will be able to access youtube you will be able to access any other services like Google Docs which Google offers.
+
+Similarly saml allows us to do that the webservices area.The second problem that ws-security addresses is confidentiality of our messages.
+
+When we exchange our xml soap messages between consumer and provider you have to make sure that the hacker is not hacking him and reading those messages.
+
+So we encrypt and decrypt our messages using what the security provider says we use publicly cryptography.To protect data integrity, to make sure that whatever messages are being sent by the consumer or whatever being received by the provider or vice versa .we use xml signature and sign our soap messages and that signature will be included in the
+message so when a consumer sends the message along with the signature on the server
+or the provider side will calculate the   signature once again and compare both the signatures to make sure that the message was not tampered on the way.
+
+Few other web-services standards that are popular are mtom for exchanging files you can exchange any kind of file Word documents Excel sheets images etc using Mtom application.
+
+Whenever in a hospital management software I have used mtom to exchange X-rays and several other patient information.
+
+You will see a hands-on lecture on MTOM.I used a couple of ws addressing  implementations.
+One was to do a synchronous callbacks.If your webservices is taking a lot of time consumers need not wait on your web service to return they can give you a url, to which you will call back once the processing is done and as aobsolete consumer they can do some other work. So ws-addressing headers which go into the header block can be used to do asynchronous callbacks and other usage of ws-addressing is to redirect the web-service response to other server instead of the actual consumer who called into the service.
+
+Again you may not use these on a day to day basis but it is important that you know that these standards exist and if required you can use them. WS policy assessments allow us to make sure that our web services consumers are following all that We have asked them to do.
+
+For example, you can ask all your consumers or mandate that all your consumer will use https secured http in order to call your webservices and webservices engines like CXF will ensure wspolicy is being followed and they will throw an exception back if the consumer is not using https. 
+
+WS-secure conversation,this is just an improvement over WS -security is not an entire standard of its own, where-in it will improve the performance by negotiating a private key when we do encryption and decryption instead of negotiating the key on each request that comes in from webservice consumer which is very problematic and it will decrease the performance of our application.
+
+Ws-secure conversation negotiates right at the beginning and from that point when the next request comes in it will just use a lighter version of negotiation.
+
+Lastly W-S security policy which is a combination of ws-security and ws-policy assures that certain ws-security standards are being followed by the web service consumer in a easier fashion.
+
+So it gives us policy assertions which we can simply configure.
+
+For example, if we ask the client to encrypt and decrypt or encrypt the message before he sent in the request and if the client doesn't do it our Web services stack will simply throw an exception if we configure ws-security policy around it. We need not do a lot of work to use these standards in our applications the web services stacks like Apache cxf windows communications foundation provide us or implement all these standards already.
+
+We simply configure these standards by refering to the documentation these stacks offer.
+
+These are all important standards out there.There are a few more standards which are which I have not seen being used quite a bit.But as I said already if you need help with other standards that are not being covered as a part of this course you send me a personal message and I will help you with that.
+
+And also if I see the standards gaining popularity i'll make them a part of this course. To wrap up, we need web-services standards like ws- security to ensure that our applications have all the security around it starting from authentication to confidentiality and  data integrity, MTom allows us to exchange files which could be binary images etc. WS-addressing can be used in two places,one is for asynchronous callbacks.
+
+Second is to redirect the response to a different server or a different provider instead of the actual consumer who called into the webservice.WS-policy is used to assert certain rules or before he calls into our webservice or when he calls into our webservice.
+
+As I have said there are several other standards,two of them which we discussed were ws-security policy and ws-secure conversation which help us around the  ws-security area.
+
+Again, we will not be doing a lot of work to use this standard it is very easy to configure them for our application with the help of the documentation that the webservices tax provide.

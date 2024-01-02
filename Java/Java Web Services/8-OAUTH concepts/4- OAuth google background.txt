@@ -1,0 +1,29 @@
+OAUTH Google Playground:
+
+1) One of the easiest and great ways to get a feel of the entire OAuth protocol and also see it in action is by going to the Googles OAuth playground.
+
+2) Open up your web browser and Google for Google oauth playground.Click on the first link and it will take you to the OAuth playground's home page wherein,this is a sample application which Google has created and it allows you to access the various RESTful services which Google offers right from Ad exchange to Blogger to your e-mail and everything and they all support the OAuth protocol.
+
+3) So for this OAuth playground mini application to access these services from Google, it uses the OAuth standard.Search for, do a Control+f and type in contacts because that is one of the easiest services to use.
+
+4) Here is the contacts test service.Click on it and select this URL, tick mark and then this is the first step where we are authorizing the end user which is me, to this particular API and it asks me for my Google account and password.Let me type in my password.
+
+5) And when I sign in, as you can see it is asking me to authorize it.All this is part of the OAuth protocol.
+
+6) Now we are on Google instead of Google playground wherein it is authorizing me.It says Google OAuth playground 2.0 would like to have offline access.Click on Accept.
+
+7) As you can see, if you remember from the workflow lecture,it gives me back a unique authorization code and the button says exchange authorization code for tokens.
+
+8) This is typically what our web applications would also do.They will get the code,they will take the code and then send it back to Google in a separate request using a different URL and they get the token back.
+
+9) So here is the token, the access token.And the last and final step, so here is the token as you can see. The last and final step is to call the actual operations we want using that token. So we can click on this list posible operations link and it lists all the operations that can be performed on Contacts.
+
+10) I simply want to list all the contacts that I have.So I expand this, select this operation and it will give us the URL for that operation the REST URL for that operation.
+
+11) Then click on this Send the request.Here is the entire response which has all my contacts on my Google's contact list.
+
+12) So it's that easy to see OAuth in action, we came to this Google OAuth playground page.The first step we did was selecting a particular API from this mini application.
+
+13) And once we selected it, we clicked on this authoriz API link, that is when OAuth started,where we typed our username and password, got a unique code back and then this playground application exchanged that code when we hit this link to get a token back.
+
+14) The final step was to make the actual API call.We did it by selecting the view contacts from this list of possible operations.And then we hit the Send the request to see all the contacts coming back.

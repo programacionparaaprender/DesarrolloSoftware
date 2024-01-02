@@ -1,0 +1,44 @@
+CXF Overview
+
+1) From this lecture, you will learn about apache CXF which is the popular Web services stack in the java webservices world.
+
+2) A webservices stack or engine provides us with various tools to build and run web services.
+
+3) This allows developers to focus on the business logic and the application itself. Apache CXF is one of the powerful and popular services engines in the java space because it implements both the JaxWS and jaxRS standard.
+
+4) So using Apache cxf we can develop both the webservices providers and web services consumers for both aoap as well as restful webservices 
+
+5) CXF comes with a soap engine, soap and rest engine which at a minimum does two things.One it serializes the xml or jason or any other formatted messages requests and responses into
+
+5) Java objects and from Java objects to XML or jason.Two it dispatches the incoming requests to the appropriate web service end point.That is when xml message comes in this engine takes that webservice message request message converts it into a
+
+6) Java object hands that java object to an appropiate method on the webservices endpoint.
+It then takes the response from these Web services classes method, converts it back into xml or JSON or whatever we asked to do and send it back to that client.
+
+7) It implements almost all the Web services standards out there like wssecurity, WS transaction management,ws policy etc..
+
+8) We can simply configure these standards to our application using configuration files.
+We need tools to tools to develop web services providers and consumers.
+
+9) Tools like wsdl to Java allow us to generate code from a wsdl file and implement our webservices provider. It will also allow us to implement a webservice client from these stubs that get generated using wsdl 2 Java.Similarly we can do code first development using java to wsdl tool.
+
+10) CXF also give us plugins for ant and maven build tools, so we can include this wsdl to Java as an task or maven plugin so that we can build our stubs automatically.
+
+11) And it's very easy to configure because cxf allows or uses spring to configure all the web services end point and other features.
+
+12) So almost all the java developers are familiar with spring, since spring is very famous and our job to configure cxf becomes very easy either using annotations or using the spring configuration file.
+
+13) And it is also easy to extend and customize cxf using the interceptors or handlers jaxws
+handlers if we have to do anything custom for our application which CXF doesn't have.
+
+14) We can easily do that using the interceptors and add them to the work flow.CXF also comes with a lot of documentation on their website and it uses a lot of samples examples that we can use in our applications to get started.
+
+15) The current version of cxf is 3.0.3, you  can visit their web site for more information.
+
+16) To summarize, from this lecture you have learned that cxf implements both the jaxws as well as jaxrs  standards.
+
+17) It comes with a soap and rest engine which does two things.serialization deserialization dispatching the incoming request to the appropriate webservicesend points. 
+
+18) It implements all the webservices.Almost all the webservices standards we can simply configure them.It provides us with tools and plugins like wsdl to Java and Java to which will help us throughout our develpoment.
+
+19) And it's very easy to configure since it uses spring and check out the documentation on the Web site and also.when you download cxf there are tons of examples which will help you with your application development.

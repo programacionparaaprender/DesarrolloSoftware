@@ -1,0 +1,37 @@
+
+$.import("INTEGRACIONES_DATACONT.util.Response", "Response");
+$.import("INTEGRACIONES_DATACONT.util.Querystring", "Querystring");
+
+var Response        = $.INTEGRACIONES_DATACONT.util.Response;
+var Querystring     = $.INTEGRACIONES_DATACONT.util.Querystring;
+
+function consultaProcedimientos(){
+    try{
+        var connection = $.hdb.getConnection();  // instancia la conexión
+        var spConsultaLetras = connection.loadProcedure("SBO_FACTURACION_E", "ADDON_VLE_LETRAS_POR_ACEPTAR_ACOMPA");  
+        var result = spConsultaLetras({CARDCODE: 'C20312192811'});
+        var resultSets = result['$resultSets'];  // arreglo de result sets
+        var rs = resultSets[0]; //primer arreglo resultado
+       
+        var oResult = [];
+        var i;
+       
+        for(i = 0; i < rs.length; i++){
+            oResult.push(rs[i]);
+        }
+       
+        Response.sendSuccessResponse(resultSets);
+    }catch(e){
+        Response.sendErrorResponse(e.message);
+    }
+}
+
+//execute();
+
+function consulta(consulta){
+    var conn = $.hdb.getConnection();
+    var rs = conn.executeQuery(consulta);
+    conn.close();
+    return rs;
+}
+

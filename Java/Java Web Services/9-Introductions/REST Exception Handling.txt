@@ -1,0 +1,13 @@
+REST Exception Handling:
+
+HTTP specification supports Status codes that can be used by the server or the provider application and the client application to exchange success and error statuses. Successful HTTP error codes range from 200 all the way to 399.
+
+Each of these code has an associated value to them and a meaning to them.For example, our patient service which is a RESTful service can return a 200 OK as you have already seen. When the response has been successfully generated and and it sends it back to the browser or a RESTful client. By looking at the 200 the client knows that it is a good response and if it is a POST request it will start reading the response that came back. The second kind of status codes are the failure codes.
+
+The range is from 400 to 599. 400 has all the error codes. 500 has all the redirect codes.In the RESTful world there are two types of errors.
+
+One is the Standard errors, second Application errors. Standard errors are common across RESTful applications,no matter which language or which type of restful web applications you build,they have standard errors. For example, a client uses a wrong URI.
+
+He types in the URL or he uses a URL from his code for which a resource doesn't even exist on the provider side.The second example for Standard errors is a client sending the wrong datatype or using the wrong Content type in the request. The provider might be only supporting XML whereas the client is asking for HTML or JSON. The Application errors on the other hand are very specific to a particular application.
+
+For example our patientService might have errors which are very specific to hospital management.Another application could have its own application errors. In the next two lectures,you will see how to handle these two types of errors in three different ways using the JAX-RS API.

@@ -1,0 +1,31 @@
+							Web Services Overview
+
+1) In this lecture i will introduce you to what webservices are, the two different types of webservices and the two different java standards that deal with these two webservices.
+
+2) Webservices are client server or consumer provider applications that communicate on the network through the http protocol and and exchange messages or data as XML and in various other formats like  JSON.
+
+3) They provide interoperability between software applications meaning software applications running or developed in different programming languages can communicate with each other irrespective of the platform they are running on.
+
+4) A java application running on a linux environment can communicate with a .NET or python application running in windows environment.
+
+5) They allow applications to be developed in a loosely coupled fashion that is two or more applications can communicate with each other or can be integrated in a loosely coupled fashion.
+
+6) Application A which is using the services of application B through webservices today can easily switch to application C to get the same functionality as what the application B was providing it in a very loosely coupled fashion without changing a lot of code.
+
+7) Our clients can extend our applications  through webservices.They can integrate the in house products which you have or products from another company with the product which we sell them through the webservices which we expose.They can come up with their own logic by consuming our webservices.
+
+10) We can also develop mashup applications which can be consumers of more than one webservice.For example, while I was working on a project management product at Oracle we have developed a small demo mashup which pulled project information of a road work from the project management  applications database through the webservices and then it called into the google maps webservices to plot the progress of the road work on the google map.
+
+11) They are two different flavors or types of webservices.The first is the big webservices or the SOAP webservices which used XML based SOAP messages on the http post method.
+
+12) So the webservice provider and consumer  in this case communicate using SOAP which is an xml and then they use http post to do this message exchange.
+
+13) Secondly, the even more powerful RESTFUL webservices which use http method to the full that is they use all the methods available in the http protocol as a standard and then they support multiple data formats, thats the big feature of RESTFul webservices along with XML they support JASON, TEXT , etc.
+
+14) Each language and platform has standards for implementing these two types of webservices.They provide us with tools to implement the SOAP as well as RESTFUL webservices.
+
+15)In the Java world, JAXWS is the standard for implementing SOAP based webservices.JAX-WS stands for JAVA API for XML based webservices.
+
+16) Secondly JAX-RS is a standard for implementing RESTFul webservices.JAX-RS as you can guess stands for Java-API for restful webservices.
+
+17) We as developers will master these two these two standards to implement our webservices.The concepts of SOAP and RESTFul  services and these two standards are presented in detail in the first and second half of this course respectively.
