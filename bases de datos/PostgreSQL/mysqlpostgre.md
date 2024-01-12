@@ -95,3 +95,63 @@
 >- mysql -u root -p
 >- set global time_zone='-1:00';
 >- GRANT USAGE ON *.* to 'admin'@'%' IDENTIFIED BY '1234';
+>- GRANT ALL PRIVILEGES ON curso.* TO 'admin'@'%'; #muestra permisos de admin
+>- SHOW GRANTS FOR 'admin'@'localhost'; #muestra permisos de admin
+>- select user from mysql.user; #visualiza los usuarios del sistema
+>- drop user 'alumno'@'localhost'; #elimina alumno creado
+>- exit
+>- mysqldump --user=root -p curso > copia.sql #se exporta al archivo
+>- mysql --user=root -p curso < copia.sql #restaurar respaldo 
+>- mysql -u root -p
+>- show databases;
+>- drop database udemy;
+
+### 6. Instalación PostgreSQL, creación bases de datos, tablas, usuarios y privilegios
+>- apt-get install postgresql postgresql-contrib -y
+>- su postgres
+>- psql
+>- postgres~# create user admin PASSWORD '1234';
+>- postgres~# create user prueba PASSWORD '1234';
+>- postgres~# \du #visualizar los usuarios de postgres
+>- postgres~# ALTER ROLE admin WITH SUPERUSER;
+>- postgres~# ALTER ROLE admin WITH LOGIN;
+>- postgres~# \du  #visualizar los usuarios de postgres
+>- postgres~# create database udemy;
+>- postgres~# create database curso WITH OWNER admin;
+>- postgres~# \l #listar bases de datos
+>- postgres~# GRANT ALL PRIVILEGES ON DATABASE curso TO admin;
+>- postgres~# \c curso;
+>- postgres~# CREATE TABLE alumnos(id serial primary key,nombre varchar(50) NOT NULL,edad smallint NOT NULL);
+>- postgres~# \d #visualizar tablas
+>- postgres~# insert into alumnos values('Jose', 23);
+>- postgres~# insert into alumnos values('Maria', 18);
+>- postgres~# insert into alumnos values('Marcos', 27);
+>- postgres~# select * from alumnos;
+>- postgres~# update alumnos set nombre='Josep' where id=1;
+>- postgres~# delete from alumnos where id=1;
+>- postgres~# CREATE TABLE profesores(id serial primary key,nombre varchar(50) NOT NULL,edad smallint NOT NULL);
+>- postgres~# drop table profesores;
+>- postgres~# drop database udemy;
+>- postgres~# select version(); #muestra versión de postgresql
+>- postgres~# pg_dump -U admin -w -h localhost curso > copia_bases.sql;
+>- psql
+>- postgres~# create database prueba;
+>- postgres~# \c prueba #esta vacua
+>- postgres~# \q
+>- psql -U admin -h localhost -d prueba -f copia_bases.sql
+
+## Sección 5: Conexión externa a una base de datos
+
+### 7. Cliente externo MySQL
+>- DBeaver descargar e instalar luego conectar a base de datos mysql
+>- servidor, puerto, base de datos, usuario, password
+>- find / -name "mysqld.cnf" #mostrar ubicación del archivo
+>- nano /etc/mysql/mysql.conf.d/mysqld.cnf
+>- bind-address = 127.0.0.1 #cambiarlo a
+>- bind-address = 0.0.0.0 #cualquier maquina se podra conectar al servidor
+>- #guardar cambios
+>- service restart mysql
+>- /etc/init.d/mysql restart
+>- systemctl restart mysql
+
+### 8. Cliente externo PostgreSQL
