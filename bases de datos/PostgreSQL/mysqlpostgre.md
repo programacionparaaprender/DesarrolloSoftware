@@ -155,3 +155,9 @@
 >- systemctl restart mysql
 
 ### 8. Cliente externo PostgreSQL
+>- host, base de datos, usuario, contraseña
+>- netstat -ltnp
+>- nano /etc/postgresql/10/main/postgresql.conf
+>- modificar listen_addresses = '*'
+>- nano /etc/postgresql/10/main/pg_hba.conf
+>- agregar host all all 0.0.0.0/0 md5

@@ -1,0 +1,31 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Ejemplo de trabajar con express",
+  "main": "App.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "custome-test": "nodemon ./test/files/test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/programacionparaaprender/NodeJS.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "javascript",
+    "express"
+  ],
+  "author": "Luis Correa <alberto13711@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/programacionparaaprender/NodeJS/issues"
+  },
+  "homepage": "https://github.com/programacionparaaprender/NodeJS#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
