@@ -17,4 +17,33 @@
 
 ## Sección 3: Exploring Data flows
 
-### 
+### 4. Transferring Data from Excel to SQL Server
+
+### 5. Transferring Data from SQL server to Excel
+
+## Sección 4: Introduction to Data Scripting
+
+### 6. Data Scripting
+
+## Sección 5: Deployments
+
+### 7. Package Configurations
+
+## Sección 6: Control Flow Tasks
+
+### 8. Control Flow Tasks and Precedence constraints
+
+### 9. Webservice Tasks
+
+### 10. For Wach Looping
+
+### 11. Fuzzy Lookup Transformation
+
+### 12. Checkpoints
+
+### 13. Logging
+
+
+
+
+
