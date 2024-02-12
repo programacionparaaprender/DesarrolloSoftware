@@ -54,7 +54,20 @@
 >- adonis new yardstick
 >- cd yardstick
 >- adonis serve --dev
->- adonis new rest-api
+>- adonis new rest-api --api-only
 
 
 ### 7. Estructura de AdonisJS
+>- https://adonisjs.com/docs/6.1.3
+
+## Sección 4: Rutas y Usuarios
+
+### 8. Rutas
+>- adonis make:controller User (seleccionamos http)
+>- adonis make:controller Ejemplo --resource (seleccionamos http)
+
+### 9. Creando usuarios
+
+
+### 10. Login de Usuarios y JWT
+
