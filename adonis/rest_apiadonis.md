@@ -67,7 +67,60 @@
 >- adonis make:controller Ejemplo --resource (seleccionamos http)
 
 ### 9. Creando usuarios
-
+>- npm install sqlite3 --save
+>- adonis migration:run
+>- adonis migration:refresh
 
 ### 10. Login de Usuarios y JWT
+
+### 11. Creando el modelo Proyecto
+>- adonis make:model Proyecto -m
+>- adonis make:model Tarea -m
+>- adonis migration:run
+>- adonis migration:refresh
+
+
+### 12. Método Index
+>- adonis make:controller Proyecto --resource (seleccionamos http)
+>- https://legacy.adonisjs.com/docs/6.1.3/
+>- https://docs.adonisjs.com/guides/sql
+>- adonis make:model TarjetaCredito -m
+>- adonis make:model Menu -m
+>- adonis make:model Autor -m
+>- adonis make:model Noticia -m
+>- adonis migration:run
+>- adonis migration:refresh
+>- adonis make:controller Menu (seleccionamos http)
+>- adonis make:controller Autor (seleccionamos http)
+>- adonis make:controller Noticia (seleccionamos http)
+
+### 13. Método Create
+
+### 14. Método Destroy
+
+### 15. Servicios y Excepciones
+>- adonis make:exception AccesoProhibido
+>- adonis make:exception RecursoNoEncontrado
+
+### 16. Método Update
+
+## Sección 6: Creando tareas
+
+### 17. Creando el modelo Tareas
+>- adonis make:controller Tarea (seleccionamos http)
+
+### 18. Método Create para nuestras tareas
+>- adonis migration:rollback
+>- adonis migration:run
+>- adonis migration:refresh
+
+### 19. Listamos todas nuestras tareas
+
+### 20. Clase Final, Actualizar y Eliminar tareas
+
+## Sección 7: Despedida
+
+### 21. Que hacer luego de tener nuestra REST API Finalizada
+
+### 22. Gracias, continua aprendiendo pero empieza a crear YA!
 
