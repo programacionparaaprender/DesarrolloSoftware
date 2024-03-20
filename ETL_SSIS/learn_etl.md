@@ -5,8 +5,27 @@
 ## Sección 1: Introduction and Welcome
 
 ### 1. Introduction and Welcome
+
+#### SQL Server Developer Edition
+>- https://www.microsoft.com/es-es/sql-server/sql-server-downloads
+
+#### Integration Services
+>- https://www.youtube.com/watch?v=1N9YCulB1C0
+
+#### Descarga de SQL Server Data Tools (SSDT) para Visual Studio
 >- https://learn.microsoft.com/es-es/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver16
+
+#### SQL Server Integration Services
+>- https://learn.microsoft.com/es-es/sql/integration-services/install-windows/install-integration-services?view=sql-server-ver16
+
+#### crear un etl
 >- https://learn.microsoft.com/es-es/sql/integration-services/ssis-how-to-create-an-etl-package?view=sql-server-ver16
+>- https://www.microsoft.com/en-us/download/details.aspx?id=56827
+
+#### Lección 1
+>- https://learn.microsoft.com/es-es/sql/integration-services/lesson-1-create-a-project-and-basic-package-with-ssis?view=sql-server-ver16
+
+####
 >- https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks
 >- https://www.microsoft.com/en-us/download/details.aspx?id=56827
 
