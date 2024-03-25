@@ -18,12 +18,6 @@
 #### SQL Server Integration Services
 >- https://learn.microsoft.com/es-es/sql/integration-services/install-windows/install-integration-services?view=sql-server-ver16
 
-#### crear un etl
->- https://learn.microsoft.com/es-es/sql/integration-services/ssis-how-to-create-an-etl-package?view=sql-server-ver16
->- https://www.microsoft.com/en-us/download/details.aspx?id=56827
-
-#### Lección 1
->- https://learn.microsoft.com/es-es/sql/integration-services/lesson-1-create-a-project-and-basic-package-with-ssis?view=sql-server-ver16
 
 ####
 >- https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks
@@ -63,6 +57,21 @@
 
 ### 13. Logging
 
+## Personal
+
+#### crear un etl
+>- https://learn.microsoft.com/es-es/sql/integration-services/ssis-how-to-create-an-etl-package?view=sql-server-ver16
+>- https://www.microsoft.com/en-us/download/details.aspx?id=56827
+
+#### Lección 1
+>- https://learn.microsoft.com/es-es/sql/integration-services/lesson-1-create-a-project-and-basic-package-with-ssis?view=sql-server-ver16
+>- https://learn.microsoft.com/es-es/sql/integration-services/lesson-1-1-creating-a-new-integration-services-project?view=sql-server-ver16
+>- https://learn.microsoft.com/es-es/sql/integration-services/lesson-1-2-adding-and-configuring-a-flat-file-connection-manager?view=sql-server-ver16
+>- https://learn.microsoft.com/es-es/sql/integration-services/lesson-1-3-adding-and-configuring-an-ole-db-connection-manager?view=sql-server-ver16
+>- https://learn.microsoft.com/es-es/sql/integration-services/lesson-1-4-adding-a-data-flow-task-to-the-package?view=sql-server-ver16
+
+### curso youtube
+>- https://github.com/elenita62/SSISCurso/blob/master/Script%20inicial.sql
 
 
 
