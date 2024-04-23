@@ -5,8 +5,12 @@
 ## Sección 1: Introducción
 
 ### 1. Introducción
+>- SQL Server Data Tools
+>- Microsoft SQL Server
 
 ### 2. Prerrequisitos del curso
+>- Conocimientos básicos de T-SQL
+>- Conocimientos básicos de Base de datos
 
 ### 3. Mejorando la experiencia al desarrrollar el curso
 
