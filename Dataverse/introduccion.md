@@ -2,6 +2,10 @@
 
 ## curso
 >- https://www.udemy.com/course/intro-dataverse
+>- https://learn.microsoft.com/es-es/entra/identity-platform/quickstart-create-new-tenant
+>- https://learn.microsoft.com/es-es/power-apps/maker/developer-plan
+>- https://www.microsoft.com/en-us/power-platform/products/power-apps/free
+>- https://developer.microsoft.com/en-us/microsoft-365/profile
 
 ## Sección 1: Bienvenida
 

@@ -41,10 +41,15 @@
 ### 13. Conocimientos previos
 
 ### 14. Exportando hacia un archivo de texto plano
+>- https://github.com/cjlee/northwind
+>- select * from Customers
 
 ### 15. Exportando hacia un archivo excel
+>- select TOp 10 * from Products
 
 ### 16. Importando datos desde un archivo de texto plano
+>- https://drive.google.com/file/d/1m-wwr4aVn-ZT1adujIeXmpN2ez1suxOm/view
+>- create database STREAMING
 
 ### 17. Importando datos desde un archivo csv
 
