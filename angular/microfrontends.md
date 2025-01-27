@@ -1,7 +1,8 @@
 
 ## cursos
->- 
 
+### Webpack & Micro-Frontend UI architecture Hands on (2024 Oct)
+>- https://www.udemy.com/course/webpack-micro-frontend-ui-architecture-with-react-js/
 
 ### manejo de rutas pendiente aprender catch
 >- https://v17.angular.io/guide/lazy-loading-ngmodules
