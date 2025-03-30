@@ -110,16 +110,23 @@
 ## Sección 7: SOLID
 
 ### 24. Introducción
+>- SOLID
+>- Alta cohesión
+>- Bajo acoplamiento
 
 ### 25. Principio de Responsabilidad Única
 
 ### 26. Principio de Abierto/Cerrado
+>- abiertas para la extensión 
+>- cerradas para la modificación
 
 ### 27. Principio de Sustitución de Liskov
 
 ### 28. Principio de Segregación de Interfaz
+>- varias interfaces funcionan mejor que una.
+>- divide y venceras
 
 ### 29. Principio de Inversión de Dependencia
-
+>- las clases de alto nivel no deben depender de las de bajo nivel
 
 
