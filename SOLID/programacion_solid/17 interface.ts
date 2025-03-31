@@ -1,5 +1,5 @@
-import { IUser } from "./IUser";
-import { IUserExtraInformation } from "./IUserExtraInformation";
+import { IUser } from "./codigos/IUser";
+import { IUserExtraInformation } from "./codigos/IUserExtraInformation";
 
 
 

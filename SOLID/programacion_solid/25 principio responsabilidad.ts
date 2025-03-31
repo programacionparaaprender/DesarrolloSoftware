@@ -1,6 +1,6 @@
-import { MailService } from "./mail-service";
-import { Message } from "./message";
-import { Order } from "./order";
+import { MailService } from "./codigos/mail-service";
+import { Message } from "./codigos/message";
+import { Order } from "./codigos/order";
 
 export class OrderService {
     constructor(private readonly _mailService: MailService){

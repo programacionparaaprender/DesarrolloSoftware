@@ -1,6 +1,6 @@
-import { Job } from "./Job";
-import { PhoneNumber } from "./PhoneNumber";
-import { User } from "./User";
+import { Job } from "./codigos/Job";
+import { PhoneNumber } from "./codigos/PhoneNumber";
+import { User } from "./codigos/User";
 
 //User -1---------*- Phones
 

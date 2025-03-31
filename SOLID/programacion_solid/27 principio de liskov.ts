@@ -1,6 +1,6 @@
-import { IRun } from "./interface-run";
-import { IWalk } from "./interface-walk";
-import { IHunt } from "./interface-hunt";
+import { IRun } from "./codigos/interface-run";
+import { IWalk } from "./codigos/interface-walk";
+import { IHunt } from "./codigos/interface-hunt";
 export class Animal {
     run(): void {}
     walk(): void {}

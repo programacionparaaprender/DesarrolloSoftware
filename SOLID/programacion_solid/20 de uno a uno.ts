@@ -1,5 +1,5 @@
-import { User } from "./User";
-import { IUserExtraInformation } from "./IUserExtraInformation";
+import { User } from "./codigos/User";
+import { IUserExtraInformation } from "./codigos/IUserExtraInformation";
 
 //User -1---------1- Address
 

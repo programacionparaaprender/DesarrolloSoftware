@@ -1,5 +1,5 @@
-import { PhoneNumber } from "./PhoneNumber";
-import { User } from "./User";
+import { PhoneNumber } from "./codigos/PhoneNumber";
+import { User } from "./codigos/User";
 
 //User -1---------*- Phones
 
