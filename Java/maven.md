@@ -11,6 +11,8 @@ https://es.stackoverflow.com/questions/265735/ensamblado-de-proyectos-mavenizado
 ### instalar librerias en maven
 mvn install:install-file -Dfile="C:\Users\...\librerias\libreria-1.0.0.1.jar" -DgroupId="com.programacionparaaprender.app" -DartifactId="libreria" -Dversion="1.0.0.1" -Dpackaging="jar"
 
+### repositorio de maven
+
 ### comandos
 ```
 mvn clean
