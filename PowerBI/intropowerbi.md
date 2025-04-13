@@ -5,6 +5,8 @@
 ## Sección 1: Curso introductorio Power BI
 
 ### 1. Recursos
+>- https://app.powerbi.com/home?experience=power-bi
+>- https://www.microsoft.com/es-es/power-platform/products/power-bi/downloads
 
 ### 2. Introducción e instalación del programa
 
