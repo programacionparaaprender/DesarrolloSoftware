@@ -26,6 +26,7 @@
   "homepage": "https://github.com/programacionparaaprender/NodeJS#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "nodejs": "file:",
     "nodemon": "^3.0.1"
   }
 }
