@@ -91,4 +91,15 @@
 
 ### Cuestionario 11
 
-### 12. 
+### 12. Bases de tecnología: Lighthouse / Rendimiento
+>- Core Web Lighthouse
+
+#### Tres
+##### LARGEST CONTENTFUL PAINT LCP
+>- Evalua el tiempo de carga del contenido
+##### CUMULATIVE LAYOUT SHIFT CLS
+>- Evalua la estabilidad visual de la página
+##### INTERACTION TO NEXT PAINT INP
+>- Mide la capacidad de respuesta de una página web
+##### FIRST INPUT DELAY FID
+>- Mide la interactividad de una página
