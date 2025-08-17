@@ -103,3 +103,32 @@
 >- Mide la capacidad de respuesta de una página web
 ##### FIRST INPUT DELAY FID
 >- Mide la interactividad de una página
+
+### 13. Bases de tecnología: Análisis de arquitectura de ejemplo
+
+#### SISTEMAS INTERNOS DE LA EMPRESA
+##### ORDENES
+##### PRECIOS
+##### INVENTARIOS
+##### PIM
+##### CATÁLOGO
+##### FIDELIZACIÓN
+##### CRM 
+
+#### CAPA DE INTEGRACIÓN
+##### ORQUESTACIÓN
+##### GESTIÓN DE PRECIOS
+##### GESTIÓN DE INVENTARIOS
+##### GESTIÓN DE CATÁLOGO
+##### GESTIÓN DE FIDELIDAD
+##### GESTIÓN DE CLIENTES
+
+#### PLATAFORMA DE ECOMMERCE
+##### GESTOR DE ORDENES
+##### PRECIOS
+##### INVENTARIOS
+##### CATÁLOGO
+##### PROMOCIONES
+##### CLIENTES
+
+### 14. Catalogación: Contenido centrado en la conversión
