@@ -27,3 +27,6 @@ mvn azure-functions:run
 mvn spotbugs:run
 mvn spotbugs:gui
 ```
+
+### GENERAR WAR E  INDICAR QUE PROPERTIES USAR 
+>- mvn -P PROPERTIES-DESEADO clean install
