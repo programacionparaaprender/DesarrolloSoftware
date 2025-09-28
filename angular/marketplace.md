@@ -48,4 +48,22 @@
 
 ## Sección 3: Estructura de la Base de Datos del Marketplace
 
-### 21. 
+### 21. Arquitectura de la Base de Datos 
+
+### 22. Las Categorías
+
+### 23. Las Sub-Categorías
+
+### 24. Los Productos
+
+### 25. Los Usuarios y Tiendas (o Vendedores)
+
+### 26. Las Órdenes de compra, disputas y ventas
+
+## Sección 3: Bases de Datos en Firebase
+
+### 27. ¿Qué es Firebase?
+>- https://console.firebase.google.com/u/0/project/marketplace-5c40e/database
+>- Realtime database que trabaja como una api rest
+
+### 28. 
