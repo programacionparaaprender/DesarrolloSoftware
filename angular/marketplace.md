@@ -67,3 +67,20 @@
 >- Realtime database que trabaja como una api rest
 
 ### 28. 
+
+### 29. 
+
+## Sección 5: APIRESTful en Firebase
+
+### 30. ¿Qué es una API REST?
+>- https://github.com/public-apis/public-apis
+>- https://alexwohlbruck.github.io/cat-facts/docs/
+
+#### api rest
+
+#### api rest full
+
+### 31. Formato JSON
+
+### 32. Postman
+
