@@ -49,7 +49,10 @@ persona = {
 
 # Acceso
 print(persona["nombre"])  # Luis
-
+print(persona.get("es_casado", "No existe es casado"))  # Luis
+print(persona.keys())
+print(persona.values())
+print(persona.items())
 # Modificación
 persona["edad"] = 31
 persona["profesion"] = "Ingeniero"
