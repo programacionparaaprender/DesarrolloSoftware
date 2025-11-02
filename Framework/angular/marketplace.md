@@ -84,3 +84,13 @@
 
 ### 32. Postman
 
+### 33.
+>- https://firebase.google.com/docs/reference/rest/database?authuser=0
+
+### 34.
+>- https://firebase.google.com/docs/reference/rest/database?authuser=0
+>- https://firebase.google.com/docs/reference/rest/auth?authuser=0
+
+
+### 235. Pasarela de pago de Paypal
+>- https://developer.paypal.com/docs/checkout/
