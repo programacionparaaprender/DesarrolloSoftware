@@ -68,3 +68,15 @@
 
 ### 14. Instalación de Java & Intellij IDEA Community
 
+### 15. Creación de un proyecto Java en IntelliJ y configuración de dependencias
+
+### 16. Nuestro primer productor
+
+### 17. Consumiendo nuestro primer mensaje
+
+### 18. Notificando nuestro primer mensaje
+
+### 19. Enrutado selectivo con el topic exchange
+
+### 20. Cómo obtener el código
+
