@@ -40,5 +40,25 @@
 
 ## Sección 4: website page designing course
 
-### 15. lecture 1
+### 15. lecture 01
+
+### 16. lecture 02
+
+### 17. Home Screen Part 1
+
+### 18. Profile Screen
+
+### 19. Last Lecture on mobile Application UI
+
+## Sección 5 Website page designing course
+
+### 20. lecture 1
+
+## Sección 6 Chatbot Mobile application
+
+### 21. Designing login and sign up screen of the chatbot application
+
+### 22. Designing home screen of the chatbot application
+
+### 23. Completely designed the chatbot application or chat screen
 
