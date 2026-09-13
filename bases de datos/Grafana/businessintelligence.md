@@ -8,6 +8,8 @@
 ### 1. Introduction
 
 ### 2. Installing Grafana
+>- https://grafana.com/grafana/download
+
 
 ### 3. Grafana User Interface Overview
 
@@ -49,5 +51,7 @@
 ## Sección 4. Grafana Management
 
 ### 19. Installing Plugins
+>- https://grafana.com/grafana/plugins/
+>- grafana-cli plugins install marcusolsson-json-datasource
 
 ### 20. Dashboard Versioning and JSON
