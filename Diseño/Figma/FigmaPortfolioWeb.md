@@ -15,6 +15,13 @@
 
 ### 4. Plugins útiles: unsplash, iconify y vectary
 
+#### plugins
+>- iconify
+>- brandfetch
+>- Unsplash
+>- vectary
+>- Lorem Ipsum
+
 ### 5. Básicos de Autolayout
 
 ### 6. Creación de componentes
