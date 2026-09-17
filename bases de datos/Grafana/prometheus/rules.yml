@@ -1,0 +1,5 @@
+groups:
+  - name: windows-exporter-compatibility
+    rules:
+      - record: node_cpu_seconds_total
+        expr: label_replace(windows_cpu_time_total, "cpu", "$1", "core", ".*,(.*)")
